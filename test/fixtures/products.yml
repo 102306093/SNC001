@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proid: MyString
+  proname: MyString
+  price: 1
+  qty: 1
+  pic1: MyString
+  introduce: MyText
+  supid: MyString
+
+two:
+  proid: MyString
+  proname: MyString
+  price: 1
+  qty: 1
+  pic1: MyString
+  introduce: MyText
+  supid: MyString
