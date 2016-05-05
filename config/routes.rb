@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :signup
   resources :signin
   resources :cart
-  resources :product
+  resources :products
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
