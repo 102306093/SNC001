@@ -1,1 +1,57 @@
-<h2>Home</h2>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+    </head>
+
+    <body>
+        <div class="productBig" style="margin-bottom:20px">
+            <div><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13254060_1023432927753615_4046654006984584088_n.jpg?oh=114db2a72e6a8714d1da834972829633&oe=57DADEAA" style="text-align:center; width:100%; height:auto;" /></div>
+            <div><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13240710_1023432934420281_6266017450555574097_n.jpg?oh=abcfbd18a4d9ec39ea40fbc57cc6403e&oe=57DA54C7" style="text-align:center; width:100%; height:auto;" /></div>
+            <div><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13254282_1023432964420278_8122367304915723197_n.jpg?oh=f402550b320a9c60338a941132096606&oe=57D2B44C" style="text-align:center; width:100%; height:auto;" /></div>
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.productBig').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                });
+            });
+        </script>
+        
+        
+        <!-- Columns are always 50% wide, on mobile and desktop -->
+        <div class="row">
+            <% @product.each do |product| %>
+                <div class="col-xs-3">
+                	<a href="<%= product_path(product) %>">
+                       <img src="<%= product.pic1%>" style="width:280px;  height:220px;">
+                       <p><%= product.proname%></p>
+                    </a>
+                </div>
+            <%end%>
+        </div>
+        
+        <div style="margin-top:50px;">
+          <blockquote>
+            <table>
+              <tr>
+                <td>
+                  <img class="img-circle" src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13055480_999504096772149_3196037555656339203_n.jpg?oh=f643ce6a184e5a90d780137043a5eb75&oe=57D53D17" style="height:100px; margin-right:15px;"></img>
+                </td>
+                <td>
+                  <p style="font-family: Microsoft JhengHei; font-weight: bold; font-style: italic;"> - 五個來自政大資管的學生，一份對農創產業的熱誠，想要透過科技的力量，為社會帶來不一樣的期盼，搭造一個農創特色商品與消費者之間的橋樑。</p>
+                  <p style="font-family: Microsoft JhengHei; font-weight: bold; font-style: italic;"> - 我們的使命是：「讓特色農創商品被市場看見」</p>
+                </td>
+              </tr>
+            </table>
+          </blockquote>
+        </div>
+    </body>
+</html>

@@ -1,19 +1,15 @@
-<h2>Product list</h2>
-
-<ul class="clearfix" id="article_box_area">
-	<% @product.each do |product| %>
-		<li class="main_article ">
-			<a href="<%= product_path(product) %>">
-				<div class="article_pic">
-					<img class="crop" src="<%= product.pic1%>" 
-				</div>
-				<div class="article_txt">
-					<p><%= product.proname%></p>
-				</div>
-				<div class="article_link_area">
-				<ul class="clearfix article_link"></ul><p></p>
-				</div>
-			</a>
-		</li>
-	<%end%>
-</ul>
+<% @product.each do |product| %>
+	<div style="display:table; margin-top:30px; width:1200p;">
+   		<a href="<%= product_path(product) %>">
+			<div class="article_pic" style="overflow:hidden; width:1100px;">
+				<img style=" width:1100px; height:400px; margin-top:-100px;" src="<%= product.pic1%>" >
+			</div>
+			<div class="article_txt">
+				<p><%= product.proname%></p>
+			</div>
+			<div class="article_link_area">
+			<ul class="clearfix article_link"></ul><p></p>
+			</div>
+		</a>
+	</div>
+<%end%>
