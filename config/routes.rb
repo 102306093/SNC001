@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +15,7 @@ Rails.application.routes.draw do
   resources :signin
   resources :cart
   resources :products
+  resources :order_items
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
