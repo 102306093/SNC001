@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :cart
   resources :products
   resources :order_items
+  resources :suppliers
+  resources :articles
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
