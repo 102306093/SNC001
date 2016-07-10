@@ -1,0 +1,15 @@
+<% @article.each do |article| %>
+	<div style="display:table; margin-top:30px; width:1200p;">
+   		<a href="<%= article_path(article) %>">
+			<div class="article_pic" style="overflow:hidden; width:1100px;">
+				<img style=" width:1100px; height:400px; margin-top:-100px;" src="<%= article.pic1%>" >
+			</div>
+			<div class="article_txt">
+				<p><%= article.title%></p>
+			</div>
+			<div class="article_link_area">
+			<ul class="clearfix article_link"></ul><p></p>
+			</div>
+		</a>
+	</div>
+<%end%>
