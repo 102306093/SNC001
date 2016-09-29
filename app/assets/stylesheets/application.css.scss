@@ -1,6 +1,42 @@
 footer{
 　height: 100px;
-　margin-top: -100px;
+　margin-top: 5000px;
+　position:absolute;
+}
+#thing {
+    width: 10%; /*328 co je 1/3 - 20margin left*/
+    height: 5%;
+    position:absolute;
+    top:200px;
+    left:200px;
+
+
+}
+#thing2 {
+     width: 10%; /*328 co je 1/3 - 20margin left*/
+    height: 5%;
+    position:absolute;
+    bottom:400px;
+    right:300px;
+
+  
+}
+.TW{
+     width: 300px; 
+    height: 450px;
+  
+}
+    
+#map{    
+    width: 500px; 
+    height: 501px;
+    line-height: 100px;
+ 
+    margin-top: 0px;
+    margin-left: 400px;
+    margin-right:0px;
+    display:inline-block;
+    position:relative;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -17,3 +53,5 @@ footer{
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
