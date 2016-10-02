@@ -11,17 +11,9 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "瞧好物", products_path %></li>
-        <li><%= link_to "瞧好農", suppliers_path %></li>
-        <li><%= link_to "橋友手冊", articles_path %></li>
-        <li><%= link_to "小農橋的那些事X", products_path %></li>
-         <li><%= link_to "故事地圖", products_productmap_path %></li>
-        <li><%= link_to "結帳囉", new_cart_path %></li>
-        <% if user_signed_in? %>
-        <li><%= link_to "登出", destroy_user_session_path,method:'delete' %></li>
-        <% else %>
-        <li><%= link_to "橋友由此進", new_user_session_path %></li>
-        <% end %>
+        <li><%= link_to "signin", new_signin_path %></li>
+        <li><%= link_to "cart", new_cart_path %></li>
+        <li><%= link_to "product", products_path %></li>
       </ul>
     </div>
   </div>
