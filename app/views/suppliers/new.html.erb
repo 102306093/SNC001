@@ -1,4 +1,4 @@
-<h2>New supplier</h2>
+<h2>New supplier's story</h2>
 
 <%= form_for @supplier do |f|%>
 
@@ -30,6 +30,14 @@
   	<tr>
     	<td>Introduce</td>
 		<td><%= f.text_field :introduce%></td>
+  	</tr>
+  	<tr>
+  		<td>Content</td>
+  		<td><%= f.text_field :content%></td>
+  	</tr>
+  	<tr>
+  		<td>Background-image</td>
+  		<td><%= f.text_field :bgimg%></td>
   	</tr>
 </table> 
 
