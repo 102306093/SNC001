@@ -1,15 +1,46 @@
-<% @product.each do |product| %>
-	<div style="display:table; margin-top:30px; width:1200p;">
-   		<a href="<%= product_path(product) %>">
-			<div class="article_pic" style="overflow:hidden; width:1100px;">
-				<img style=" width:1100px; height:400px; margin-top:-100px;" src="<%= product.pic1%>" >
-			</div>
-			<div class="article_txt">
-				<p><%= product.proname%></p>
-			</div>
-			<div class="article_link_area">
-			<ul class="clearfix article_link"></ul><p></p>
-			</div>
-		</a>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	    $("a.scroll-to-product1").click(function(){
+			$('html, body').animate({
+				scrollTop: $('#product1').offset().top
+			}, 800 );
+	    });
+	    
+	    $("a.scroll-to-product2").click(function(){
+			$('html, body').animate({
+				scrollTop: $('#product2').offset().top
+			}, 800 );
+	    });
+	    
+	    $("a.scroll-to-product3").click(function(){
+			$('html, body').animate({
+				scrollTop: $('#product3').offset().top
+			}, 800 );
+	    });
+	});
+	</script>
+</head>
+<body>
+	<div style="position:fixed; right:5%; top:40%">
+		<a class="scroll-to-product1" href="#product1" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px;"></a>
+		<a class="scroll-to-product2" href="#product2" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px;"></a>
+		<a class="scroll-to-product3" href="#product3" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px;"></a>
 	</div>
-<%end%>
+	<div>
+		<div style="width:100%; height:700px; border:2px solid green;">
+			<h1><div id="product1">Product1</a></h1>
+		</div>
+		<div style="width:100%; height:700px; border:2px solid green;">
+			<h1><div id="product2">Product2</a></h1>
+		</div>
+		<div style="width:100%; height:700px; border:2px solid green;">
+			<h1><div id="product3">Product3</a></h1>
+		</div>
+	</div>
+
+</body>
+
+</html>

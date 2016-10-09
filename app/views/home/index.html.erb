@@ -6,6 +6,16 @@
     </head>
 
     <body>
+        
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>        
+        
         <div class="productBig" style="margin-bottom:20px">
             <div><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13254060_1023432927753615_4046654006984584088_n.jpg?oh=114db2a72e6a8714d1da834972829633&oe=57DADEAA" style="text-align:center; width:100%; height:auto;" /></div>
             <div><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13240710_1023432934420281_6266017450555574097_n.jpg?oh=abcfbd18a4d9ec39ea40fbc57cc6403e&oe=57DA54C7" style="text-align:center; width:100%; height:auto;" /></div>
@@ -28,28 +38,7 @@
         
         <!-- Columns are always 50% wide, on mobile and desktop -->
         
-        <!-- Facebook Badge START -->
-            <div>
-                <a href="https://www.facebook.com/farmbridger" title="&#x5c0f;&#x8fb2;&#x6a4b;" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" target="_TOP">小農橋</a>
-                <br />
-                <a href="https://www.facebook.com/farmbridger" title="&#x5c0f;&#x8fb2;&#x6a4b;" target="_TOP">
-                    <img class="img" src="https://badge.facebook.com/badge/1194294647287074.2367.612730986.png" style="border: 0px;" alt="" />
-                </a>
-                <br />
-                <a href="https://zh-tw.facebook.com/advertising" title="&#x5efa;&#x7acb;&#x4f60;&#x7684;&#x540d;&#x7247;&#x8cbc;&#xff01;" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" target="_TOP">一併推廣你的粉絲專頁</a>
-            </div>
-        <!-- Facebook Badge END -->
-        
-        <div class="row">
-            <% @product.each do |product| %>
-                <div class="col-xs-3">
-                	<a href="<%= product_path(product) %>">
-                       <img src="<%= product.pic1%>" style="width:280px;  height:220px;">
-                       <p><%= product.proname%></p>
-                    </a>
-                </div>
-            <%end%>
-        </div>
+        <div class="fb-page" data-href="https://www.facebook.com/farmbridger/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/farmbridger/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/farmbridger/">小農橋</a></blockquote></div>
         
         <div style="margin-top:50px;">
           <blockquote>
