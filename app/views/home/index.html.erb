@@ -3,9 +3,15 @@
     <head>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+        
+        <script>
+　 　　　 function resize(){
+　 　　　　 parent.document.getElementById("mainframe").height=document.body.scrollHeight/2; 　　　
+　　　　  }
+　　    </script>
     </head>
 
-    <body>
+    <body onload="resize();">
         
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
@@ -16,11 +22,7 @@
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>        
         
-        <div class="productBig" style="margin-bottom:20px">
-            <div><img src="/img/1.jpg" style="text-align:center; width:100%; height:auto;" /></div>
-            <div><img src="/img/2.jpg" style="text-align:center; width:100%; height:auto;" /></div>
-            <div><img src="/img/3.jpg" style="text-align:center; width:100%; height:auto;" /></div>
-        </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
@@ -35,29 +37,44 @@
             });
         </script>
         
-        
-        <!-- Columns are always 50% wide, on mobile and desktop -->
-        
-        <div class="fb-page" data-href="https://www.facebook.com/farmbridger/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/farmbridger/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/farmbridger/">小農橋</a></blockquote></div>
-        
-        <div style="margin-top:50px;">
-          <blockquote>
-            <table>
-              <tr>
-                <td>
-                  <img class="img-circle" src="/img/logo2.jpg" style="height:100px; margin-right:15px;"></img>
-                </td>
-                <td>
-                  <p style="font-family: Microsoft JhengHei; font-weight: bold; font-style: italic;"> - 五個來自政大資管的學生，一份對農創產業的熱誠，想要透過科技的力量，為社會帶來不一樣的期盼，搭造一個農創特色商品與消費者之間的橋樑。</p>
-                  <p style="font-family: Microsoft JhengHei; font-weight: bold; font-style: italic;"> - 我們的使命是：「讓特色農創商品被市場看見」</p>
-                </td>
-              </tr>
-            </table>
-            
-        
-          </blockquote>
-         
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="productBig" style="margin-bottom:20px">
+                  <div><img src="/img/1.jpg" style="text-align:center; width:100%; height:auto;" /></div>
+                  <div><img src="/img/2.jpg" style="text-align:center; width:100%; height:auto;" /></div>
+                  <div><img src="/img/3.jpg" style="text-align:center; width:100%; height:auto;" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <iframe src="https://www.youtube.com/embed/bLyedozHAtA" name="mainframe" width="98%" marginwidth="0" marginheight="0" scrolling="No" frameborder="0" id="mainframe" margin-left="20" ></iframe>
+            </div>
+            <div class="col-sm-4">
+              <!-- Columns are always 50% wide, on mobile and desktop -->
+              <div class="fb-page" data-href="https://www.facebook.com/farmbridger/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/farmbridger/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/farmbridger/">小農橋</a></blockquote></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div style="margin-top:50px;">
+                <blockquote>
+                  <table>
+                    <tr>
+                      <td>
+                        <img class="img-circle" src="/img/logo2.jpg" style="height:100px; margin-right:15px;"></img>
+                      </td>
+                      <td>
+                        <p style="font-family: Microsoft JhengHei; font-weight: bold; font-style: italic;"> - 五個來自政大資管的學生，一份對農創產業的熱誠，想要透過科技的力量，為社會帶來不一樣的期盼，搭造一個農創特色商品與消費者之間的橋樑。</p>
+                        <p style="font-family: Microsoft JhengHei; font-weight: bold; font-style: italic;"> - 我們的使命是：「讓特色農創商品被市場看見」</p>
+                      </td>
+                    </tr>
+                  </table>
+                </blockquote>
+              </div>
+            </div>
+          </div>
         </div>
-         
     </body>
 </html>
