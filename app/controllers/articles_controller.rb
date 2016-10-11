@@ -13,7 +13,8 @@ class ArticlesController < ApplicationController
     end
     
     def index
-        @article=Article.all
+        @external_article=Article.where(owner: 'otherone') 
+        @internal_article=Article.where(owner: 'we') 
     end
     
     def show
@@ -41,6 +42,6 @@ class ArticlesController < ApplicationController
     
     private
 	def article_params
-		params.require(:article).permit(:title,:introduce,:content,:pic1)
+		params.require(:article).permit(:title,:introduce,:content,:pic1,:owner,:hashtag)
 	end
 end
