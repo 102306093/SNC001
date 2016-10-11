@@ -57,15 +57,25 @@ div .internal-article{
     border-width: 5px;
      position:absolute;
      left: 680px;
-     top: 590px;
+     top: 410px;
   
      
     
 }
 div .Top-special{
-    height: 500px;
-    width: 1125px ;
-     background: blue;
+    height: 320px;
+    width: 1140px ;
+  border-style: dotted;
+    border-width: 5px;
+   
+}
+div .Top-special-text{
+    background: white;
+    position: absolute;
+    top: 320px;
+    left: 1000px;
+    font-size: 20px;
+    
    
 }
 
