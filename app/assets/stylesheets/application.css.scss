@@ -1,6 +1,6 @@
 footer{
 　height: 100px;
-　margin-top: 5000px;
+　top: 6000px;
 　position:absolute;
 }
 #thing {
@@ -41,6 +41,47 @@ footer{
 img .teamimage{
     width: 300% ;
     height: 300%;
+}
+div .external-article{
+    height: 600px;
+    width: 550px ;
+    border-style: solid;
+    border-width: 5px;
+    position:relative;
+    
+}
+div .internal-article{
+    height: 600px;
+    width: 550px ;
+   border-style: solid;
+    border-width: 5px;
+     position:absolute;
+     left: 680px;
+     top: 410px;
+  
+     
+    
+}
+div .Top-special{
+    height: 320px;
+    width: 1140px ;
+  border-style: dotted;
+    border-width: 5px;
+   
+}
+div .Top-special-text{
+    background: white;
+    position: absolute;
+    top: 320px;
+    left: 1000px;
+    font-size: 20px;
+    
+   
+}
+
+td{
+    border-style: solid;
+    border-width: 1px;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

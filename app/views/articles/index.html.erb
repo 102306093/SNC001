@@ -1,15 +1,81 @@
-<% @article.each do |article| %>
-	<div style="display:table; margin-top:30px; width:1200p;">
-   		<a href="<%= article_path(article) %>">
-			<div class="article_pic" style="overflow:hidden; width:1100px;">
-				<img style=" width:1100px; height:400px; margin-top:-100px;" src="<%= article.pic1%>" >
-			</div>
-			<div class="article_txt">
-				<p><%= article.title%></p>
-			</div>
-			<div class="article_link_area">
-			<ul class="clearfix article_link"></ul><p></p>
-			</div>
-		</a>
+
+
+
+<div class="Top-special">
+<a href="https://taiwannicerice.wordpress.com/"><img width="1125px" src='https://taiwannicerice.files.wordpress.com/2012/08/cropped-6818228676_d987c8b59c_o02.jpg'></a>
+</div>
+
+<a href="https://taiwannicerice.wordpress.com/"><<div class='Top-special-text'>
+	點擊我吧
+	</div></a>
+<BR>
+<div class="external-article">
+	
+	<table width="550px">
+		<tr>
+			<td width="550px" colspan="3">
+			外部文章
+            </td>
+			</tr>
+			<tr>
+			<td width="150px">
+			時間
+            </td>
+            <td width="340px">
+			標題
+            </td>
+            <td width="60px">
+			類別
+            </td>
+				</tr>
+				<% @external_article.each do |article| %>
+				<tr>
+			<td width="150px">
+		<%= article.created_at.strftime('%Y / %m / %d')%>
+            </td>
+            <td width="340px">
+		<a href="http://www.clinique.com.tw/"><%= article.title%></a>
+            </td>
+            <td width="60px">
+		<%= article.hashtag%>
+            </td>
+				</tr>
+				
+				<%end%>
+		</table>
+	
 	</div>
-<%end%>
+<div class="internal-article">
+	<table width="550px">
+		<tr>
+			<td width="550px" colspan="3">
+			我們的故事
+            </td>
+			</tr>
+			<tr>
+			<td width="150px">
+			時間
+            </td>
+            <td width="340px">
+			標題
+            </td>
+            <td width="60px">
+			類別
+            </td>
+				</tr>
+				<% @internal_article.each do |article| %>
+				<tr>
+			<td width="150px">
+		<%= article.created_at.strftime('%Y / %m / %d')%>
+            </td>
+            <td width="340px">
+		<a href="<%= article_path(article) %>"><%= article.title%>
+            </td>
+            <td width="60px">
+		<%= article.hashtag%>
+            </td>
+				</tr>
+				
+				<%end%>
+		</table>
+	</div>
