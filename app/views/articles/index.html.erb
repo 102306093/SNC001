@@ -13,31 +13,23 @@
 	
 	<table width="550px">
 		<tr>
-			<td width="550px" colspan="3">
-			外部文章
+			<td class="table-label" width="550px" colspan="3">
+			別人的故事
             </td>
 			</tr>
-			<tr>
-			<td width="150px">
-			時間
-            </td>
-            <td width="340px">
-			標題
-            </td>
-            <td width="60px">
-			類別
-            </td>
-				</tr>
+		
 				<% @external_article.each do |article| %>
-				<tr>
-			<td width="150px">
-		<%= article.created_at.strftime('%Y / %m / %d')%>
+				<tr >
+			<td  width="120px">
+		<i class="material-icons">adjust</i><%= article.created_at.strftime('  %m月%d日')%>
             </td>
-            <td width="340px">
+            <td  width="370px">
 		<a href="http://www.clinique.com.tw/"><%= article.title%></a>
             </td>
-            <td width="60px">
+            <td  width="60px">
+            		<button button type="button" class="btn btn-success" >
 		<%= article.hashtag%>
+		</button>
             </td>
 				</tr>
 				
@@ -48,31 +40,22 @@
 <div class="internal-article">
 	<table width="550px">
 		<tr>
-			<td width="550px" colspan="3">
+			<td class="table-label" width="550px" colspan="3">
 			我們的故事
             </td>
 			</tr>
-			<tr>
-			<td width="150px">
-			時間
-            </td>
-            <td width="340px">
-			標題
-            </td>
-            <td width="60px">
-			類別
-            </td>
-				</tr>
 				<% @internal_article.each do |article| %>
 				<tr>
-			<td width="150px">
-		<%= article.created_at.strftime('%Y / %m / %d')%>
+			<td width="120px">
+		<i class="material-icons">adjust</i><%= article.created_at.strftime('%m月%d日')%>
             </td>
-            <td width="340px">
+            <td width="370px">
 		<a href="<%= article_path(article) %>"><%= article.title%>
             </td>
             <td width="60px">
+            	<button button type="button" class="btn btn-success">
 		<%= article.hashtag%>
+		</button>
             </td>
 				</tr>
 				
