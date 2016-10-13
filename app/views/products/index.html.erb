@@ -1,15 +1,57 @@
-<% @product.each do |product| %>
-	<div style="display:table; margin-top:30px; width:1200p;">
-   		<a href="<%= product_path(product) %>">
-			<div class="article_pic" style="overflow:hidden; width:1100px;">
-				<img style=" width:1100px; height:400px; margin-top:-100px;" src="<%= product.pic1%>" >
-			</div>
-			<div class="article_txt">
-				<p><%= product.proname%></p>
-			</div>
-			<div class="article_link_area">
-			<ul class="clearfix article_link"></ul><p></p>
-			</div>
-		</a>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	    $("div.scroll-to-product0").click(function(){
+			$('html, body').animate({
+				scrollTop: $('#product0').offset().top
+			}, 800 );
+	    });
+		$("div.scroll-to-product1").click(function(){
+			$('html, body').animate({
+				scrollTop: $('#product1').offset().top
+			}, 800 );
+	    });
+	    $("div.scroll-to-product2").click(function(){
+			$('html, body').animate({
+				scrollTop: $('#product2').offset().top
+			}, 800 );
+	    });
+	    $("div.scroll-to-product3").click(function(){
+			$('html, body').animate({
+				scrollTop: $('#product3').offset().top
+			}, 800 );
+	    });
+	    $("div.scroll-to-product4").click(function(){
+			$('html, body').animate({
+				scrollTop: $('#product4').offset().top
+			}, 800 );
+	    });
+	});
+	</script>
+</head>
+<body>
+	<div style="position:fixed; right:5%; top:30%">
+		<div class="scroll-to-product0" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px; cursor: pointer"></div>
+		<div class="scroll-to-product1" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px; cursor: pointer"></div>
+		<div class="scroll-to-product2" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px; cursor: pointer"></div>
+		<div class="scroll-to-product3" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px; cursor: pointer"></div>
+		<div class="scroll-to-product4" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; cursor: pointer"></div>
 	</div>
-<%end%>
+	<div>
+		<% @product.each_with_index do |product, i| %>
+			<div id="product<%= i %>" style="display:table; margin-top:30px; 100%; border:2px solid; width:1100px; height:700px;">
+		   		<a href="<%= product_path(product) %>">
+					<div class="article_pic" style="overflow:hidden;">
+						<img style=" width:100%; margin-top:-100px;" src="<%= product.pic1%>" >
+					</div>
+				</a>
+			</div>
+		<%end%>		
+	</div>
+	
+
+</body>
+
+</html>
