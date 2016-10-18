@@ -105,7 +105,14 @@ tr {
     border-radius: 25px;
 }
 
-
+.member{
+    height:150px;
+    padding-top:10px;
+    cursor:pointer;
+    &:hover{
+        background-color:#DEFFDE;
+    }
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
