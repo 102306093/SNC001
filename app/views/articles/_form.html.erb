@@ -1,0 +1,11 @@
+<div style="margin:70px"></div>
+
+<%= simple_form_for @article do |f|%>
+	<%= f.input :title, label:'標題' %>
+	<%= f.input :introduce, label:'介紹' %>
+	<%= f.input :pic1, label:'圖片位址' %>
+	<%= f.input :owner, collection: ['we','otherone'] %>
+	<%= f.input :hashtag, label:'Hashtag' %>
+	
+	<%= f.submit%>
+<%end%>
