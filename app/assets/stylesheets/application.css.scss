@@ -18,13 +18,14 @@ footer{
     position:absolute;
     bottom:400px;
     right:300px;
-
+    z-index: 2;
   
 }
 .TW{
      width: 300px; 
     height: 450px;
-  
+     position:absolute;
+  z-index: 0;
 }
     
 #map{    
@@ -33,7 +34,7 @@ footer{
     line-height: 100px;
  
     margin-top: 0px;
-    margin-left: 400px;
+    margin-left: 300px;
     margin-right:0px;
     display:inline-block;
     position:relative;

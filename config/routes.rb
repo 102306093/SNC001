@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'order_items/create'
   get 'order_items/update'
   get 'order_items/destroy'
+  get 'products/buyprod1'
+  get 'products/save'
   get 'products/productmap'
   get 'home/aboutus'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   resources :order_items
   resources :suppliers
   resources :articles
-  
+  resources :customers
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

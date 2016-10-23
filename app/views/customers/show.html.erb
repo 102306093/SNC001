@@ -1,0 +1,14 @@
+<h1>顧客人生</h1>
+	<BR>
+	    <BR>
+	        <BR>
+	<% @customer.each do |customer| %>
+	<BR>
+	<%= customer.cusname%>
+	<%= customer.address%>
+	<%= customer.productname%>
+	P1:<%= customer.productnumber%><BR>
+	P2:<%= customer.productnumber1%><BR>
+	P3:<%= customer.productnumber2%><BR>
+	P4:<%= customer.productnumber3%>
+		<%end%>
