@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
+	 include RailsTemporaryData::ControllerHelpers
+	 
     def new
         @product = Product.new
     end
-    
     def create
 		@product = Product.new(product_params)
 		if @product.save
@@ -12,9 +13,13 @@ class ProductsController < ApplicationController
 		end
     end
     
+    def buyprod1
+      @customer = Customer.new
+    end
+    
     def index
         @product=Product.all
-        #@order_item = current_order.order_items.new
+ 
     end
     
     def show
@@ -44,4 +49,6 @@ class ProductsController < ApplicationController
 	def product_params
 		params.require(:product).permit(:proname,:price,:qty,:pic1,:introduce,:supid)
 	end
+	
+	
 end

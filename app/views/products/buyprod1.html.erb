@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+        
+        <script>
+        $(document).ready(function(){
+            $("input.cusname").val(window.sessionStorage["cusname"]);
+            $("input.email").val(window.sessionStorage["email"]);
+            $("input.cellphone").val(window.sessionStorage["cellphone"]);
+            $("input.address").val(window.sessionStorage["address"]);
+            $("input.quantity").val(window.sessionStorage["quantity"]);
+            $("input.quantity1").val(window.sessionStorage["quantity1"]);
+            $("input.quantity2").val(window.sessionStorage["quantity2"]);
+            $("input.quantity3").val(window.sessionStorage["quantity3"]);
+        });
+        function savedata(){
+        window.sessionStorage["cusname"]=$("input.cusname").val();
+        window.sessionStorage["email"]=$("input.email").val();
+        window.sessionStorage["cellphone"]=$("input.cellphone").val();
+        window.sessionStorage["address"]=$("input.address").val();
+        window.sessionStorage["quantity"]=$("input.quantity").val();
+        window.sessionStorage["quantity1"]=$("input.quantity1").val();
+        window.sessionStorage["quantity2"]=$("input.quantity2").val();
+        window.sessionStorage["quantity3"]=$("input.quantity3").val();
+        alert("已成功儲存資料囉！\n請注意，如果關閉瀏覽器資料便會自動清除唷！")
+        
+        }
+    
+        
+　 　　	function count(){
+　 　　		var quantity=$("input.quantity").val();
+　 　　		var quantity1=$("input.quantity1").val();
+　 　　		var quantity2=$("input.quantity2").val();
+　 　　		var quantity3=$("input.quantity3").val();
+　 　　		if(quantity<0){
+　 　　		 quantity=0;	
+　 　　		 $("input.quantity").val(0);
+　 　　		}
+　 　　			if(quantity1<0){
+　 　　				quantity1=0;	
+　 　　	　		 $("input.quantity1").val(0);
+　 　　		}
+　 　　			if(quantity2<0){
+　 　　				quantity2=0;	
+　 　　　		 $("input.quantity2").val(0);
+　 　　		}
+　 　　			if(quantity3<0){
+　 　　				quantity3=0;	
+　 　　	　		 $("input.quantity3").val(0);
+　 　　		}
+　 　　		var price=40*quantity;
+　 　　		var price1=50*quantity1;
+　 　　		var price2=60*quantity2;
+　 　　		var price3=80*quantity3;
+　 　　		var totalprice=price+price1+price2+price3
+　 　　		$("span.price").text(totalprice);
+　 　　	}
+　　    </script>
+    </head>
+
+<body>
+
+<h2>New product</h2>
+
+<%= form_for @customer do |f|%>
+
+<table style="width:70%">
+	<tr>
+		<td>顧客資料</td>	
+	</tr>		
+	<tr>
+		<td>姓名</td>
+		<td><%= f.text_field :cusname,class: "cusname", placeholder: "請填入姓名"%></td>
+		<td>電子信箱</td>
+		<td><%= f.email_field :email,class: "email", placeholder: "example@mail.com"%></td>
+  	</tr>
+  	<tr>
+    	<td>連絡電話</td>
+		<td><%= f.text_field :cellphone,class: "cellphone", placeholder: "09xxxxxxxx"%></td>
+　　	<td>送貨地址</td>
+		<td><%= f.text_field :address,class: "address", placeholder: "宅配地址或是門市編號（全家0000）",size:"32"%> 
+		<a href="http://www.family.com.tw/Marketing/inquiry.aspx">全家<a/>
+		<a href="http://www.hilife.com.tw/storeInquiry_street.aspx">萊爾富<a/>
+		<a href="http://www.okmart.com.tw/convenient_shopSearch">OK<a/>
+		</td>
+  	</tr>
+ </table> 
+ <table>
+ 	<tr>
+ 		<td>故事資料</td>	
+    </tr>
+  	<tr>
+    	<td><a href="1">冰心地瓜</a></td>
+    	<td><a href="2">台灣玉米好棒棒</a></td>
+    	<td>樂樂雞蛋捲</td>
+    	<td>阿公香水檸檬</td>
+  	</tr>
+  	<tr>
+		<td><%= f.number_field :productnumber,class: "quantity",:onchange =>"count()" ,:onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()" %></td>
+    	<td><%= f.number_field :productnumber1,class: "quantity1",:onchange =>"count()" ,:onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()" %></td>
+       	<td><%= f.number_field :productnumber2,class: "quantity2",:onchange =>"count()" ,:onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()" %></td>
+  	    <td><%= f.number_field :productnumber3,class: "quantity3",:onchange =>"count()" ,:onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()" %></td>
+  	</tr>
+  		<tr>
+    	<td>總價格</td>
+		<td><span class="price">多少錢呢</span></td>
+  	</tr>
+  	<tr>
+  		<td><input type="button" value="儲存唷" onclick="savedata()"></td>
+  		</tr>
+</table> 
+
+<%= f.submit  "投資夢想", class: "btn btn-primary"%>
+
+<%end%>
+</body>
+</html>

@@ -9,7 +9,11 @@
 	       <td style="padding-left:10px;">NTD <%= @product.price%></td>
 	    </tr>
 	    <tr>  
-	       <td style="padding-left:10px;"><%= @product.introduce%></td>
+	       <td style="padding-left:10px;">
+	       		<%= @product.introduce%>
+	       		<br>
+	       		<a class="buy" href="buyprod1"><input type="button" value="點我"></input></a>
+	       </td>
 	    </tr>
 	  </table>
   </div>

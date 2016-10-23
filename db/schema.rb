@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011091138) do
+ActiveRecord::Schema.define(version: 20161023025554) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -30,8 +30,13 @@ ActiveRecord::Schema.define(version: 20161011091138) do
     t.string   "email"
     t.string   "cellphone"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "productname"
+    t.integer  "productnumber"
+    t.integer  "productnumber1"
+    t.integer  "productnumber2"
+    t.integer  "productnumber3"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -95,6 +100,13 @@ ActiveRecord::Schema.define(version: 20161011091138) do
     t.datetime "updated_at", null: false
     t.text     "content"
     t.string   "bgimg"
+  end
+
+  create_table "temporary_data", force: :cascade do |t|
+    t.text     "data"
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
