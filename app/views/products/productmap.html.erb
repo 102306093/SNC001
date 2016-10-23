@@ -1,14 +1,67 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
-    </head>
- <body class='map-backgroud'>
-<div id="map"><img class="TW" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlLlsykaxExGBcTHYJMPjt08y9HsEF8YOaeI3DIIVihu7QLuddAA" />
-           <input id="thing" class="btn btn-success" type="button" value="香蕉" onclick="window.location='/products/2'"></input>
-           <input id="thing2" class="btn btn-success" type="button" value="蘋果" onclick="window.location='/products/1'"></input>
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <div id="map" style="text-align:center; border:1px solid; width:100%">
+        <img id="Image-Maps-Com-image-maps-2016-10-19-051138" src="/img/TaiwanMap.jpg" border="0" width="428" height="564" orgWidth="428" orgHeight="564" usemap="#image-maps-2016-10-19-051138" alt="" />
+        <map name="image-maps-2016-10-19-051138" id="ImageMapsCom-image-maps-2016-10-19-051138">
+            <area shape="rect" coords="426,562,428,564" alt="Image Map" style="outline:none;" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0" />
+            <area id="thing1" href="#" shape="poly" coords="227,70,234,70,243,81,251,79,258,95,269,92,293,125,304,122,306,114,298,101,298,96,298,90,287,87,281,73,285,67,291,61,295,56,276,43,251,49" style="outline:none;" target="_self"     />
+            <area id="thing2" href="#" shape="poly" coords="88,396,118,394,128,395,134,391,132,387,156,369,166,352,166,347,160,347,152,344,149,339,145,336,153,329,146,322,140,318,128,317,117,321,110,323,106,328,101,333,92,330,88,328,80,326,80,324,73,338,72,356,68,364,61,370,76,378,84,390,85,386" style="outline:none;" target="_self"     />        
+        </map>
+
+    </div>
+    
+    <div style="display:none; font-family:Microsoft JHengHei;  ">
+         <div id="1">
+             <a href="/products/2">卡維蘭果醬</a>
          </div>
-                
-    </body>
+         <div id="2">
+             <a href="/products/1">阿公的香水檸檬</a>
+         </div>
+     </div>
+     
+    <script>
+        $("#thing1").hover(function(){
+            $("#1").dialog({
+                title: "桃園地區商品",
+                draggable: false,
+                resizable: false,
+                position: { my: "left", at: "left top+20%", of: "#map" },
+                show: { effect: "blind", duration: 500 },
+                hide: { effect: "blind", duration: 500 },
+            });
+            var x = $("#2").dialog('isOpen');
+            if(x){
+                $("#2").dialog('close');
+            }            
+        });
+        $("#thing2").hover(function(){
+            $("#2").dialog({
+                title: "高雄地區商品",
+                draggable: false,
+                resizable: false,
+                position: { my: "left", at: "left bottom-30%", of: "#map" },
+                show: { effect: "blind", duration: 500 },
+                hide: { effect: "blind", duration: 500 },
+            });
+            var x = $("#1").dialog('isOpen');
+            if(x){
+                $("#1").dialog('close');
+            }            
+        });
+        
+        
+/*        $("#thing2").hover(function(){
+            $("#2").dialog();
+            var x = $("#1").dialog('isOpen');
+            if(x){
+                $("#1").dialog('close');
+            }            
+        });*/
+    </script>            
+</body>
 </html>

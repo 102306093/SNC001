@@ -3,89 +3,29 @@ footer{
 　top: 6000px;
 　position:absolute;
 }
-#thing {
-    width: 10%; /*328 co je 1/3 - 20margin left*/
-    height: 5%;
-    position:absolute;
-    top:200px;
-    left:200px;
-
-
-}
-#thing2 {
-     width: 10%; /*328 co je 1/3 - 20margin left*/
-    height: 5%;
-    position:absolute;
-    bottom:400px;
-    right:300px;
-
-  
-}
-.TW{
-     width: 300px; 
-    height: 450px;
-  
-}
-    
-#map{    
-    width: 500px; 
-    height: 501px;
-    line-height: 100px;
- 
-    margin-top: 0px;
-    margin-left: 400px;
-    margin-right:0px;
-    display:inline-block;
-    position:relative;
- 
-}
 img .teamimage{
     width: 300% ;
     height: 300%;
 }
-div .external-article{
-    height: 600px;
-    width: 550px ;
-  text-align: center;
-    position:relative;
-    
-}
-div .internal-article{
-    height: 600px;
-    width: 550px ;
-      text-align: center;
-     position:absolute;
-     left: 726px;
-     top: 335px;
-  
-     
-    
-}
-div .Top-special{
-    height: 314px;
-    width: 1135px ;
-  
-   
-}
-div .Top-special-text{
-    width: 100px;
-     text-align: center;
-    color: white;
-    background: rgb(255, 173, 51);
-    position: absolute;
-    top: 250px;
-    left: 1000px;
-    font-size: 18px;
-    border-radius: 25px;
-    border-style: double;
-    border-color: rgb(255, 173, 51);
-    
-   
+
+img.article_pic, img.product_pic{
+    -webkit-transition: opacity .1s linear;
+    &:hover{
+        opacity:0.8;
+    }
 }
 
+.material-icons{
+    font-size:100%;
+}
 
+.btn.hashtag{
+    padding:0 1px;
+    margin:0 2px;
+}
 
 tr .table-label{
+   width:100%;
    border-style: solid;
    border-width: 3px;
    border-color: white;
@@ -151,6 +91,13 @@ tr {
 
 .product-anchor.block-active{
     opacity:1;
+}
+
+.home-product-bulletin-title{
+    color:#008000; 
+    text-shadow: 0.5px 0.5px; 
+    font-size:20px; 
+    margin-right:5px
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
