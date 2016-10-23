@@ -45,16 +45,27 @@
             </div>
           </div>
           <div style="font-family:Microsoft JhengHei">
-            <h1>近期文章列表</h1>
+            <h1 style="color:#008000"><b>近期文章列表</b></h1>
             <hr style="height: 5px; border: 0;	box-shadow: 0 8px 8px -10px #008500 inset;">
             <div class="row">
               <div class="col-md-12">
                 <table class="table table-striped table-hover">
-                  <tr><td>只收雨水不收垃圾的「生態垃圾桶」，淨化全美最髒運河</td></tr>
-                  <tr><td>「每一個廚房都是潛藏的資源」：Million Kitchen善用印度媽媽好廚藝，還給女性財務自主</td></tr>
-                  <tr><td>鯊魚出沒？這隻「Waste Shark」在鹿特丹港口巡遊，一天蒐集500公斤的海洋垃圾！</td></tr>
-                  <tr><td>對抗乾旱氣候：肯亞組織建造「巨石集水系統」，讓居民不再擔心沒水喝！</td></tr>
-                  <tr><td>無塑時代終於來臨？法國創先例，2020年起全面禁用塑膠餐具</td></tr>
+                  <% @article.each do |article| %>
+                    <tr>
+                      <td>
+                  			<a href="<%= article_path(article) %>" style="color:black">
+                  				<%= article.title %>
+                  			</a>
+                			</td>
+                			<td style="float:right; font-size:15px">
+                				<button class="btn btn-info hashtag" style="height:20px">
+                					<%= article.hashtag%>	
+                				</button>
+                				|
+                				<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
+                      </td>
+                    </tr>
+                  <% end %>
                 </table>
                 <button class="btn btn-success" style="float:right;" onclick="location.href='/articles'">看看更多文章</button>
               </div>
@@ -63,15 +74,21 @@
           </div>
           
           <div style="font-family:Microsoft JhengHei; margin-bottom:50px">
-              <h1>近期商品故事</h1>
+              <h1 style="color:#008000"><b>近期商品故事</b></h1>
               <hr style="height: 5px; border: 0;	box-shadow: 0 8px 8px -10px #008500 inset;">
               <div class="row">
               <div class="col-md-12">
                 <table class="table table-striped table-hover">
-                  <tr><td style="width:180px"><span class="home-product-bulletin-title">卡維蘭果醬</span><td>用心打造最好的果醬</td></td></tr>
-                  <tr><td><span class="home-product-bulletin-title">冰心地瓜</span><td>可以連皮一起吃的沁涼冰地瓜</td></td></tr>
-                  <tr><td><span class="home-product-bulletin-title">台灣玉米好棒棒</span><td>棒棒棒棒棒</td></td></tr>
-                  <tr><td><span class="home-product-bulletin-title">阿公的香水檸檬</span><td>堅持不添加人工香精</td></td></tr>
+                  <% @product.each do |product| %>
+                    <tr>
+                      <td width="150px">
+                        <span><a style="color:black;" href="<%= product_path(product) %>"><b><%= product.supid %></b></span></a>
+                      </td>         
+                      <td>
+                        <a style="color:black" href="<%= product_path(product) %>"><%= product.introduce %></a>
+                      </td>
+                    </tr>
+                  <% end %>
                 </table>
                 <button class="btn btn-success" style="float:right;" onclick="location.href='/products'">看看更多商品故事</button>
               </div>
