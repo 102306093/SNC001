@@ -60,60 +60,39 @@
 　　    </script>
     </head>
 
-<body>
+<body style="font-family:Microsoft JhengHei">
 
-<h2>New product</h2>
+<div style="margin:70px"></div>
 
-<%= form_for @customer do |f|%>
+<div style="margin-bottom:20px">
+    <h1 style="color:#008000"><b>顧客資料</b></h1>
+    <%= simple_form_for @customer do |f|%>
+        <%= f.input :cusname, class: 'cusname', label:'名稱', placeholder:'請輸入姓名' %>
+        <%= f.input :email, class: 'email', label:'電子信箱', placeholder:'example@mail.com' %>
+        <%= f.input :cellphone, class: 'cellphone', label:'連絡電話', placeholder:'09xxxxxxxx' %>
+        <%= f.input :address, class: 'address', label:'送貨地址', placeholder:'宅配地址或是門市編號（如：全家0000）', hint:'點擊右方按鈕可查詢門市編號', size:'32' %>
+        <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://www.family.com.tw/Marketing/inquiry.aspx')">全家</a>
+        <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://www.hilife.com.tw/storeInquiry_street.aspx')">萊爾富</a>
+        <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://www.okmart.com.tw/convenient_shopSearch')">OK</a>
+    <% end %>    
+</div>
 
-<table style="width:70%">
-	<tr>
-		<td>顧客資料</td>	
-	</tr>		
-	<tr>
-		<td>姓名</td>
-		<td><%= f.text_field :cusname,class: "cusname", placeholder: "請填入姓名"%></td>
-		<td>電子信箱</td>
-		<td><%= f.email_field :email,class: "email", placeholder: "example@mail.com"%></td>
-  	</tr>
-  	<tr>
-    	<td>連絡電話</td>
-		<td><%= f.text_field :cellphone,class: "cellphone", placeholder: "09xxxxxxxx"%></td>
-　　	<td>送貨地址</td>
-		<td><%= f.text_field :address,class: "address", placeholder: "宅配地址或是門市編號（全家0000）",size:"32"%> 
-		<a href="http://www.family.com.tw/Marketing/inquiry.aspx">全家<a/>
-		<a href="http://www.hilife.com.tw/storeInquiry_street.aspx">萊爾富<a/>
-		<a href="http://www.okmart.com.tw/convenient_shopSearch">OK<a/>
-		</td>
-  	</tr>
- </table> 
- <table>
- 	<tr>
- 		<td>故事資料</td>	
-    </tr>
-  	<tr>
-    	<td><a href="1">冰心地瓜</a></td>
-    	<td><a href="2">台灣玉米好棒棒</a></td>
-    	<td>樂樂雞蛋捲</td>
-    	<td>阿公香水檸檬</td>
-  	</tr>
-  	<tr>
-		<td><%= f.number_field :productnumber,class: "quantity",:onchange =>"count()" ,:onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()" %></td>
-    	<td><%= f.number_field :productnumber1,class: "quantity1",:onchange =>"count()" ,:onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()" %></td>
-       	<td><%= f.number_field :productnumber2,class: "quantity2",:onchange =>"count()" ,:onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()" %></td>
-  	    <td><%= f.number_field :productnumber3,class: "quantity3",:onchange =>"count()" ,:onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()" %></td>
-  	</tr>
-  		<tr>
-    	<td>總價格</td>
-		<td><span class="price">多少錢呢</span></td>
-  	</tr>
-  	<tr>
-  		<td><input type="button" value="儲存唷" onclick="savedata()"></td>
-  		</tr>
-</table> 
-
-<%= f.submit  "投資夢想", class: "btn btn-primary"%>
-
-<%end%>
+<div>
+    <h1 style="color:#008000"><b>故事資料</b></h1>
+    <%= simple_form_for @customer do |f|%>
+        <%= f.input :productnumber, label:'冰心地瓜', :input_html => {class:'quantity', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :productnumber1, label:'台灣玉米好棒棒', :input_html => {class:'quantity1', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :productnumber2, label:'樂樂雞蛋捲', :input_html => {class:'quantity2', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :productnumber3, label:'阿公的香水檸檬', :input_html => {class:'quantity3', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <div style="font-size:20px">
+            <b>總價格<span class="price" style="font-size:40px; color:red; margin:0 5px 0 10px">0</span>元</b>
+          	<span style="float:right; margin-top:10px">
+               	<button class="btn btn-success" style="margin-right:5px" onclick="savedata()">儲存</button>
+                <%= f.submit "投資夢想", class: "btn btn-primary"%>
+          	</span>        
+      	</div>
+      	<div style="height:100px"></div>
+    <%end%>
+</div>
 </body>
 </html>

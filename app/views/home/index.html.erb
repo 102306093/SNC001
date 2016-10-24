@@ -82,7 +82,7 @@
                   <% @product.each do |product| %>
                     <tr>
                       <td width="150px">
-                        <span><a style="color:black;" href="<%= product_path(product) %>"><b><%= product.supid %></b></span></a>
+                        <span><b><%= product.supid %></b></span>
                       </td>         
                       <td>
                         <a style="color:black" href="<%= product_path(product) %>"><%= product.introduce %></a>
