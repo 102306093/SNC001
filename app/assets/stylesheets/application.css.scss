@@ -98,9 +98,14 @@ tr {
 .product-anchor.block-active{
     opacity:1;
 }
+.navbar-nav.navbar-center {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
 
-.nav.navbar-nav{
-    margin-left:20px;
+.navbar-collapse.navbar-collapse-center {
+  text-align: center;
 }
 
 .navbar-nav li{
