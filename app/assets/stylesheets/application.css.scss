@@ -3,6 +3,12 @@ footer{
 　top: 6000px;
 　position:absolute;
 }
+
+.container-fluid{
+    background-color:ghostwhite;
+    border-bottom: 1.5px solid #e7e7e7;
+}
+
 img .teamimage{
     width: 300% ;
     height: 300%;
@@ -93,6 +99,20 @@ tr {
     opacity:1;
 }
 
+.nav.navbar-nav{
+    margin-left:20px;
+}
+
+.navbar-nav li{
+    color:#810;
+    font-size:20px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    &:hover{
+        color: #333;
+        background-color: aqua;       
+    }
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
