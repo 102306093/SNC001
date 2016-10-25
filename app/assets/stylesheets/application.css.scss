@@ -15,9 +15,10 @@ img .teamimage{
 }
 
 img.article_pic, img.product_pic{
+    opacity:0.9;
     -webkit-transition: opacity .1s linear;
     &:hover{
-        opacity:0.8;
+        opacity:1;
     }
 }
 
