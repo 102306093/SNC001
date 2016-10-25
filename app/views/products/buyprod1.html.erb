@@ -14,6 +14,7 @@
             $("input.quantity1").val(window.sessionStorage["quantity1"]);
             $("input.quantity2").val(window.sessionStorage["quantity2"]);
             $("input.quantity3").val(window.sessionStorage["quantity3"]);
+            $("span.price").text(window.sessionStorage["totalprice"]);
         });
         function savedata(){
         window.sessionStorage["cusname"]=$("input.cusname").val();
@@ -24,6 +25,7 @@
         window.sessionStorage["quantity1"]=$("input.quantity1").val();
         window.sessionStorage["quantity2"]=$("input.quantity2").val();
         window.sessionStorage["quantity3"]=$("input.quantity3").val();
+        window.sessionStorage["totalprice"]=$("span.price").text();
         alert("已成功儲存資料囉！\n請注意，如果關閉瀏覽器資料便會自動清除唷！")
         
         }
