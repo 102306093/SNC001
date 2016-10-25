@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-	 include RailsTemporaryData::ControllerHelpers
+
 	 
     def new
         @product = Product.new

@@ -1,10 +1,6 @@
-class HomeController < ApplicationController
-    def index
-        @article=Article.all
-    end
+class PayersController < ApplicationController
 
-
-    def pay
+    def new
         @payer = Payer.new
     end
     
@@ -16,11 +12,11 @@ class HomeController < ApplicationController
 			render :new
 		end
     end
-    def showpayer
+    def show
         	@payer = Payer.all
     end
     private
-     def customer_params
+     def payer_params
         params.require(:payer).permit(:payeraccount,:paymentprice)
      end
 end
