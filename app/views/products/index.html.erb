@@ -3,42 +3,33 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
-	    $("div.scroll-to-product0").click(function(){
-			$('html, body').animate({
-				scrollTop: $('#product0').offset().top
-			}, 800 );
-	    });
-		$("div.scroll-to-product1").click(function(){
-			$('html, body').animate({
-				scrollTop: $('#product1').offset().top
-			}, 800 );
-	    });
-	    $("div.scroll-to-product2").click(function(){
-			$('html, body').animate({
-				scrollTop: $('#product2').offset().top
-			}, 800 );
-	    });
-	    $("div.scroll-to-product3").click(function(){
-			$('html, body').animate({
-				scrollTop: $('#product3').offset().top
-			}, 800 );
-	    });
-	    $("div.scroll-to-product4").click(function(){
-			$('html, body').animate({
-				scrollTop: $('#product4').offset().top
-			}, 800 );
-	    });
+		$(function(){
+			<% @product.each_with_index do |product, i| %>
+			    $("div.scroll-to-product<%= i %>").click(function(){
+					$('html, body').animate({
+						scrollTop: $('#product<%= i %>').offset().top
+					}, 800 );
+			    });			
+			<%end%>		
+		});
+		
+	   	$(document).scroll(function(){
+			var target = $(window).scrollTop();
+			clearTimeout( $.data( this, "scrollCheck" ) );
+			$.data( this, "scrollCheck", setTimeout(function() {
+				<% @product.each_with_index do |product, i| %>
+					var productTop = $('#product<%= i %>').offset().top;
+					if(productTop-200 <= target && target <= productTop+500){
+		    			$(".product-anchor").removeClass("block-active");
+		    			$(".scroll-to-product<%= i %>").addClass("block-active");
+					}
+				<%end%>				
+			}, 100) );				
+    	});
 	});
 	</script>
 </head>
 <body>
-	<div style="position:fixed; right:5%; top:30%">
-		<div class="scroll-to-product0" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px; cursor: pointer"></div>
-		<div class="scroll-to-product1" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px; cursor: pointer"></div>
-		<div class="scroll-to-product2" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px; cursor: pointer"></div>
-		<div class="scroll-to-product3" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; margin-bottom:50px; cursor: pointer"></div>
-		<div class="scroll-to-product4" style="display: block; width: 16px; height: 16px; background: #c1c1c1; border-radius:8px; cursor: pointer"></div>
-	</div>
 	<div>
 		<% @product.each_with_index do |product, i| %>
 			<div id="product<%= i %>" style="display:table; margin-top:30px; 100%; border:2px solid; width:1100px; height:700px;">
@@ -50,8 +41,13 @@
 			</div>
 		<%end%>		
 	</div>
-	
-
+	<div class="anchor-outerbox">
+		<div class="anchor-innerbox">
+			<% @product.each_with_index do |product, i| %>
+				<div class="product-anchor scroll-to-product<%= i %>"></div>
+			<%end%>	
+		</div>
+	</div>	
+</div>
 </body>
-
 </html>

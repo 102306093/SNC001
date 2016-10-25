@@ -1,27 +1,21 @@
-<html>
-<head>
-	</head>
+<div class="container">
+  <div class="table-responsive" style="margin-top:70px;">
+	  <table style="font-family: Microsoft JhengHei; font-weight: bold;">
+	  	<tr style="width:60%;">
+	       <td rowspan=3><img class="img-rounded" src='<%= @product.pic1%>'></img></td>
+	       <td style="padding-left:10px;"><%= @product.proname%></td>
+	    </tr>  
+	    <tr>  
+	       <td style="padding-left:10px;">NTD <%= @product.price%></td>
+	    </tr>
+	    <tr>  
+	       <td style="padding-left:10px;"><%= @product.introduce%></td>
+	    </tr>
+	  </table>
+	  <a class="buy" href="buyprod1"><input type="button" value="點我"></input></a>
+  </div>
+</div>
 
 
-<h2>Product</h2>
-<table style="width:30%">
-	<tr>
-		<td>Name</td>
-		<td><%= @product.proname%></td>
-  	</tr>
-  	<tr>
-    	<td>price</td>
-		<td><%= @product.price%></td>
-  	</tr>
-  	<tr>
-    	<td>introduce</td>
-		<td><%= @product.introduce%></td>
-  	</tr>
-  	<tr>
-    	<td>Pic</td>
-		<td><img src='<%= @product.pic1%>'></img></td>
-  	</tr>
-</table> 
 
-<a class="buy" href="buyprod1"><input type="button" value="點我"></input></a>
-</html>
+

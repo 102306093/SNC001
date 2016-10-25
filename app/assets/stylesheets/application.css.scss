@@ -106,7 +106,53 @@ tr {
     border-radius: 25px;
 }
 
+.member{
+    height:150px;
+    padding-top:10px;
+    cursor:pointer;
+    &:hover{
+        background-color:#DEFFDE;
+    }
+}
 
+.anchor-outerbox{
+    height: 600px;
+    width:20px;
+    text-align: center;
+    position:fixed;
+    top:0px;
+    right:5%;
+}
+
+.anchor-outerbox:before {
+    content: "";
+    height: 100%;
+    width:0px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.anchor-innerbox{
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+}
+
+.product-anchor{
+    display: block; 
+    width: 16px; 
+    height: 16px; 
+    background: #c1c1c1; 
+    border-radius:8px;
+    margin-top:50px;
+    cursor: pointer;
+    opacity:0.5;
+    -webkit-transition: opacity .3s linear;
+}
+
+.product-anchor.block-active{
+    opacity:1;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

@@ -102,11 +102,8 @@ ActiveRecord::Schema.define(version: 20161023025554) do
     t.string   "bgimg"
   end
 
-  create_table "temporary_data", force: :cascade do |t|
-    t.text     "data"
-    t.datetime "expires_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+
+
+
 
 end
