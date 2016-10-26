@@ -32,6 +32,9 @@
     
         
 　 　　	function count(){
+　 　　	    $("span.SP-tran-price").text("150");
+　 　　	    $("span.tran-price").text("80");
+　 　　	  
 　 　　		var quantity=$("input.quantity").val();
 　 　　		var quantity1=$("input.quantity1").val();
 　 　　		var quantity2=$("input.quantity2").val();
@@ -40,23 +43,37 @@
 　 　　		 quantity=0;	
 　 　　		 $("input.quantity").val(0);
 　 　　		}
-　 　　			if(quantity1<0){
+　 　　		if(quantity1<0){
 　 　　				quantity1=0;	
 　 　　	　		 $("input.quantity1").val(0);
 　 　　		}
-　 　　			if(quantity2<0){
+　 　　		if(quantity2<0){
 　 　　				quantity2=0;	
 　 　　　		 $("input.quantity2").val(0);
 　 　　		}
-　 　　			if(quantity3<0){
+　 　　		if(quantity3<0){
 　 　　				quantity3=0;	
 　 　　	　		 $("input.quantity3").val(0);
 　 　　		}
-　 　　		var price=40*quantity;
-　 　　		var price1=50*quantity1;
-　 　　		var price2=60*quantity2;
-　 　　		var price3=80*quantity3;
-　 　　		var totalprice=price+price1+price2+price3
+            var SPprice=0;
+            var Normalprice=0;
+　 　　		if(quantity>0){
+　 　　		    SPprice=50*quantity+150;
+　 　　		}
+　 　　		if(quantity1>0||quantity2>0||quantity3>0){
+　 　　		    Normalprice=120*quantity1+120*quantity2+158*quantity3+80;
+　 　　		}
+　 　　		if(Normalprice-80>=500){
+　 　　		    Normalprice-=80
+　 　　		    $("span.tran-price").text("0");
+　 　　		}
+　 　　		if(quantity>19){
+　 　　		    SPprice-=150
+　 　　		    $("span.SP-tran-price").text("0");
+　 　　		}
+　 　　		var totalprice=SPprice+Normalprice;
+　 　　		$("span.SP-totalprice").text(SPprice);
+　 　　		$("span.totalprice").text(Normalprice);
 　 　　		$("span.price").text(totalprice);
 　 　　	}
 　　    </script>
@@ -80,14 +97,26 @@
 </div>
 
 <div>
-    <h1 style="color:#008000"><b>故事資料</b></h1>
+    <h1 style="color:#008000"><b>故事需求</b></h1>
     <%= simple_form_for @customer do |f|%>
-        <%= f.input :productnumber, label:'冰心地瓜', :input_html => {class:'quantity', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
-        <%= f.input :productnumber1, label:'台灣玉米好棒棒', :input_html => {class:'quantity1', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
-        <%= f.input :productnumber2, label:'樂樂雞蛋捲', :input_html => {class:'quantity2', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
-        <%= f.input :productnumber3, label:'阿公的香水檸檬', :input_html => {class:'quantity3', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= link_to "冰心地瓜", "1",  rel: "nofollow" %>
+        <%= f.input :productnumber, label:'50元/包', :input_html => {class:'quantity', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+       <div style="font-size:20px">
+            <b>+低溫運費<span class="SP-tran-price" style=" margin:0 5px 0 10px; margin-top:10px">150</span>元</b>
+            <BR><b>=地瓜總價格<span class="SP-totalprice" style="margin:0 5px 0 10px; margin-top:10px">0</span>元</b>
+       </div>
+        <%= link_to "玉米好棒棒", "2", rel: "nofollow" %>
+        <%= f.input :productnumber1, label:'120元/包', :input_html => {class:'quantity1', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= link_to "樂樂雞蛋捲", "3", rel: "nofollow" %>
+        <%= f.input :productnumber2, label:'120元/盒', :input_html => {class:'quantity2', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+         <%= link_to "阿公的香水檸檬", "4", rel: "nofollow" %>
+        <%= f.input :productnumber3, label:'158元/包', :input_html => {class:'quantity3', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <div style="font-size:20px">
-            <b>總價格<span class="price" style="font-size:40px; color:red; margin:0 5px 0 10px">0</span>元</b>
+            <b>+常溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">80</span>元</b>
+            <BR><b>=常溫品總價格<span class="totalprice" style=" margin:0 5px 0 10px; margin-top:10px">0</span>元</b>
+       </div>
+        <div style="font-size:20px">
+            <BR><b>總價格<span class="price" style="font-size:40px; color:red; margin:0 5px 0 10px">0</span>元</b>
           	<span style="float:right; margin-top:10px">
                	<button class="btn btn-success" style="margin-right:5px" onclick="savedata()">儲存</button>
                 <%= f.submit "投資夢想", class: "btn btn-primary"%>

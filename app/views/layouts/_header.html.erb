@@ -8,11 +8,20 @@
       </button>
       <a class="" href="/"><img style="margin-top:5px" src="/img/logo.png" height="40"></a>
     </div>
-    <div class="collapse navbar-collapse navbar-collapse-center" id="myNavbar">
-      <ul class="nav navbar-nav navbar-center">
-        <li><%= link_to "文章故事", articles_path %></li>
-        <li><%= link_to "商品故事", products_path %></li>
-        <li><%= link_to "關於我們", home_aboutus_path %></li>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "故事基地", root_path %></li>
+        <li><%= link_to "找故事", products_path %></li>
+        <li><%= link_to "故事的背後", articles_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">瑣事<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/payers/new">購買確認</a></li>
+            <li><a href="#">隱私權條款</a></li>
+            <li><a href="#">物流政策</a></li>
+          </ul>
+        </li>
+        <li><%= link_to "我們的故事", home_aboutus_path %></li>
       </ul>
     </div>
   </div>
