@@ -20,7 +20,7 @@ class HomeController < ApplicationController
         	@payer = Payer.all
     end
     private
-     def customer_params
+     def payer_params
         params.require(:payer).permit(:payeraccount,:paymentprice)
      end
 end

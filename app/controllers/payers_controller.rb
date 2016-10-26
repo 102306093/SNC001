@@ -17,6 +17,6 @@ class PayersController < ApplicationController
     end
     private
      def payer_params
-        params.require(:payer).permit(:payeraccount,:paymentprice)
+        params.require(:payer).permit(:payeraccount,:paymentprice,:payerphone)
      end
 end

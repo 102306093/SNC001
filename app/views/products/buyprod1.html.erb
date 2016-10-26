@@ -5,26 +5,53 @@
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
         
         <script>
+
+            
         $(document).ready(function(){
-            $("input.cusname").val(window.sessionStorage["cusname"]);
-            $("input.email").val(window.sessionStorage["email"]);
-            $("input.cellphone").val(window.sessionStorage["cellphone"]);
-            $("input.address").val(window.sessionStorage["address"]);
-            $("input.quantity").val(window.sessionStorage["quantity"]);
-            $("input.quantity1").val(window.sessionStorage["quantity1"]);
-            $("input.quantity2").val(window.sessionStorage["quantity2"]);
-            $("input.quantity3").val(window.sessionStorage["quantity3"]);
+            $("input#customer_cusname").val(window.sessionStorage["cusname"]);
+            $("input#customer_email").val(window.sessionStorage["email"]);
+            $("input#customer_cellphone").val(window.sessionStorage["cellphone"]);
+            $("input#customer_homeaddress").val(window.sessionStorage["homeaddress"]);
+            $("input#customer_convenienceaddress").val(window.sessionStorage["convenienceaddress"]);
+            $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
+            $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
+            $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
+            $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
+            $("input#customer_productnumber").val(window.sessionStorage["quantity3"]);
             $("span.price").text(window.sessionStorage["totalprice"]);
+            $("div.homeaddress").hide();
+            $("div.convenienceaddress").hide();
+            $("div.faceaddress").hide();
         });
+        
+        function tran(){
+         if($("input:checked").val()==="home"){
+             $("div.homeaddress").show();
+             $("div.convenienceaddress").hide();
+             $("div.faceaddress").hide();
+         }
+         else if($("input:checked").val()==="convenience"){
+             $("div.homeaddress").hide();
+             $("div.convenienceaddress").show();
+             $("div.faceaddress").hide();
+         }
+         else {
+             $("div.homeaddress").hide();
+             $("div.convenienceaddress").hide();
+             $("div.faceaddress").show();
+         }
+         };
         function savedata(){
-        window.sessionStorage["cusname"]=$("input.cusname").val();
-        window.sessionStorage["email"]=$("input.email").val();
-        window.sessionStorage["cellphone"]=$("input.cellphone").val();
-        window.sessionStorage["address"]=$("input.address").val();
-        window.sessionStorage["quantity"]=$("input.quantity").val();
-        window.sessionStorage["quantity1"]=$("input.quantity1").val();
-        window.sessionStorage["quantity2"]=$("input.quantity2").val();
-        window.sessionStorage["quantity3"]=$("input.quantity3").val();
+        window.sessionStorage["cusname"]=$("input#customer_cusname").val();
+        window.sessionStorage["email"]=$("input#customer_email").val();
+        window.sessionStorage["cellphone"]=$("input#customer_cellphone").val();
+        window.sessionStorage["homeaddress"]=$("input#customer_homeaddress").val();
+        window.sessionStorage["convenienceaddress"]=$("input#customer_convenienceaddress").val();
+        window.sessionStorage["faceaddress"]=$("input#customer_faceaddress").val();
+        window.sessionStorage["quantity"]=$("input#customer_productnumber").val();
+        window.sessionStorage["quantity1"]=$("input#customer_productnumber1").val();
+        window.sessionStorage["quantity2"]=$("input#customer_productnumber2").val();
+        window.sessionStorage["quantity3"]=$("input#customer_productnumber3").val();
         window.sessionStorage["totalprice"]=$("span.price").text();
         alert("已成功儲存資料囉！\n請注意，如果關閉瀏覽器資料便會自動清除唷！")
         
@@ -32,8 +59,9 @@
     
         
 　 　　	function count(){
+　 　　	    
 　 　　	    $("span.SP-tran-price").text("150");
-　 　　	    $("span.tran-price").text("80");
+　 　　	    $("span.tran-price").text("60");
 　 　　	  
 　 　　		var quantity=$("input.quantity").val();
 　 　　		var quantity1=$("input.quantity1").val();
@@ -60,17 +88,20 @@
 　 　　		if(quantity>0){
 　 　　		    SPprice=50*quantity+150;
 　 　　		}
-　 　　		if(quantity1>0||quantity2>0||quantity3>0){
-　 　　		    Normalprice=120*quantity1+120*quantity2+158*quantity3+80;
-　 　　		}
-　 　　		if(Normalprice-80>=500){
-　 　　		    Normalprice-=80
-　 　　		    $("span.tran-price").text("0");
-　 　　		}
 　 　　		if(quantity>19){
 　 　　		    SPprice-=150
 　 　　		    $("span.SP-tran-price").text("0");
 　 　　		}
+　 　　	
+　 　　		if(quantity1>0||quantity2>0||quantity3>0){
+　 　　		    Normalprice=120*quantity1+120*quantity2+158*quantity3+60;
+　 　　		}
+　 　　		if(Normalprice-60>=500||$("input:checked").val()==="face"){
+　 　　		    Normalprice-=60
+　 　　		    $("span.tran-price").text("0");
+　 　　		}
+　 　　		
+　 　　		
 　 　　		var totalprice=SPprice+Normalprice;
 　 　　		$("span.SP-totalprice").text(SPprice);
 　 　　		$("span.totalprice").text(Normalprice);
@@ -89,10 +120,15 @@
         <%= f.input :cusname, class: 'cusname', label:'名稱', placeholder:'請輸入姓名' %>
         <%= f.input :email, class: 'email', label:'電子信箱', placeholder:'example@mail.com' %>
         <%= f.input :cellphone, class: 'cellphone', label:'連絡電話', placeholder:'09xxxxxxxx' %>
-        <%= f.input :address, class: 'address', label:'送貨地址', placeholder:'宅配地址或是門市編號（如：全家0000）', hint:'點擊右方按鈕可查詢門市編號', size:'32' %>
-        <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://www.family.com.tw/Marketing/inquiry.aspx')">全家</a>
-        <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://www.hilife.com.tw/storeInquiry_street.aspx')">萊爾富</a>
-        <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://www.okmart.com.tw/convenient_shopSearch')">OK</a>
+        
+        <input type="radio" name="trans" class="tran" value="home" onclick="tran()">宅配
+        <input type="radio" name="trans" class="tran" value="convenience" onclick="tran()">超商
+        <input type="radio" name="trans" class="tran" value="face" onclick="tran()">面交
+    <div class="homeaddress"><%= f.input :homeaddress, label:'宅配資訊', placeholder:'宅配地址', size:'32' %></div>
+    <div class="convenienceaddress"><%= f.input :convenienceaddress, label:'便利商店配資訊', placeholder:'門市編號（如：全家0000）', hint:'點擊右方按鈕可查詢門市編號', size:'32' %>
+    <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://emap.pcsc.com.tw/emap.aspx')">711</a></div>
+    <div class="faceaddress"><%= f.input :faceaddress, label:'面交資訊', placeholder:'面交地點(限政治大學,10:00-20:00)', size:'32' %></div>
+        
     <% end %>    
 </div>
 
@@ -112,13 +148,13 @@
          <%= link_to "阿公的香水檸檬", "4", rel: "nofollow" %>
         <%= f.input :productnumber3, label:'158元/包', :input_html => {class:'quantity3', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <div style="font-size:20px">
-            <b>+常溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">80</span>元</b>
+            <b>+常溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">60</span>元</b>
             <BR><b>=常溫品總價格<span class="totalprice" style=" margin:0 5px 0 10px; margin-top:10px">0</span>元</b>
        </div>
         <div style="font-size:20px">
             <BR><b>總價格<span class="price" style="font-size:40px; color:red; margin:0 5px 0 10px">0</span>元</b>
           	<span style="float:right; margin-top:10px">
-               	<button class="btn btn-success" style="margin-right:5px" onclick="savedata()">儲存</button>
+               	<a href="#" onclick="savedata()">儲存</a>
                 <%= f.submit "投資夢想", class: "btn btn-primary"%>
           	</span>        
       	</div>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'products/save'
   get 'products/productmap'
   get 'home/aboutus'
+  get 'home/policy'
+  get 'home/transfer'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
