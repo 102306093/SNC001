@@ -1,29 +1,9 @@
-<h2>Article</h2>
-<table style="width:30%">
-	<tr>
-		<td>Title</td>
-		<td><%= @article.title%></td>
-  	</tr>
-  	<tr>
-    	<td>Pic</td>
-		<td><img src='<%= @article.pic1%>'></img></td>
-  	</tr>
-  	<tr>
-    	<td>Content</td>
-		<td><%= @article.content%></td>
-  	</tr>
-  	<tr>
-    	<td>Hashtag</td>
-		<td><%= @article.hashtag%></td>
-  	</tr>
-  	<tr>
-    	<td>Createtime</td>
-		<td><%= @article.created_at%></td>
-  	</tr>
-  	<tr>
-    	<td>Owner</td>
-		<td><%= @article.owner%></td>
-  	</tr>
-  	
+<body style="font-family:Microsoft JhengHei">
+	<div class="container" style="margin-top:50px;">
+	<h1 style="text-align:center"><b><%= @article.title%></b></h1>
+	<div style="width:70%; font-size:20px; margin:0 auto;">
+		<%= @article.content%>
+	</div>
+</body>
 
-</table> 
+
