@@ -5,7 +5,6 @@
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
         
         <script>
-
             
         $(document).ready(function(){
             $("input#customer_cusname").val(window.sessionStorage["cusname"]);
@@ -40,6 +39,7 @@
              $("div.convenienceaddress").hide();
              $("div.faceaddress").show();
          }
+         count();
          };
         function savedata(){
         window.sessionStorage["cusname"]=$("input#customer_cusname").val();
@@ -88,12 +88,13 @@
 　 　　		if(quantity>0){
 　 　　		    SPprice=50*quantity+150;
 　 　　		}
-　 　　		if(quantity>19){
+　 　　		if(quantity>19||$("input:checked").val()==="face"){
 　 　　		    SPprice-=150
 　 　　		    $("span.SP-tran-price").text("0");
 　 　　		}
 　 　　	
 　 　　		if(quantity1>0||quantity2>0||quantity3>0){
+　 　　		   
 　 　　		    Normalprice=120*quantity1+120*quantity2+158*quantity3+60;
 　 　　		}
 　 　　		if(Normalprice-60>=500||$("input:checked").val()==="face"){

@@ -11,7 +11,7 @@ class HomeController < ApplicationController
     def create
 		@payer = Payer.new(payer_params)
 		if @payer.save
-			redirect_to root_path
+			render :new
 		else
 			render :new
 		end

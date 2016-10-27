@@ -7,7 +7,7 @@ class PayersController < ApplicationController
     def create
 		@payer = Payer.new(payer_params)
 		if @payer.save
-			redirect_to root_path
+			redirect_to new_payer_path
 		else
 			render :new
 		end
