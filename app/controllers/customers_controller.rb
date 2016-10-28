@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
     def create
 		@customer = Customer.new(customer_params)
 		if @customer.save
-			redirect_to root_path
+			redirect_to products_finish_path
 		else
 			render :new
 		end
@@ -28,7 +28,7 @@ class CustomersController < ApplicationController
 	def update
 			@customer = Customer.find(params[:id])
 		if @customer.update(customer_params)
-			redirect_to products_path
+			redirect_to product_finish_path
 		else
 			render :edit
 		end
