@@ -103,6 +103,19 @@
 　 　　		}
 　 　　		
 　 　　		
+　 　　		
+　 　　		if(totalprice<0){
+　 　　		 totalprice=0;	
+　 　　		 $("span.price").val(0);
+　 　　		}
+　 　　		if(SPprice<0){
+　 　　		 SPprice=0;	
+　 　　		 $("span.SP-totalprice").val(0);
+　 　　		}
+　 　　		if(Normalprice<0){
+　 　　		 Normalprice=0;	
+　 　　		 $("span.totalprice").val(0);
+　 　　		}
 　 　　		var totalprice=SPprice+Normalprice;
 　 　　		$("span.SP-totalprice").text(SPprice);
 　 　　		$("span.totalprice").text(Normalprice);
