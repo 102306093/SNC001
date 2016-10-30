@@ -1,22 +1,3 @@
-<div class="container">
-  <div class="table-responsive" style="margin-top:70px;">
-	  <table style="font-family: Microsoft JhengHei; font-weight: bold;">
-	  	<tr style="width:60%;">
-	       <td rowspan=3><img class="img-rounded" src='<%= @product.pic1%>'></img></td>
-	       <td style="padding-left:10px;"><%= @product.proname%></td>
-	    </tr>  
-	    <tr>  
-	       <td style="padding-left:10px;">NTD <%= @product.price%></td>
-	    </tr>
-	    <tr>  
-	       <td style="padding-left:10px;">
-	       		<%= @product.introduce%>
-	       		<br>
-	       		<a class="buy" href="buyprod1"><input type="button" value="支持這個故事" class="btn btn-warning"></input></a>
-	       </td>
-	    </tr>
-	  </table>
-  </div>
+<div style="margin-top:70px">
+	<%= @product.introduce.html_safe %>
 </div>
-
-<%= @product.introduce.html_safe %>
