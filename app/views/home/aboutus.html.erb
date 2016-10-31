@@ -1,10 +1,87 @@
+<head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <style>
+        .team-introduction{
+            margin:30px; 
+            text-align:center; 
+            font-family:Microsoft JhengHei; 
+            font-size:20px; 
+            color:#858500; 
+            letter-spacing:1px; 
+            line-height:35px;
+        }
+        div.member{
+            margin:0 auto; 
+            margin-bottom:50px; 
+            border-radius:10px;
+            height:150px;
+            padding-top:10px;
+            cursor:pointer;
+        }
+        div.member-photo{
+            float:left; 
+            padding-left:20px; 
+            padding-right:20px; 
+            border-right:3px solid;
+        }
+        img.member-photo{
+            width:130px;
+        }
+        .member-position{
+            margin-left:190px;
+        }
+        .member-name{
+            font-size:23px; 
+            font-family:Microsoft JhengHei; 
+            font-weight:bold;
+        }
+        .member-introduction{
+            font-size:17px; 
+            font-family:Microsoft JhengHei;
+        }
+                
+        @media screen and (max-width: 480px){
+            .team-introduction{
+                font-size:15px;
+            }
+            div.member{
+                margin-bottom:10px; 
+                height:130px;
+            }
+            div.member-photo{
+                padding-left:5px; 
+                padding-right:5px; 
+                padding-top:5px;
+                border-right:2px solid;
+                height:110px;
+            }
+            img.member-photo{
+                width:100px;
+            }
+            .member-position{
+                margin-left:115px;
+            }
+            .member-name{
+                font-size:13px; 
+                margin-bottom:1px;
+            }
+            .member-introduction{
+                font-size:12px; 
+                letter-spacing:-0.5px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+
 <div style="margin:70px"></div>
 
 <div class="col-md-12" style="">
     <div class="banner" style="text-align:center;">
         <img class="img-rounded" style="width:80%; box-shadow:6px 6px 10px #B5FFB5" src="/img/team-image.jpg"></img>
     </div>
-    <div class="team-introduction" style="margin:30px; text-align:center; font-family:Microsoft JhengHei; font-size:20px; color:#858500; letter-spacing:1px; line-height:35px">
+    <div class="team-introduction" style="">
         小農橋<BR>
         取名希望能讓小農們被瞧見<BR>
         搭建消費者與小農之間的橋樑為意<BR>
@@ -16,60 +93,62 @@
     
     <hr style="height: 10px; border: 0;	box-shadow: 0 10px 10px -10px #008500 inset;">
     
-    <div class="member-introduction" style="width:80%; margin:20px auto;">
-        <div class="" style=""> 
+    <div style="width:80%; margin:20px auto;">
+        <div> 
             <div class="row" style="margin:0 auto; ">
                 <div class="col-md-3"></div>
-                <div class="member col-md-6 col-sm-12" style="margin:0 auto; margin-bottom:50px; border-radius:10px;">
-                    <div class="member-photo" style="float:left; padding-left:20px; padding-right:20px; border-right:3px solid;">
-                        <img style="width:130px;" class="img-circle" src="/img/呂.jpg"></img>
+                <div class="member col-md-6 col-sm-12">
+                    <div class="member-photo">
+                        <img class="img-circle member-photo" src="/img/呂.jpg"></img>
                     </div>
-                    <div class="member-position" style="margin-left:190px">
-                        <p style="font-size:23px; font-family:Microsoft JhengHei; font-weight:bold; ">呂宥呈</p>
-                        <p style="font-size:17px; font-family:Microsoft JhengHei;">典型完美主義者，腦袋總是塞滿各種行銷策略和商業模式，最機車難搞的執行長。</p>
+                    <div class="member-position">
+                        <p class="member-name">呂宥呈</p>
+                        <p class="member-introduction">典型完美主義者，腦袋總是塞滿各種行銷策略和商業模式，最機車難搞的執行長。</p>
                     </div>
                 </div>
             </div>
             <div class="row" style="margin:0 auto;">
-                <div class="member col-md-6 col-sm-12" style="margin:0 auto; margin-bottom:50px; border-radius:10px;">
-                    <div class="member-photo" style="float:left; padding-left:20px; padding-right:20px; border-right:3px solid;">
-                        <img style="width:130px; height:80%;" class="img-circle" src="/img/陳.jpg"></img>
+                <div class="member col-md-6 col-sm-12">
+                    <div class="member-photo">
+                        <img class="img-circle member-photo" src="/img/陳.jpg"></img>
                     </div>
-                    <div class="member-position" style="margin-left:190px;">
-                        <p style="font-size:23px; font-family:Microsoft JhengHei; font-weight:bold;">陳玉璇</p>
-                        <p style="font-size:17px; font-family:Microsoft JhengHei;">小農橋唯一的紅花，跳脫刻板印象，證明女生也能用實力說話，管控程式碼及開發進度的技術長。</p>
+                    <div class="member-position">
+                        <p class="member-name">陳玉璇</p>
+                        <p class="member-introduction">小農橋唯一的紅花，跳脫刻板印象，證明女生也能用實力說話，管控程式碼及開發進度的技術長。</p>
                     </div>
                 </div>
-                <div class="member col-md-6 col-sm-12" style="margin:0 auto; margin-bottom:50px; border-radius:10px;">
-                    <div class="member-photo" style="float:left; padding-left:20px; padding-right:20px; border-right:3px solid;">
-                        <img style="width:130px;" class="img-circle" src="/img/曾.jpg"></img>
+                <div class="member col-md-6 col-sm-12">
+                    <div class="member-photo">
+                        <img class="img-circle member-photo" src="/img/曾.jpg"></img>
                     </div>
-                    <div class="member-position" style="margin-left:190px">
-                        <p style="font-size:23px; font-family:Microsoft JhengHei; font-weight:bold;">曾靖淳</p>
-                        <p style="font-size:17px; font-family:Microsoft JhengHei;">就算轉系還是義氣相挺小農橋，負責應付千奇百怪的影片和圖片需求的戲劇人兼視覺長。</p>
+                    <div class="member-position">
+                        <p class="member-name">曾靖淳</p>
+                        <p class="member-introduction">就算轉系還是義氣相挺小農橋，負責應付千奇百怪的影片和圖片需求的戲劇人兼視覺長。</p>
                     </div>
                 </div>        
             </div>
             <div class="row" style="margin:0 auto;">
-                <div class="member col-md-6 col-sm-12" style="margin:0 auto; margin-bottom:50px; border-radius:10px;">
-                    <div class="member-photo" style="float:left; padding-left:20px; padding-right:20px; border-right:3px solid;">
-                        <img style="width:130px;" class="img-circle" src="/img/劉.jpg"></img>
+                <div class="member col-md-6 col-sm-12">
+                    <div class="member-photo">
+                        <img class="img-circle member-photo" src="/img/劉.jpg"></img>
                     </div>
-                    <div class="member-position" style="margin-left:190px">
-                        <p style="font-size:23px; font-family:Microsoft JhengHei; font-weight:bold;">劉奕為</p>
-                        <p style="font-size:17px; font-family:Microsoft JhengHei;">既支援行銷也要開發網站，對於美學一竅不通，喜愛垃圾話及躲在後端寫程式，外務最多的萬能打雜王。</p>
+                    <div class="member-position">
+                        <p class="member-name">劉奕為</p>
+                        <p class="member-introduction">既支援行銷也要開發網站，對於美學一竅不通，喜愛垃圾話及躲在後端寫程式，外務最多的萬能打雜王。</p>
                     </div>
                 </div>
-                <div class="member col-md-6 col-sm-12" style="margin:0 auto; margin-bottom:50px; border-radius:10px;">
-                    <div class="member-photo" style="float:left; padding-left:20px; padding-right:20px; border-right:3px solid;">
-                        <img style="width:130px;" class="img-circle" src="/img/李.jpg"></img>
+                <div class="member col-md-6 col-sm-12">
+                    <div class="member-photo">
+                        <img class="img-circle member-photo" src="/img/李.jpg"></img>
                     </div>
-                    <div class="member-position" style="margin-left:190px">
-                        <p style="font-size:23px; font-family:Microsoft JhengHei; font-weight:bold;">李信宏</p>
-                        <p style="font-size:17px; font-family:Microsoft JhengHei;">總是能把亂七八糟的網站頁面改得美不勝收，最閒也貢獻許多行程式碼的前端設計長。</p>
+                    <div class="member-position">
+                        <p class="member-name">李信宏</p>
+                        <p class="member-introduction">總是能把亂七八糟的網站頁面改得美不勝收，最閒也貢獻許多行程式碼的前端設計長。</p>
                     </div>
                 </div>        
             </div>
         </div>
     </div>
 </div>
+    
+</body>
