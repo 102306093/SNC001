@@ -25,29 +25,32 @@
         
         function tran(){
          if($("input:checked").val()==="home"){
+             $("input#customer_homeaddress").attr("placeholder", "宅配地址");
              $("div.homeaddress").show();
              $("div.convenienceaddress").hide();
              $("div.faceaddress").hide();
              $("div#sweet-potato").show();
-             $("input#customer_faceaddress").val(" ");
-             $("input#customer_convenienceaddress").val(" ");
+             $("input#customer_faceaddress").val("");
+             $("input#customer_convenienceaddress").val("");
          }
          else if($("input:checked").val()==="convenience"){
+             $("input#customer_convenienceaddress").attr("placeholder", "門市編號");
              $("div.homeaddress").hide();
              $("div.convenienceaddress").show();
              $("div.faceaddress").hide();
              $("div#sweet-potato").hide();
              $("input#customer_productnumber").val(0);
-             $("input#customer_faceaddress").val(" ");
-             $("input#customer_homeaddress").val(" ");
+             $("input#customer_faceaddress").val("");
+             $("input#customer_homeaddress").val("");
          }
          else {
+             $("input#customer_faceaddress").attr("placeholder", "面交地點(限政治大學,10:00-20:00)");
              $("div.homeaddress").hide();
              $("div.convenienceaddress").hide();
              $("div.faceaddress").show();
              $("div#sweet-potato").show();
-             $("input#customer_homeaddress").val(" ");
-             $("input#customer_convenienceaddress").val(" ");
+             $("input#customer_homeaddress").val("");
+             $("input#customer_convenienceaddress").val("");
          }
          count();
          };
@@ -105,7 +108,7 @@
 　 　　	
 　 　　		if(quantity1>0||quantity2>0||quantity3>0){
 　 　　		   
-　 　　		    Normalprice=120*quantity1+120*quantity2+158*quantity3+60;
+　 　　		    Normalprice=120*quantity1+150*quantity2+158*quantity3+60;
 　 　　		}
 　 　　		if(Normalprice-60>=500||$("input:checked").val()==="face"){
 　 　　		    Normalprice-=60
@@ -144,7 +147,7 @@
     <%= simple_form_for @customer do |f|%>
         <%= f.input :cusname, class: 'cusname', label:'名稱', placeholder:'請輸入姓名' %>
         <%= f.input :email, class: 'email', label:'電子信箱', placeholder:'example@mail.com' %>
-        <%= f.input :cellphone, class: 'cellphone', label:'連絡電話', placeholder:'09xxxxxxxx' %>
+        <%= f.input :cellphone, class: 'cellphone', label:'連絡電話',maxlength:"10", placeholder:'09xxxxxxxx' %>
         
         <input type="radio" name="trans" class="tran" value="home" onclick="tran()">宅配
         <input type="radio" name="trans" class="tran" value="convenience" onclick="tran()">超商
@@ -171,7 +174,7 @@
         <%= link_to "玉米好棒棒", "2", rel: "nofollow" %>
         <%= f.input :productnumber1, label:'120元/包', :input_html => {class:'quantity1', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <%= link_to "樂樂雞蛋捲", "3", rel: "nofollow" %>
-        <%= f.input :productnumber2, label:'120元/盒', :input_html => {class:'quantity2', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :productnumber2, label:'150元/盒', :input_html => {class:'quantity2', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
          <%= link_to "阿公的香水檸檬", "4", rel: "nofollow" %>
         <%= f.input :productnumber3, label:'158元/包', :input_html => {class:'quantity3', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <div style="font-size:20px">

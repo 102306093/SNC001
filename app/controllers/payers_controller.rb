@@ -1,5 +1,5 @@
 class PayersController < ApplicationController
-
+    before_action :authenticate_user!, only: [:show]
     def new
         @payer = Payer.new
     end

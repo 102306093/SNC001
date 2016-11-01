@@ -14,8 +14,9 @@
 <BR>
 <BR>
     <BR>
+        <h1>請填入匯款資料：</h1>
 <%= simple_form_for @payer do |f|%>
-        <%= f.input :payeraccount,  label:'請輸入帳號後五碼' %>
+        <%= f.input :payeraccount,  label:'請輸入帳號後五碼', maxlength:"5" %>
         <%= f.input :paymentprice,  label:'請輸入付款金額（不含手續費）' %>
         <%= f.input :payerphone,  label:'請輸入訂購時留的電話' %>
 <%= f.submit "送出", class: "btn btn-primary", onclick:"check()" %>
