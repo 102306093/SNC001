@@ -3,6 +3,7 @@
 	<h1 style="text-align:center"><b><%= @article.title%></b></h1>
 	<div style="width:70%; font-size:20px; margin:0 auto;">
 		<%= @article.content%>
+		<%= @article.introduce.html_safe%>
 	</div>
 </body>
 

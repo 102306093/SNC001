@@ -5,7 +5,7 @@
 	<hr style="height: 5px; border: 0;	box-shadow: 0 8px 8px -9px #008500 inset;">
 	<% @external_article.each do |article| %>
 		<div style="margin-bottom:50px">
-			<a href="articles/<%= article.id %>" target="_blank" style="color:black">
+			<a href="<%= article.content %>" target="_blank" style="color:black">
 				<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
 				<h3><%= article.title %></h3>
 			</a>
@@ -24,7 +24,7 @@
 	<h1 style="color:#008000"><b>我們的故事</b></h1>
 	<hr style="height: 5px; border: 0;	box-shadow: 0 8px 8px -9px #008500 inset;">
 	<% @internal_article.each do |article| %>
-		<a href="articles/<%= article.id %>" target="_blank" style="color:black">
+		<a href="<%= article_path(article) %>" target="_blank" style="color:black">
 			<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
 			<h3><%= article.title %></h3>
 		</a>

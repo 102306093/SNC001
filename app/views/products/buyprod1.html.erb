@@ -29,6 +29,8 @@
              $("div.convenienceaddress").hide();
              $("div.faceaddress").hide();
              $("div#sweet-potato").show();
+             $("input#customer_faceaddress").val(" ");
+             $("input#customer_convenienceaddress").val(" ");
          }
          else if($("input:checked").val()==="convenience"){
              $("div.homeaddress").hide();
@@ -36,12 +38,16 @@
              $("div.faceaddress").hide();
              $("div#sweet-potato").hide();
              $("input#customer_productnumber").val(0);
+             $("input#customer_faceaddress").val(" ");
+             $("input#customer_homeaddress").val(" ");
          }
          else {
              $("div.homeaddress").hide();
              $("div.convenienceaddress").hide();
              $("div.faceaddress").show();
              $("div#sweet-potato").show();
+             $("input#customer_homeaddress").val(" ");
+             $("input#customer_convenienceaddress").val(" ");
          }
          count();
          };

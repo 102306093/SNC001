@@ -1,8 +1,26 @@
+  <script>
+  $("input#save").hide();
+  function edit(){
+          CKEDITOR.replace( 'article[introduce]' );
+            $("input#save").show();
+            
+  };
+  function get(){
+   var value = CKEDITOR.instances['article_introduce'].getData();
+            console.log( value);
+            CKEDITOR.instances['article_introduce'].destroy();
+            $('input#article_introduce').val(value);
+  };
+  
+        </script>
+
 <div style="margin:70px"></div>
 
 <%= simple_form_for @article do |f|%>
 	<%= f.input :title, label:'標題' %>
 	<%= f.input :introduce, label:'介紹' %>
+	<input type="button" value="編輯" onclick="edit()" />
+	<input type="button" id="save" value="儲存" onclick="get()" />
 	<%= f.input :content, label:'網址' %>
 	<%= f.input :pic1, label:'圖片位址' %>
 	<%= f.input :owner, collection: ['we','otherone'] %>
@@ -10,3 +28,4 @@
 	
 	<%= f.submit%>
 <%end%>
+
