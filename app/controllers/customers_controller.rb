@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+	before_action :authenticate_user!, only: [:show]
     def new
         @customer = Customer.new
     end
@@ -42,6 +43,6 @@ class CustomersController < ApplicationController
     
     private
      def customer_params
-        params.require(:customer).permit(:cusname,:email,:cellphone,:address,:productname,:productnumber,:productnumber1,:productnumber2,:productnumber3)
+        params.require(:customer).permit(:cusname,:email,:cellphone,:homeaddress,:convenienceaddress,:faceaddress,:productname,:productnumber,:productnumber1,:productnumber2,:productnumber3)
      end
  end

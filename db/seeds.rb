@@ -5,7 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Product.delete_all
-Product.create! id: 1, proname: "Banana", price: 200
-Product.create! id: 2, proname: "Apple", price: 150
-Product.create! id: 3, proname: "Carton of Strawberries", price: 100
+
+User.create!( email: 'farmbridgers@gmail.com', encrypted_password: 'misfarmer' )

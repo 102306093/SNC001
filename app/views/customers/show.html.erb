@@ -4,9 +4,12 @@
 	        <BR>
 	<% @customer.each do |customer| %>
 	<BR>
-	<%= customer.cusname%>
-	<%= customer.address%>
-	<%= customer.productname%>
+	cu:<%= customer.cusname%><BR>
+	homeaddress:<%= customer.homeaddress%><BR>
+	convenienceaddress:<%= customer.convenienceaddress%><BR>
+	faceaddress:<%= customer.faceaddress%><BR>
+	cellphone:<%= customer.cellphone%><BR>
+	email:<%= customer.email%><BR>
 	P1:<%= customer.productnumber%><BR>
 	P2:<%= customer.productnumber1%><BR>
 	P3:<%= customer.productnumber2%><BR>
