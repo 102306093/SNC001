@@ -2,10 +2,11 @@
 	<BR>
 	    <BR>
 	        <BR>
+	        	<h1>匯款資料：</h1>
 	<% @payer.each do |payer| %>
 	<BR>
-	<%= payer.payeraccount%>
-	<BR><%= payer.paymentprice%>
-    <BR><%= payer.payerphone%>
+	帳號：<%= payer.payeraccount%>
+	<BR>價格：<%= payer.paymentprice%>
+    <BR>電話：<%= payer.payerphone%>
 
 		<%end%>
