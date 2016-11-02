@@ -13,8 +13,8 @@ class ArticlesController < ApplicationController
     end
     
     def index
-        @external_article=Article.where(owner: 'otherone') 
-        @internal_article=Article.where(owner: 'we') 
+        @external_article=Article.where(owner: 'otherone').order('created_at DESC')
+        @internal_article=Article.where(owner: 'we').order('created_at DESC')
     end
     
     def show

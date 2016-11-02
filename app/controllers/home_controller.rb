@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
     def index
-        @article=Article.all
+        @article = Article.all.order('created_at DESC').limit(5)
     end
 
 
