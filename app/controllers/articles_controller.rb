@@ -13,8 +13,8 @@ class ArticlesController < ApplicationController
     end
     
     def index
-        @external_article=Article.where(owner: 'otherone') 
-        @internal_article=Article.where(owner: 'we') 
+        @external_article=Article.where(owner: '外界') 
+        @internal_article=Article.where(owner: '小農橋') 
         @article=Article.all
     end
     
