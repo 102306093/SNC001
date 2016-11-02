@@ -38,7 +38,7 @@ class CustomersController < ApplicationController
 	def destroy
 		@customer=Customer.find(params[:id])
 		@customer.destroy
-		redirect_to root_path
+		redirect_to customer_show_path
 	end
     
     private
