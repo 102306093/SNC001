@@ -12,7 +12,7 @@ end
     def create
 		@payer = Payer.new(payer_params)
 		if @payer.save
-			redirect_to new_payer_path
+			redirect_to root_path
 		else
 			render :new
 		end
