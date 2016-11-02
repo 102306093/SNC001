@@ -2,6 +2,11 @@ class PayersController < ApplicationController
     before_action :authenticate_user!, only: [:show]
     def new
         @payer = Payer.new
+        @customer= Customer.all
+    if params[:search]
+    @customer = Customer.where('cellphone = ?', "#{params[:search]}" )
+    
+end
     end
     
     def create
@@ -14,6 +19,7 @@ class PayersController < ApplicationController
     end
     def show
         	@payer = Payer.all
+        	
     end
     private
      def payer_params
