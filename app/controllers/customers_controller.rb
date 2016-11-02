@@ -38,11 +38,11 @@ class CustomersController < ApplicationController
 	def destroy
 		@customer=Customer.find(params[:id])
 		@customer.destroy
-		redirect_to root_path
+		redirect_to customer_show_path
 	end
     
     private
      def customer_params
-        params.require(:customer).permit(:cusname,:email,:cellphone,:homeaddress,:convenienceaddress,:faceaddress,:productname,:productnumber,:productnumber1,:productnumber2,:productnumber3)
+        params.require(:customer).permit(:cusname,:cusid, :email,:cellphone,:homeaddress,:convenienceaddress,:faceaddress,:productname,:productnumber,:productnumber1,:productnumber2,:productnumber3)
      end
  end

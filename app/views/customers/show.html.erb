@@ -14,4 +14,6 @@
 	P2:<%= customer.productnumber1%><BR>
 	P3:<%= customer.productnumber2%><BR>
 	P4:<%= customer.productnumber3%>
+	<%= button_to "delete", {:controller => :customers,
+      :action => 'destroy', :id => customer.id }, :method => :delete %>
 		<%end%>
