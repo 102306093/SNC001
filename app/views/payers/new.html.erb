@@ -5,14 +5,17 @@
          <script>
          $(document).ready(function(){
               $("input#search").val(window.sessionStorage["search"]);
+              
             if($("span.detectcus").length >= 2&&$("input#search").val()==""){
                 $("div.customer").hide();
+                
             }
              else{$("div.customer").show();
+             window.sessionStorage["search"]="";
              }
              });
              function check(){
-                 alert("感謝你的購買，歡迎你下次光臨")
+                 alert("感謝你的購買，歡迎你下次光臨");
              }
              function savekey(){
                  window.sessionStorage["search"]=$("input#search").val();
@@ -43,7 +46,7 @@
   <% @customer.each do |c| %>
 	<BR>
 帳號：<span class="detectcus"><%= c.cellphone%></span>
-	<BR>價格：<%= c.cusid%>
+	<BR>價格：<%= c.price%>
 	<BR>冰心地瓜數量：<%= c.productnumber%>
 	<BR>玉米好棒棒數量：<%= c.productnumber1%>
 	<BR>樂樂雞蛋捲數量：<%= c.productnumber2%>
