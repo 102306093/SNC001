@@ -43,6 +43,6 @@ class CustomersController < ApplicationController
     
     private
      def customer_params
-        params.require(:customer).permit(:cusname,:cusid, :email,:cellphone,:homeaddress,:convenienceaddress,:faceaddress,:productname,:productnumber,:productnumber1,:productnumber2,:productnumber3)
+        params.require(:customer).permit(:cusname,:price, :email,:cellphone,:homeaddress,:convenienceaddress,:faceaddress,:productname,:productnumber,:productnumber1,:productnumber2,:productnumber3)
      end
  end

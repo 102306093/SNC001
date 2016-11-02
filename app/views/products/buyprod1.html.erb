@@ -134,7 +134,7 @@
 　 　　		$("span.SP-totalprice").text(SPprice);
 　 　　		$("span.totalprice").text(Normalprice);
 　 　　		$("span.price").text(totalprice);
-　 　　		$("input#customer_cusid").val(totalprice);
+　 　　		$("input#customer_price").val(totalprice);
 　 　　	}
 　 　　	
 　　    </script>
@@ -187,7 +187,7 @@
        </div>        
 
        <div class="hideprice">
-           <%= f.input :cusid, label:'   ' %>
+           <%= f.input :price, label:'   ' %>
        </div>
         <div style="font-size:20px">
             <BR><b>總價格<span class="price" style="font-size:40px; color:red; margin:0 5px 0 10px">0</span>元</b>
