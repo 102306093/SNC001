@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
     def index
         @external_article=Article.where(owner: 'otherone') 
         @internal_article=Article.where(owner: 'we') 
+        @article=Article.all
     end
     
     def show

@@ -1,5 +1,25 @@
+<head>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+	<style>
+		.for_computer{
+			display:block;
+		}
+		.for_mobile{
+			display:none;
+		}
+		 @media screen and (max-width: 430px){
+		 	.for_computer{
+		 		display:none;
+		 	}
+		 	.for_mobile{
+		 		display:block;
+		 	}
+		 }
+	</style>
+</head>
+<body>
 <div style="margin:70px"></div>
-
+<div class="for_computer">
 <div class="col-md-6 col-sm-12" style="font-family:Microsoft Jhenghei;">
 	<h1 style="color:#008000"><b>別人的故事</b></h1>
 	<hr style="height: 5px; border: 0;	box-shadow: 0 8px 8px -9px #008500 inset;">
@@ -39,3 +59,24 @@
 		</div>
 	<% end %>
 </div>
+</div>
+
+<div class="for_mobile">
+	<% @article.each do |article| %>
+		<div style="margin-bottom:50px">
+			<a href="<%= article.content %>" target="_blank" style="color:black">
+				<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
+				<h3><%= article.title %></h3>
+			</a>
+			<div style="float:right">
+				<button class="btn btn-success hashtag">外界</button>
+				<button class="btn btn-info hashtag">
+					<%= article.hashtag%>	
+				</button>
+				|
+				<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
+			</div>		
+		</div>
+	<% end %>
+</div>
+</body>
