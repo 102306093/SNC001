@@ -21,6 +21,11 @@ end
         	@payer = Payer.all
         	
     end
+    def destroy
+		@payer=Payer.find(params[:id])
+		@payer.destroy
+	
+	end
     private
      def payer_params
         params.require(:payer).permit(:payeraccount,:paymentprice,:payerphone)

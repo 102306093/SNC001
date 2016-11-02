@@ -155,9 +155,9 @@
         <input type="radio" name="trans" class="tran" value="convenience" onclick="tran()">超商
         <input type="radio" name="trans" class="tran" value="face" onclick="tran()">面交
     <div class="homeaddress"><%= f.input :homeaddress, label:'宅配資訊', placeholder:'宅配地址', size:'32' %></div>
-    <div class="convenienceaddress"><%= f.input :convenienceaddress, label:'便利商店配資訊', placeholder:'門市編號', hint:'點擊右方按鈕可查詢門市編號', size:'32' %>
+    <div class="convenienceaddress"><%= f.input :convenienceaddress, label:'便利商店配資訊', placeholder:'門市店號', hint:'點擊右方按鈕可查詢門市店號', size:'32' %>
     <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://emap.pcsc.com.tw/emap.aspx')">711</a></div>
-    <div class="faceaddress"><%= f.input :faceaddress, label:'面交資訊', placeholder:'面交地點(限政治大學,10:00-20:00)', size:'32' %></div>
+    <div class="faceaddress"><%= f.input :faceaddress, label:'面交資訊', placeholder:'面交地點(限政治大學，時間會再聯絡確認)', size:'32' %></div>
         
       
 </div>
