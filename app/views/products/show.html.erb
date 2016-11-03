@@ -2,14 +2,22 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
 <script>
+ $(document).ready(function(){
+ 
+   $("div.social-share-button").attr("data-url",document.URL)
+ });
     function slidedown(){
      $('html, body, img').scrollTop($("img").height()+490);
     }
+   
 </script>
 
 </head>
 <body>
     <div style="margin-top:70px">
 	<%= @product.introduce.html_safe %>
+</div>
+　<div style="text-align:center">
+<%= social_share_button_tag(@product.proname, :url => "https://farmbridger.herokuapp.com/products") %>
 </div>
 </body>

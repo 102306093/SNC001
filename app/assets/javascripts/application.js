@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require home
-
+//= require social-share-button
 
 

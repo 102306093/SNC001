@@ -2,19 +2,48 @@
 	<BR>
 	    <BR>
 	        <BR>
+	        	　<table>
 	<% @customer.each do |customer| %>
-	<BR>
-	cu:<%= customer.cusname%><BR>
-	homeaddress:<%= customer.homeaddress%><BR>
-	convenienceaddress:<%= customer.convenienceaddress%><BR>
-	faceaddress:<%= customer.faceaddress%><BR>
-	cellphone:<%= customer.cellphone%><BR>
-	email:<%= customer.email%><BR>
-	P1:<%= customer.productnumber%><BR>
-	P2:<%= customer.productnumber1%><BR>
-	P3:<%= customer.productnumber2%><BR>
-	P4:<%= customer.productnumber3%>
-	Price:<%= customer.price%>
+    <tr>
+	  <td>cu:</td><td><%= customer.cusname%></td>
+	</tr>
+	<tr>
+	  <td>homeaddress:</td><td><%= customer.homeaddress%></td>
+	</tr>
+	<tr>
+	  <td>convenienceaddress:</td><td><%= customer.convenienceaddress%></td>
+	</tr>
+	<tr>
+	  <td>faceaddress:</td><td><%= customer.faceaddress%></td>
+	</tr>
+	<tr>
+	  <td>cellphone:</td><td><%= customer.cellphone%></td>
+	</tr>
+	<tr>
+	  <td>email:</td><td><%= customer.email%></td>
+	</tr>
+	<tr>
+	  <td>P1:</td><td><%= customer.productnumber%></td>
+	</tr>
+	<tr>
+	  <td>P2:</td><td><%= customer.productnumber1%></td>
+	</tr>
+	<tr>
+	  <td>P3:</td><td><%= customer.productnumber2%></td>
+	</tr>
+	<tr>
+	  <td>P4:</td><td><%= customer.productnumber3%></td>
+	</tr>
+	<tr>
+	  <td>Price:</td><td><%= customer.price%></td>
+	</tr>
+	<tr>
+		<td>
 	<%= button_to "delete", {:controller => :customers,
       :action => 'destroy', :id => customer.id }, :method => :delete %>
+      </td>
+	</tr>
+	
 		<%end%>
+		
+		</table>
