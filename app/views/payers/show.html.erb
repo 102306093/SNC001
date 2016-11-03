@@ -8,5 +8,7 @@
 	帳號：<%= payer.payeraccount%>
 	<BR>價格：<%= payer.paymentprice%>
     <BR>電話：<%= payer.payerphone%>
-
+    <BR>
+	<%= button_to "delete", {:controller => :payers,
+      :action => 'destroy', :id => payer.id }, :method => :delete %>
 		<%end%>
