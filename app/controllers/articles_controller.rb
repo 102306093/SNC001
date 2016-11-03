@@ -14,8 +14,9 @@ class ArticlesController < ApplicationController
     end
     
     def index
-        @external_article=Article.where(owner: 'otherone').order('created_at DESC')
-        @internal_article=Article.where(owner: 'we').order('created_at DESC')
+        @external_article=Article.where(owner: '外界').order('created_at DESC')
+        @internal_article=Article.where(owner: '小農橋').order('created_at DESC')
+        @article=Article.all
     end
     
     def show
