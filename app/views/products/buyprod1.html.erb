@@ -155,9 +155,9 @@
         <input type="radio" name="trans" class="tran" value="convenience" onclick="tran()">超商
         <input type="radio" name="trans" class="tran" value="face" onclick="tran()">面交
     <div class="homeaddress"><%= f.input :homeaddress, label:'宅配資訊', placeholder:'宅配地址', size:'32' %></div>
-    <div class="convenienceaddress"><%= f.input :convenienceaddress, label:'便利商店配資訊', placeholder:'門市店號', hint:'點擊右方按鈕可查詢門市店號', size:'32' %>
+    <div class="convenienceaddress"><%= f.input :convenienceaddress, label:'便利商店配資訊', placeholder:'門市編號', hint:'點擊右方按鈕可查詢門市編號', size:'32' %>
     <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://emap.pcsc.com.tw/emap.aspx')">711</a></div>
-    <div class="faceaddress"><%= f.input :faceaddress, label:'面交資訊', placeholder:'面交地點(限政治大學，時間會再聯絡確認)', size:'32' %></div>
+    <div class="faceaddress"><%= f.input :faceaddress, label:'面交資訊', placeholder:'面交地點(限政治大學,10:00-20:00)', size:'32' %></div>
         
       
 </div>
@@ -167,7 +167,7 @@
    
     <div id="sweet-potato">
 
-        <h3 style="display:inline; margin-right:15px"><b>低溫專區</b></h3>低溫運費<span class="SP-tran-price" style=" margin:0 5px 0 10px; margin-top:10px">150</span>元</br>
+        <h3 style="display:inline; margin-right:15px"><b>低溫專區</b></h3>低溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">150</span>元</br>
         <span style="font-size:18px"><%= link_to "冰心地瓜", "1",  rel: "nofollow" %></span>
         <%= f.input :productnumber, label:'50元/包', :input_html => {class:'quantity', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <div style="font-size:15px">
@@ -175,7 +175,7 @@
         </div>        
     </div>
     <div style="margin-top:30px">
-        <h3 style="display:inline; margin-right:15px"><b>常溫專區</b></h3>常溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">60</span>元</br>
+        <h3 style="display:inline; margin-right:15px"><b>常溫專區</b></h3>常溫運費<span class="SP-tran-price" style=" margin:0 5px 0 10px; margin-top:10px">60</span>元</br>
         <span style="font-size:18px"><%= link_to "玉米好棒棒", "2", rel: "nofollow" %></span>
         <%= f.input :productnumber1, label:'120元/包', :input_html => {class:'quantity1', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <span style="font-size:18px"><%= link_to "樂樂雞蛋捲", "3", rel: "nofollow" %></span>
