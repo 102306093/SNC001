@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
 	before_action :authenticate_user!, only: [:show]
+
     def new
         @customer = Customer.new
     end
@@ -11,6 +12,7 @@ class CustomersController < ApplicationController
 		else
 			render :new
 		end
+
     end
     
     def index
