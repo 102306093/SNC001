@@ -24,7 +24,7 @@ before_action :authenticate_user!, only: [:new]
     
     def index
         @product=Product.all
-        set_page_title '故事清單'
+        set_page_title '產品與故事列表'
     end
     
     def show

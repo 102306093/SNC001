@@ -17,10 +17,13 @@ class ArticlesController < ApplicationController
         @external_article=Article.where(owner: '外界').order('created_at DESC')
         @internal_article=Article.where(owner: '小農橋').order('created_at DESC')
         @article=Article.all
+        set_page_title '文章列表'
     end
     
     def show
         @article=Article.find(params[:id])
+        set_page_title @article.title
+        set_page_description @article.seodescription
     end
     
     def edit

@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
     def index
         @article = Article.all.order('created_at DESC').limit(5)
+        set_page_title '首頁'
     end
     def aboutus
         set_page_title '關於我們'
