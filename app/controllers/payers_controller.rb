@@ -1,6 +1,8 @@
 class PayersController < ApplicationController
     before_action :authenticate_user!, only: [:show]
     def new
+        set_page_title '匯款確認'
+        
         @payer = Payer.new
         @customer= Customer.all
     if params[:search]

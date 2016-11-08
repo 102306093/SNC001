@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
 before_action :authenticate_user!, only: [:new]
 	def finish
+		
+		set_page_title '購買確認'
+		
     end
     def new
         @product = Product.new
@@ -16,15 +19,18 @@ before_action :authenticate_user!, only: [:new]
     
     def buyprod1
       @customer = Customer.new
+      set_page_title '購買表單'
     end
     
     def index
         @product=Product.all
- 
+        set_page_title '故事清單'
     end
     
     def show
         @product=Product.find(params[:id])
+        set_page_title @product.proname
+        set_page_description @product.seodescription
     end
     
     def edit

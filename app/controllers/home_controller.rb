@@ -2,7 +2,15 @@ class HomeController < ApplicationController
     def index
         @article = Article.all.order('created_at DESC').limit(5)
     end
-
+    def aboutus
+        set_page_title '關於我們'
+    end
+    def policy
+        set_page_title '隱私權條款'
+    end
+    def shipping
+        set_page_title '金物流政策'
+    end
 
     def pay
         @payer = Payer.new
