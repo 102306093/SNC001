@@ -129,8 +129,22 @@ tr {
 }
 .social-share-button .ssb-icon
    {
-background-size: 54px 54px;
-    height: 54px;
-    width: 54px;
-  
+    background-size: 34px 34px;
+    height: 34px;
+    width: 34px;
+}
+
+.navbar li{
+    width:150px;
+    &:hover{
+        background:#e7e7e7;
+    }
+}
+
+.navbar li a{
+    font-weight:normal;
+    -webkit-transition: font-size .2s ease;
+    &:hover{
+      font-size:110%;
+    }
 }
