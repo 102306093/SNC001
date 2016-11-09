@@ -1,0 +1,22 @@
+<h1>親愛的&nbsp;&nbsp;<%= @comment.cusname %>，我們誠摯感謝您的支持</h1>
+<h3>購買明細</h3>
+<p>
+  <a href="http://farmbridger.herokuapp.com/products/1">冰心地瓜</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<%= @comment.productnumber %>個<BR>
+  <a href="http://farmbridger.herokuapp.com/products/2">玉米好棒棒</a>&nbsp;&nbsp;&nbsp;&nbsp;:<%= @comment.productnumber1 %>個<BR>
+  <a href="http://farmbridger.herokuapp.com/products/3">樂樂雞蛋捲</a>&nbsp;&nbsp;&nbsp;&nbsp;:<%= @comment.productnumber2 %>個<BR>
+  <a href="http://farmbridger.herokuapp.com/products/4">阿公香水檸檬</a>:<%= @comment.productnumber3 %>個<BR>
+</p>
+<p>
+  總價格 : <%= @comment.price %>
+</p>
+
+<p>
+  如您運送方式選擇宅配與超商，<BR>
+  請匯款至<span style="color:green;">玉山銀行（代碼808） 0691-979-068422 劉奕為</span><BR>
+  並請務必在匯款後<a href="http://farmbridger.herokuapp.com/payers/new">點此</a>輸入您的匯款資料，<BR>
+  我們將在確認後盡速出貨，謝謝。　
+</p>
+
+<p>
+  小農橋團隊&nbsp;&nbsp;&nbsp;&nbsp;全體敬上
+    </p>
