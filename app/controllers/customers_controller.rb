@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
 		@customer = Customer.new(customer_params)
 		if @customer.save
 			redirect_to products_finish_path
-			UserMailer.notify_comment(@customer, @customer).deliver_later!
+			#UserMailer.notify_comment(@customer, @customer).deliver_later!
 		else
 			render :new
 		end
