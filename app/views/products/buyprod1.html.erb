@@ -168,7 +168,7 @@
     <div id="sweet-potato">
 
         <h3 style="display:inline; margin-right:15px"><b>低溫專區</b></h3>低溫運費<span class="SP-tran-price" style=" margin:0 5px 0 10px; margin-top:10px">150</span>元</br>
-        <span style="font-size:18px"><%= link_to "冰心地瓜", "1",  rel: "nofollow" %></span>
+        <span style="font-size:18px"><%= link_to "冰心地瓜", "1",  rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '地瓜', '地瓜')"%></span>
         <%= f.input :productnumber, label:'50元/包', :input_html => {class:'quantity', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <div style="font-size:15px">
             <b>低溫品總價格<span class="SP-totalprice" style="font-size:20px; margin:0 5px 0 10px; margin-top:10px; color:red">0</span>元</b>
@@ -176,11 +176,11 @@
     </div>
     <div style="margin-top:30px">
         <h3 style="display:inline; margin-right:15px"><b>常溫專區</b></h3>常溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">80</span>元</br>
-        <span style="font-size:18px"><%= link_to "玉米好棒棒", "2", rel: "nofollow" %></span>
+        <span style="font-size:18px"><%= link_to "玉米好棒棒", "2", rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '玉米棒', '玉米棒')" %></span>
         <%= f.input :productnumber1, label:'120元/包', :input_html => {class:'quantity1', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
-        <span style="font-size:18px"><%= link_to "樂樂雞蛋捲", "3", rel: "nofollow" %></span>
+        <span style="font-size:18px"><%= link_to "樂樂雞蛋捲", "3", rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '雞蛋捲', '雞蛋捲')"%></span>
         <%= f.input :productnumber2, label:'150元/盒', :input_html => {class:'quantity2', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
-        <span style="font-size:18px"><%= link_to "阿公的香水檸檬", "4", rel: "nofollow" %></span>
+        <span style="font-size:18px"><%= link_to "阿公的香水檸檬", "4", rel: "nofollow",:onclick => "ga('send', 'event', '感興趣', '香水檸檬', '香水檸檬')" %></span>
         <%= f.input :productnumber3, label:'158元/包', :input_html => {class:'quantity3', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <div style="font-size:15px">
             <b>常溫品總價格<span class="totalprice" style="font-size:20px; margin:0 5px 0 10px; margin-top:10px; color:red">0</span>元</b>

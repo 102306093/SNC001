@@ -29,7 +29,7 @@
     <div class="col-md-8" style="background-color:rgba(255, 204, 128,0.3); padding-left:30px; padding-top:20px; border-radius:15px">
         <h1>請填入匯款資料：</h1>
         <%= simple_form_for @payer do |f|%>
-            <%= f.input :payeraccount,  label:'請輸入帳號後五碼或匯款名稱', maxlength:"5" %>
+            <%= f.input :payeraccount,  label:'請輸入帳號後五碼或匯款名稱', maxlength:"8" %>
             <%= f.input :paymentprice,  label:'請輸入付款金額（不含手續費）' %>
             <%= f.input :payerphone,  label:'請輸入訂購時留的電話' %>
             <%= f.submit "送出匯款資料", class: "btn btn-primary", onclick:"check()" %>
