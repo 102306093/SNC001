@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	before_action :authenticate_user!, only: [:new]
+	before_action :authenticate_user!, only: [:new,:edit,:destroy]
     def new
         @article = Article.new
     end
