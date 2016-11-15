@@ -75,7 +75,7 @@
 　 　　	function count(){
 　 　　	    
 　 　　	    $("span.SP-tran-price").text("150");
-　 　　	    $("span.tran-price").text("60");
+　 　　	    $("span.tran-price").text("80");
 　 　　	  
 　 　　		var quantity=$("input.quantity").val();
 　 　　		var quantity1=$("input.quantity1").val();
@@ -109,10 +109,10 @@
 　 　　	
 　 　　		if(quantity1>0||quantity2>0||quantity3>0){
 　 　　		   
-　 　　		    Normalprice=120*quantity1+150*quantity2+158*quantity3+60;
+　 　　		    Normalprice=120*quantity1+150*quantity2+158*quantity3+80;
 　 　　		}
-　 　　		if(Normalprice-60>=500||$("input:checked").val()==="face"){
-　 　　		    Normalprice-=60
+　 　　		if(Normalprice-80>=500||$("input:checked").val()==="face"){
+　 　　		    Normalprice-=80
 　 　　		    $("span.tran-price").text("0");
 　 　　		}
 　 　　		
@@ -147,7 +147,7 @@
 <div style="margin-bottom:20px">
     <h1 style="color:#008000"><b>顧客資料</b></h1>
     <%= simple_form_for @customer do |f|%>
-        <%= f.input :cusname, class: 'cusname', label:'名稱', placeholder:'請輸入姓名' %>
+        <%= f.input :cusname, class: 'cusname',label:'名稱', placeholder:'請輸入姓名' %>
         <%= f.input :email, class: 'email', label:'電子信箱', placeholder:'example@mail.com' %>
         <%= f.input :cellphone, class: 'cellphone', label:'連絡電話',maxlength:"10", placeholder:'09xxxxxxxx' %>
         
@@ -175,7 +175,7 @@
         </div>        
     </div>
     <div style="margin-top:30px">
-        <h3 style="display:inline; margin-right:15px"><b>常溫專區</b></h3>常溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">60</span>元</br>
+        <h3 style="display:inline; margin-right:15px"><b>常溫專區</b></h3>常溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">80</span>元</br>
         <span style="font-size:18px"><%= link_to "玉米好棒棒", "2", rel: "nofollow" %></span>
         <%= f.input :productnumber1, label:'120元/包', :input_html => {class:'quantity1', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <span style="font-size:18px"><%= link_to "樂樂雞蛋捲", "3", rel: "nofollow" %></span>

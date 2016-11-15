@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-	before_action :authenticate_user!, only: [:show]
+	before_action :authenticate_user!, only: [:show,:edit,:destroy]
 
     def new
         @customer = Customer.new
@@ -7,11 +7,13 @@ class CustomersController < ApplicationController
     
     def create
 		@customer = Customer.new(customer_params)
-		if @customer.save
+		
+		 if @customer.save
 			redirect_to products_finish_path
 			#UserMailer.notify_comment(@customer, @customer).deliver_later!
 		else
 			render :new
+		 
 		end
 
     end
