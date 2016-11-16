@@ -1,0 +1,127 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/</loc>
+
+      <changefreq>weekly</changefreq>
+
+      <priority>0.8</priority>
+
+   </url>
+
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/products</loc>
+
+      <changefreq>weekly</changefreq>
+      
+      <priority>0.7</priority>
+
+   </url>
+
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/products/1</loc>
+
+      <changefreq>weekly</changefreq>
+      
+      <priority>0.6</priority>
+
+   </url>
+
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/products/2</loc>
+
+      <changefreq>weekly</changefreq>
+      
+      <priority>0.6</priority>
+
+   </url>
+
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/products/2</loc>
+
+      <changefreq>weekly</changefreq>
+      
+      <priority>0.6</priority>
+
+   </url>
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/products/3</loc>
+
+      <changefreq>weekly</changefreq>
+      
+      <priority>0.6</priority>
+
+   </url>
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/products/4</loc>
+
+      <changefreq>weekly</changefreq>
+      
+      <priority>0.6</priority>
+
+   </url>
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/products/buyprod1</loc>
+
+      <changefreq>weekly</changefreq>
+      
+      <priority>0.5</priority>
+
+   </url>
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/articles</loc>
+
+      <changefreq>weekly</changefreq>
+      
+      <priority>0.4</priority>
+
+   </url>
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/payers/new</loc>
+
+      <changefreq>weekly</changefreq>
+      
+      <priority>0.5</priority>
+
+   </url>
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/home/aboutus</loc>
+
+      <changefreq>monthly</changefreq>
+      
+      <priority>0.3</priority>
+
+   </url>
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/home/policy</loc>
+
+      <changefreq>monthly</changefreq>
+      
+      <priority>0.2</priority>
+
+   </url>
+   <url>
+
+      <loc>https://farmbridger.herokuapp.com/home/shipping</loc>
+
+      <changefreq>monthly</changefreq>
+      
+      <priority>0.2</priority>
+
+   </url>
+</urlset>
