@@ -7,16 +7,16 @@
  
    $("div.social-share-button").attr("data-url",document.URL)
  });
-    function slidedown(){
-     $('html, body, img').scrollTop($("img").height()+490);
+  /*  function slidedown(){
+     $('html, body, input').scrollTop($("#buy").height());
     }
-   
+   */
 </script>
 
 </head>
 <body class="main">
 <div class="col-md-2"></div>
-<div class="col-md-8" style="margin-top:70px">
+<div class="col-md-8" style="margin-top:60px">
  <div class="content">
   <%= @product.introduce.html_safe %>
  </div>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'home/policy'
   get 'home/transfer'
   get 'home/shipping'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

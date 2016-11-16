@@ -16,6 +16,14 @@
 		 	}
 		 }
 	</style>
+	<script>
+		function selecthashtag(){
+			var hashtag=$("button.btn btn-info hashtag").html("YA");
+			console.log("YA");
+			
+		}
+		
+	</script>
 </head>
 <body>
 <div style="margin:70px"></div>
@@ -45,17 +53,19 @@
 	<h1 style="color:#008000"><b>我們的故事</b></h1>
 	<hr style="height: 5px; border: 0;	box-shadow: 0 8px 8px -9px #008500 inset;">
 	<% @internal_article.each do |article| %>
-		<a href="<%= article_path(article) %>" style="color:black">
-			<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
-			<h3><%= article.title %></h3>
-		</a>
-		<div style="float:right">
-			<button class="btn btn-success hashtag"><%= article.owner %></button>
-			<button class="btn btn-info hashtag">
-				<%= article.hashtag%>	
-			</button>
-			|
-			<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
+		<div style="margin-bottom:50px;">
+			<a href="<%= article_path(article) %>" style="color:black">
+				<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
+				<h3><%= article.title %></h3>
+			</a>
+			<div style="float:right">
+				<button class="btn btn-success hashtag"><%= article.owner %></button>
+				<button class="btn btn-info hashtag" onclick="selecthashtag()">
+					<%= article.hashtag%>	
+				</button>
+				|
+				<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
+			</div>
 		</div>
 	<% end %>
 </div>
@@ -70,7 +80,7 @@
 			</a>
 			<div style="float:right">
 				<button class="btn btn-success hashtag">外界</button>
-				<button class="btn btn-info hashtag">
+				<button class="btn btn-info hashtag" >
 					<%= article.hashtag%>	
 				</button>
 				|
