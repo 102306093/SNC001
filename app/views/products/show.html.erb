@@ -7,8 +7,20 @@
  
    $("div.social-share-button").attr("data-url",document.URL)
  });
+
+
  function slidedown(){
   $('html, body, img').scrollTop($("img").height
+
+ 
+   $(function(){
+		    $("#hint").click(function(){
+  					$('html, body').animate({
+  						scrollTop: $('#buy').offset().top
+  					}, 800 );
+	     });			
+		});
+   
 </script>
 
 </head>
