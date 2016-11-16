@@ -27,6 +27,14 @@ div.content{
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3)
 }
 
+div#hint{
+    cursor: pointer;
+    &:hover{
+        color:white;
+        background-color:brown;
+    }
+}
+
 .container-fluid{
     background-color:ghostwhite;
     border-bottom: 1.5px solid #e7e7e7;

@@ -7,6 +7,15 @@
  
    $("div.social-share-button").attr("data-url",document.URL)
  });
+ 
+   $(function(){
+		    $("#hint").click(function(){
+  					$('html, body').animate({
+  						scrollTop: $('#buy').offset().top
+  					}, 800 );
+	     });			
+		});
+   
   /*  function slidedown(){
      $('html, body, input').scrollTop($("#buy").height());
     }
