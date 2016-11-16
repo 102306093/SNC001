@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse navbar-collapse-center" id="myNavbar">
       <ul class="nav navbar-nav navbar-center">
         <li><%= link_to "故事基地", root_path, id: "root" %></li>
-        <li><%= link_to "找故事", products_path, id: "products" %></li>
+        <li><%= link_to "商品與故事", products_path, id: "products" %></li>
         <li><%= link_to "故事的背後", articles_path, id: "articles" %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">瑣事<span class="caret"></span></a>
@@ -41,24 +41,3 @@
   </div>
 </nav>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-  $("#root").hover(
-    function(){
-      $(this).html("回首頁");
-    },function(){
-      $(this).html("故事基地");
-    });
-  $("#products").hover(
-    function(){
-      $(this).html("商品");
-    },function(){
-      $(this).html("找故事");
-    });
-  $("#articles").hover(
-    function(){
-      $(this).html("文章列表");
-    },function(){
-      $(this).html("故事的背後");
-    });
-</script>

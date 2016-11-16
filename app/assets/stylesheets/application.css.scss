@@ -18,6 +18,27 @@
 @import "bootstrap";
 @import "social-share-button";
 
+#products{
+    color: rgba(117, 0, 0,0.8);   
+    font-weight: bold;
+}
+body.main{
+    background-color:rgba(255, 204, 128,0.3);
+}
+
+div.content{
+    background-color:white; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3)
+}
+
+div#hint{
+    cursor: pointer;
+    &:hover{
+        color:white;
+        background-color:brown;
+    }
+}
+
 .container-fluid{
     background-color:ghostwhite;
     border-bottom: 1.5px solid #e7e7e7;

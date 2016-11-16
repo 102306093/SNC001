@@ -23,10 +23,10 @@
      </script>
 </head>
 
-<body style="font-family:Microsoft JhengHei;">
+<body class="main" style="font-family:Microsoft JhengHei;">
     <div style="margin-top:60px"></div>
     <div class="col-md-2"></div>
-    <div class="col-md-8" style="background-color:rgba(255, 204, 128,0.3); padding-left:30px; padding-top:20px; border-radius:15px">
+    <div class="col-md-8 content" style=" padding-left:30px; padding-top:20px;">
         <h1>請填入匯款資料：</h1>
         <%= simple_form_for @payer do |f|%>
             <%= f.input :payeraccount,  label:'請輸入帳號後五碼或匯款名稱', maxlength:"8" %>
@@ -41,7 +41,8 @@
             <%= text_field_tag :search, params[:search],value: " ", placeholder: "請輸入電話號碼" %>
             <%= submit_tag "搜尋您的訂單", class:"btn btn-info", onclick:"savekey()" %>
         <% end %>
-        
+        <BR>
+        <BR>
         <div class="customer">
           <% @customer.each do |c| %>
         	<BR>
