@@ -7,19 +7,15 @@
  
    $("div.social-share-button").attr("data-url",document.URL)
  });
-  /*  function slidedown(){
-     $('html, body, input').scrollTop($("#buy").height());
-    }
-   */
+ function slidedown(){
+  $('html, body, img').scrollTop($("img").height
 </script>
 
 </head>
 <body class="main">
-<div class="col-md-2"></div>
-<div class="col-md-8" style="margin-top:60px">
- <div class="content">
-  <%= @product.introduce.html_safe %>
- </div>
+ <div class="col-md-2"></div>
+ <div class="col-md-8" style="margin-top:70px">
+ <%= @product.introduce.html_safe %>
  <div style="text-align:center; margin-top:10px">
   <%= social_share_button_tag(@product.proname, :url => "https://farmbridger.herokuapp.com/products") %>
  </div>
