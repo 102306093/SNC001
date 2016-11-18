@@ -22,6 +22,11 @@
     color: rgba(117, 0, 0,0.8);   
     font-weight: bold;
 }
+
+body{
+    font-family:Microsoft JhengHei;
+}
+
 body.main{
     background-color:rgba(255, 204, 128,0.3);
 }
@@ -144,7 +149,7 @@ tr {
 
 .navbar-nav li{
     color:#810;
-    font-size:20px;
+    font-size:16px;
     font-family:Microsoft JhengHei;
     font-weight:bold;
 }
@@ -168,4 +173,35 @@ tr {
     &:hover{
       font-size:110%;
     }
+}
+
+div.tabs{
+	display:inline-block;
+	border:2px solid #00C2C2; 
+ 	text-align:center;
+	margin:-2px; 
+	padding:5px; 
+	color:#00C2C2;
+	font-size:medium;
+	width:35%;
+	cursor:pointer;
+	font-weight:bold;
+    -webkit-transition: all .3s ease;
+
+
+}
+
+div.tabs.active{
+    color:white;
+    background-color:#00C2C2;
+    -webkit-transition: all .3s ease;
+    
+}
+
+div.tab{
+    display:none;
+}
+
+div.tab.active{
+    display:block;
 }

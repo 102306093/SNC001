@@ -1,32 +1,97 @@
 <head>
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-	<style>
-		.for_computer{
-			display:block;
-		}
-		.for_mobile{
-			display:none;
-		}
-		 @media screen and (max-width: 430px){
-		 	.for_computer{
-		 		display:none;
-		 	}
-		 	.for_mobile{
-		 		display:block;
-		 	}
-		 }
-	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 		function selecthashtag(){
 			var hashtag=$("button.btn btn-info hashtag").html("YA");
 			console.log("YA");
-			
 		}
 		
+		$(function(){
+			$("div.tabs1").click(function(){
+				$(this).addClass("active")
+				$("div.tabs2").removeClass("active");
+				$("#tab1").fadeIn();
+				$("#tab2").hide();
+			});
+			$("div.tabs2").click(function(){
+				$(this).addClass("active")
+				$("div.tabs1").removeClass("active");
+				$("#tab2").fadeIn();
+				$("#tab1").hide();
+			});
+			
+			$("div.tabs").hover(function(){
+				$(this).css({
+					color:'white',
+					backgroundColor:'#00C2C2'
+				}).siblings().css({
+					color:'#00C2C2',
+					backgroundColor:'transparent'
+				});
+			},function(){
+				$("div.tabs").css({
+					color:'#00C2C2',
+					backgroundColor:'transparent'
+				});
+				$("div.tabs.active").css({
+					color:'white',
+					backgroundColor:'#00C2C2'
+				});
+			});
+		});
 	</script>
 </head>
 <body>
 <div style="margin:70px"></div>
+
+<div style="text-align:center; height:50px">
+	<div class="tabs tabs1 active" style="border-radius:10px 0 0 10px; border-right:1px">別人的故事</div>
+	<div class="tabs tabs2" style="border-radius:0 10px 10px 0; border-left:1px">我們的故事</div>
+</div>
+<div class="col-md-3 col-ms-0"></div>
+<div class="col-md-6 col-ms-12 tab_content">
+	<div id="tab1" class="tab active">
+		<% @external_article.each do |article| %>
+			<div style="margin-bottom:50px">
+				<a href="<%= article.content %>" target="_blank" style="color:black">
+					<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
+					<h3><%= article.title %></h3>
+				</a>
+				<div style="float:right">
+					<button class="btn btn-success hashtag"><%= article.owner %></button>
+					<button class="btn btn-info hashtag">
+						<%= article.hashtag%>	
+					</button>
+					|
+					<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
+				</div>		
+			</div>
+		<% end %>
+	</div>
+	<div id="tab2" class="tab">
+		<% @internal_article.each do |article| %>
+			<div style="margin-bottom:50px;">
+				<a href="<%= article_path(article) %>" style="color:black">
+					<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
+					<h3><%= article.title %></h3>
+				</a>
+				<div style="float:right">
+					<button class="btn btn-success hashtag"><%= article.owner %></button>
+					<button class="btn btn-info hashtag" onclick="selecthashtag()">
+						<%= article.hashtag%>	
+					</button>
+					|
+					<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
+				</div>
+			</div>
+	<% end %>
+	</div>
+</div>
+<div class="col-md-3 col-ms-0"></div>
+
+
+
+<!--
 <div class="for_computer">
 <div class="col-md-6 col-sm-12" style="font-family:Microsoft Jhenghei;">
 	<h1 style="color:#008000"><b>別人的故事</b></h1>
@@ -89,4 +154,5 @@
 		</div>
 	<% end %>
 </div>
+-->
 </body>
