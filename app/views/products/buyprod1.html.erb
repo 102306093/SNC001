@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
         
         <script>
-            
+        
         $(document).ready(function(){
             $("input#customer_cusname").val(window.sessionStorage["cusname"]);
             $("input#customer_email").val(window.sessionStorage["email"]);
@@ -16,7 +16,7 @@
             $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
             $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
             $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
-            $("input#customer_productnumber").val(window.sessionStorage["quantity3"]);
+            $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
             $("span.price").text(window.sessionStorage["totalprice"]);
             $("div.homeaddress").hide();
             $("div.convenienceaddress").hide();
@@ -67,7 +67,7 @@
         window.sessionStorage["quantity2"]=$("input#customer_productnumber2").val();
         window.sessionStorage["quantity3"]=$("input#customer_productnumber3").val();
         window.sessionStorage["totalprice"]=$("span.price").text();
-        alert("已成功儲存資料囉！\n請注意，如果關閉瀏覽器資料便會自動清除唷！")
+      
         
         }
     
@@ -147,17 +147,17 @@
 <div style="margin-bottom:20px">
     <h1 style="color:#008000"><b>顧客資料</b></h1>
     <%= simple_form_for @customer do |f|%>
-        <%= f.input :cusname, class: 'cusname',label:'名稱', placeholder:'請輸入姓名' %>
-        <%= f.input :email, class: 'email', label:'電子信箱', placeholder:'example@mail.com' %>
-        <%= f.input :cellphone, class: 'cellphone', label:'連絡電話',maxlength:"10", placeholder:'09xxxxxxxx' %>
+        <%= f.input :cusname, class: 'cusname',label:'名稱', placeholder:'請輸入姓名', :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :email, class: 'email', label:'電子信箱', placeholder:'example@mail.com' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :cellphone, class: 'cellphone', label:'連絡電話',maxlength:"10", placeholder:'09xxxxxxxx' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         
         <input type="radio" name="trans" class="tran" value="home" onclick="tran()">宅配
         <input type="radio" name="trans" class="tran" value="convenience" onclick="tran()">超商
         <input type="radio" name="trans" class="tran" value="face" onclick="tran()">面交
-    <div class="homeaddress"><%= f.input :homeaddress, label:'宅配資訊', placeholder:'宅配地址', size:'32' %></div>
-    <div class="convenienceaddress"><%= f.input :convenienceaddress, label:'便利商店配資訊', placeholder:'門市編號', hint:'點擊右方按鈕可查詢門市編號', size:'32' %>
+    <div class="homeaddress"><%= f.input :homeaddress, label:'宅配資訊', placeholder:'宅配地址', size:'32' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %></div>
+    <div class="convenienceaddress"><%= f.input :convenienceaddress, label:'便利商店配資訊', placeholder:'門市編號', hint:'點擊右方按鈕可查詢門市編號', size:'32' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
     <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://emap.pcsc.com.tw/emap.aspx')">711</a></div>
-    <div class="faceaddress"><%= f.input :faceaddress, label:'面交資訊', placeholder:'面交地點(限政治大學,10:00-20:00)', size:'32' %></div>
+    <div class="faceaddress"><%= f.input :faceaddress, label:'面交資訊', placeholder:'面交地點(限政治大學,10:00-20:00)', size:'32' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %></div>
         
       
 </div>
@@ -169,7 +169,7 @@
 
         <h3 style="display:inline; margin-right:15px"><b>低溫專區</b></h3>低溫運費<span class="SP-tran-price" style=" margin:0 5px 0 10px; margin-top:10px">150</span>元</br>
         <span style="font-size:18px"><%= link_to "冰心地瓜", "1",  rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '地瓜', '地瓜')"%></span>
-        <%= f.input :productnumber, label:'50元/包', :input_html => {class:'quantity', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :productnumber, label:'50元/包', :input_html => {class:'quantity', :onchange =>"count();savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <div style="font-size:15px">
             <b>低溫品總價格<span class="SP-totalprice" style="font-size:20px; margin:0 5px 0 10px; margin-top:10px; color:red">0</span>元</b>
         </div>        
@@ -177,11 +177,11 @@
     <div style="margin-top:30px">
         <h3 style="display:inline; margin-right:15px"><b>常溫專區</b></h3>常溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">80</span>元</br>
         <span style="font-size:18px"><%= link_to "玉米好棒棒", "2", rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '玉米棒', '玉米棒')" %></span>
-        <%= f.input :productnumber1, label:'120元/包', :input_html => {class:'quantity1', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :productnumber1, label:'120元/包', :input_html => {class:'quantity1', :onchange =>"count();savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <span style="font-size:18px"><%= link_to "樂樂雞蛋捲", "3", rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '雞蛋捲', '雞蛋捲')"%></span>
-        <%= f.input :productnumber2, label:'150元/盒', :input_html => {class:'quantity2', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :productnumber2, label:'150元/盒', :input_html => {class:'quantity2', :onchange =>"count();savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <span style="font-size:18px"><%= link_to "阿公的香水檸檬", "4", rel: "nofollow",:onclick => "ga('send', 'event', '感興趣', '香水檸檬', '香水檸檬')" %></span>
-        <%= f.input :productnumber3, label:'158元/包', :input_html => {class:'quantity3', :onchange =>"count()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :productnumber3, label:'158元/包', :input_html => {class:'quantity3', :onchange =>"count();savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         <div style="font-size:15px">
             <b>常溫品總價格<span class="totalprice" style="font-size:20px; margin:0 5px 0 10px; margin-top:10px; color:red">0</span>元</b>
        </div>        
@@ -193,7 +193,6 @@
             <BR><b>總價格<span class="price" style="font-size:40px; color:red; margin:0 5px 0 10px">0</span>元</b>
           	<span style="float:right; margin-top:10px">
 
-               	<a href="#" onclick="savedata()">點我儲存資料</a>
 
                 <%= f.submit "投資夢想", class: "btn btn-primary", :input_html => {:onclick => "check()"}%>
           	</span>        
