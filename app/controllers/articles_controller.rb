@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
         @external_article=Article.where(owner: '外界').order('created_at DESC')
         @internal_article=Article.where(owner: '小農橋').order('created_at DESC')
         @article=Article.all
-        set_page_title '文章列表'
+        set_page_title '背後的故事'
     end
     
     def show
@@ -47,6 +47,6 @@ class ArticlesController < ApplicationController
     
     private
 	def article_params
-		params.require(:article).permit(:title,:introduce,:content,:pic1,:owner,:hashtag)
+		params.require(:article).permit(:title,:introduce,:content,:pic1,:owner,:hashtag,:seodescription)
 	end
 end
