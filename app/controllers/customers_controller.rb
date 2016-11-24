@@ -40,7 +40,9 @@ class CustomersController < ApplicationController
 			render :edit
 		end
 	end
-
+    def is_admin?
+    	redirect_to root_path unless current_user.admin? 
+    end
 	def destroy
 		@customer=Customer.find(params[:id])
 		@customer.destroy

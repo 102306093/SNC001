@@ -29,6 +29,9 @@ end
 		@payer.destroy
 	
 	end
+	def is_admin?
+    	redirect_to root_path unless current_user.admin? 
+    end
     private
      def payer_params
         params.require(:payer).permit(:payeraccount,:paymentprice,:payerphone)

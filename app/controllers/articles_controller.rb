@@ -45,7 +45,9 @@ class ArticlesController < ApplicationController
 		@article.destroy
 		redirect_to root_path
 	end
-    
+    def is_admin?
+    	redirect_to root_path unless current_user.admin? 
+    end
     private
 	def article_params
 		params.require(:article).permit(:title,:introduce,:content,:pic1,:owner,:hashtag,:seodescription)
