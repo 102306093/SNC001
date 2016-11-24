@@ -20,12 +20,12 @@ before_action :is_admin?, only: [:new,:edit,:destroy]
     
     def buyprod1
       @customer = Customer.new
-      set_page_title '購買表單'
+      set_page_title '購買'
     end
     
     def index
         @product=Product.all
-        set_page_title '產品與故事列表'
+        set_page_title '商品與故事'
     end
     
     def show
@@ -57,7 +57,7 @@ before_action :is_admin?, only: [:new,:edit,:destroy]
     end
     private
 	def product_params
-		params.require(:product).permit(:proname,:price,:qty,:pic1,:introduce,:supid)
+		params.require(:product).permit(:proname,:price,:qty,:pic1,:introduce,:supid,:seodescription)
 	end
 	
 	
