@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
 	before_action :authenticate_user!, only: [:show,:edit,:destroy]
+	before_action :is_admin?, only: [:show,:edit,:destroy] 
 
     def new
         @customer = Customer.new

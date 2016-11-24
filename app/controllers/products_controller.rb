@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 before_action :authenticate_user!, only: [:new,:edit,:destroy]
-	def finish
+before_action :is_admin?, only: [:new,:edit,:destroy] 
+	def finish 
 		
 		set_page_title '購買確認'
 		
@@ -51,7 +52,9 @@ before_action :authenticate_user!, only: [:new,:edit,:destroy]
 		@product.destroy
 		redirect_to root_path
 	end
-    
+    def is_admin?
+    	redirect_to root_path unless current_user.admin? 
+    end
     private
 	def product_params
 		params.require(:product).permit(:proname,:price,:qty,:pic1,:introduce,:supid)

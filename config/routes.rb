@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   get 'order_items/create'
   get 'order_items/update'
   get 'order_items/destroy'
