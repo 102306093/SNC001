@@ -19,7 +19,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "http://farmbridger.herokuapp.com/" }
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
-    :port => "587",
+    :port => "25",
     :domain => "gmail.com",
     :authentication => "plain",
     :user_name => "farmbridgers@gmail.com",
