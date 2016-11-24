@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 before_action :authenticate_user!, only: [:new,:edit,:destroy]
-before_action :is_admin?, only: [:new,:edit,:destroy] 
+#before_action :is_admin?, only: [:new,:edit,:destroy] 
 	def finish 
 		
 		set_page_title '購買確認'

@@ -1,6 +1,6 @@
 class PayersController < ApplicationController
     before_action :authenticate_user!, only: [:show]
-    before_action :is_admin?, only: [:show] 
+  #  before_action :is_admin?, only: [:show] 
     def new
         set_page_title '匯款確認'
         
