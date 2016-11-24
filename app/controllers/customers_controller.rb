@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
 		
 		 if @customer.save
 			redirect_to products_finish_path
-			#UserMailer.notify_comment(@customer, @customer).deliver_later!
+			UserMailer.notify_comment(@customer, @customer).deliver_later!
 		else
 			render :new
 		 
@@ -40,7 +40,9 @@ class CustomersController < ApplicationController
 			render :edit
 		end
 	end
-
+    def is_admin?
+    	redirect_to root_path unless current_user.admin? 
+    end
 	def destroy
 		@customer=Customer.find(params[:id])
 		@customer.destroy
