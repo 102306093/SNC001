@@ -136,7 +136,12 @@
 　 　　		$("span.price").text(totalprice);
 　 　　		$("input#customer_price").val(totalprice);
 　 　　	}
-　 　　	
+　 　　	$("form").submit(function( event ) {
+　 　　	    alert("shett");
+                event.preventDefault();
+                
+
+});
 　　    </script>
     </head>
 
@@ -146,10 +151,10 @@
 
 <div style="margin-bottom:20px">
     <h1 style="color:#008000"><b>顧客資料</b></h1>
-    <%= simple_form_for @customer do |f|%>
-        <%= f.input :cusname, class: 'cusname',label:'名稱', placeholder:'請輸入姓名', :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
-        <%= f.input :email, class: 'email', label:'電子信箱', placeholder:'example@mail.com' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
-        <%= f.input :cellphone, class: 'cellphone', label:'連絡電話',maxlength:"10", placeholder:'09xxxxxxxx' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+    <%= simple_form_for @customer, html: { novalidate: false } do |f|%>
+        <%= f.input :cusname, class: 'cusname',label:'名稱', required: true, placeholder:'請輸入姓名', :input_html => {  required: true, :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :email, class: 'email', label:'電子信箱', required: true,placeholder:'example@mail.com' , :input_html => {  required: true,:onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        <%= f.input :cellphone, class: 'cellphone', label:'連絡電話',required: true,maxlength:"10", placeholder:'09xxxxxxxx' , :input_html => { required: true, :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
         
         <input type="radio" name="trans" class="tran" value="home" onclick="tran()">宅配
         <input type="radio" name="trans" class="tran" value="convenience" onclick="tran()">超商
@@ -194,7 +199,7 @@
           	<span style="float:right; margin-top:10px">
 
 
-                <%= f.submit "投資夢想", class: "btn btn-primary", :input_html => {:onclick => "check()"}%>
+                <%= f.submit "投資夢想", id:"submit", class: "btn btn-primary", :input_html => {:onclick => "check()"}%>
           	</span>        
       	</div>
       	<div style="height:100px"></div>
