@@ -1,77 +1,87 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
-        
-        <script>
-        
-        $(document).ready(function(){
-            $("input#customer_cusname").val(window.sessionStorage["cusname"]);
-            $("input#customer_email").val(window.sessionStorage["email"]);
-            $("input#customer_cellphone").val(window.sessionStorage["cellphone"]);
-            $("input#customer_homeaddress").val(window.sessionStorage["homeaddress"]);
-            $("input#customer_convenienceaddress").val(window.sessionStorage["convenienceaddress"]);
-            $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
-            $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
-            $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
-            $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
-            $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
-            $("span.price").text(window.sessionStorage["totalprice"]);
-            $("div.homeaddress").hide();
-            $("div.convenienceaddress").hide();
-            $("div.faceaddress").hide();
-            $("div.hideprice").hide();
-        });
-        
-        function tran(){
-         if($("input:checked").val()==="home"){
-             $("input#customer_homeaddress").attr("placeholder", "宅配地址");
-             $("div.homeaddress").show();
-             $("div.convenienceaddress").hide();
-             $("div.faceaddress").hide();
-             $("div#sweet-potato").show();
-             $("input#customer_faceaddress").val("");
-             $("input#customer_convenienceaddress").val("");
-         }
-         else if($("input:checked").val()==="convenience"){
-             $("input#customer_convenienceaddress").attr("placeholder", "門市編號");
-             $("div.homeaddress").hide();
-             $("div.convenienceaddress").show();
-             $("div.faceaddress").hide();
-             $("div#sweet-potato").hide();
-             $("input#customer_productnumber").val(0);
-             $("input#customer_faceaddress").val("");
-             $("input#customer_homeaddress").val("");
-         }
-         else {
-             $("input#customer_faceaddress").attr("placeholder", "面交地點(限政治大學,10:00-20:00)");
-             $("div.homeaddress").hide();
-             $("div.convenienceaddress").hide();
-             $("div.faceaddress").show();
-             $("div#sweet-potato").show();
-             $("input#customer_homeaddress").val("");
-             $("input#customer_convenienceaddress").val("");
-         }
-         count();
-         };
-        function savedata(){
-        window.sessionStorage["cusname"]=$("input#customer_cusname").val();
-        window.sessionStorage["email"]=$("input#customer_email").val();
-        window.sessionStorage["cellphone"]=$("input#customer_cellphone").val();
-        window.sessionStorage["homeaddress"]=$("input#customer_homeaddress").val();
-        window.sessionStorage["convenienceaddress"]=$("input#customer_convenienceaddress").val();
-        window.sessionStorage["faceaddress"]=$("input#customer_faceaddress").val();
-        window.sessionStorage["quantity"]=$("input#customer_productnumber").val();
-        window.sessionStorage["quantity1"]=$("input#customer_productnumber1").val();
-        window.sessionStorage["quantity2"]=$("input#customer_productnumber2").val();
-        window.sessionStorage["quantity3"]=$("input#customer_productnumber3").val();
-        window.sessionStorage["totalprice"]=$("span.price").text();
-      
-        
-        }
+<head>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
     
+    <script>
+    
+    $(document).ready(function(){
+        $("input#customer_cusname").val(window.sessionStorage["cusname"]);
+        $("input#customer_email").val(window.sessionStorage["email"]);
+        $("input#customer_cellphone").val(window.sessionStorage["cellphone"]);
+        $("input#customer_homeaddress").val(window.sessionStorage["homeaddress"]);
+        $("input#customer_convenienceaddress").val(window.sessionStorage["convenienceaddress"]);
+        $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
+        $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
+        $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
+        $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
+        $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
+        $("span.price").text(window.sessionStorage["totalprice"]);
+        $("div.homeaddress").hide();
+        $("div.convenienceaddress").hide();
+        $("div.faceaddress").hide();
+        $("div.hideprice").hide();
         
+     if($("input:checked").val()==="home"){
+         $("input#customer_homeaddress").attr("placeholder", "宅配地址");
+         $("div.homeaddress").show();
+         $("div.convenienceaddress").hide();
+         $("div.faceaddress").hide();
+         $("div#sweet-potato").show();
+         $("input#customer_faceaddress").val("");
+         $("input#customer_convenienceaddress").val("");
+     }
+    });
+    
+    function tran(){
+     if($("input:checked").val()==="home"){
+         $("input#customer_homeaddress").attr("placeholder", "宅配地址");
+         $("div.homeaddress").show();
+         $("div.convenienceaddress").hide();
+         $("div.faceaddress").hide();
+         $("div#sweet-potato").show();
+         $("input#customer_faceaddress").val("");
+         $("input#customer_convenienceaddress").val("");
+     }
+     else if($("input:checked").val()==="convenience"){
+         $("input#customer_convenienceaddress").attr("placeholder", "門市編號");
+         $("div.homeaddress").hide();
+         $("div.convenienceaddress").show();
+         $("div.faceaddress").hide();
+         $("div#sweet-potato").hide();
+         $("input#customer_productnumber").val(0);
+         $("input#customer_faceaddress").val("");
+         $("input#customer_homeaddress").val("");
+     }
+     else {
+         $("input#customer_faceaddress").attr("placeholder", "面交地點(限政治大學,10:00-20:00)");
+         $("div.homeaddress").hide();
+         $("div.convenienceaddress").hide();
+         $("div.faceaddress").show();
+         $("div#sweet-potato").show();
+         $("input#customer_homeaddress").val("");
+         $("input#customer_convenienceaddress").val("");
+     }
+     count();
+     };
+    function savedata(){
+    window.sessionStorage["cusname"]=$("input#customer_cusname").val();
+    window.sessionStorage["email"]=$("input#customer_email").val();
+    window.sessionStorage["cellphone"]=$("input#customer_cellphone").val();
+    window.sessionStorage["homeaddress"]=$("input#customer_homeaddress").val();
+    window.sessionStorage["convenienceaddress"]=$("input#customer_convenienceaddress").val();
+    window.sessionStorage["faceaddress"]=$("input#customer_faceaddress").val();
+    window.sessionStorage["quantity"]=$("input#customer_productnumber").val();
+    window.sessionStorage["quantity1"]=$("input#customer_productnumber1").val();
+    window.sessionStorage["quantity2"]=$("input#customer_productnumber2").val();
+    window.sessionStorage["quantity3"]=$("input#customer_productnumber3").val();
+    window.sessionStorage["totalprice"]=$("span.price").text();
+  
+    
+    }
+
+    
 　 　　	function count(){
 　 　　	    
 　 　　	    $("span.SP-tran-price").text("150");
@@ -97,8 +107,8 @@
 　 　　				quantity3=0;	
 　 　　	　		 $("input.quantity3").val(0);
 　 　　		}
-            var SPprice=0;
-            var Normalprice=0;
+        var SPprice=0;
+        var Normalprice=0;
 　 　　		if(quantity>0){
 　 　　		    SPprice=50*quantity+150;
 　 　　		}
@@ -138,12 +148,99 @@
 　 　　	}
 　 　　	
 　　    </script>
-    </head>
+</head>
 
 <body style="font-family:Microsoft JhengHei">
 
-<div style="margin:70px"></div>
+<div style="margin:50px"></div>
+<%= simple_form_for @customer do |f|%>
+<div style="background-color:rgba(255, 235, 204,0.5);">
+<div class="container">
+        <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10" style="padding-top:30px; padding-bottom:30px">
+            <div class="step" style="width:140px;">顧客資料</div>
+                <%= f.input :cusname, class: 'cusname',label:'名稱', placeholder:'請輸入姓名', :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+                <%= f.input :email, class: 'email', label:'電子信箱', placeholder:'example@mail.com' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+                <%= f.input :cellphone, class: 'cellphone', label:'連絡電話',maxlength:"10", placeholder:'09xxxxxxxx' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+        </div>
+        </div>    
+        <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10" style="padding-bottom:30px">
+            <div class="step" style="width:190px;">選擇取貨方式</div>
+                <input type="radio" name="trans" class="tran" value="home" onclick="tran()" style="margin:5px" checked>宅配
+                <input type="radio" name="trans" class="tran" value="convenience" onclick="tran()" style="margin:5px">超商
+                <input type="radio" name="trans" class="tran" value="face" onclick="tran()" style="margin:5px">面交
+                <div class="homeaddress"><%= f.input :homeaddress, label:'宅配資訊', placeholder:'宅配地址', size:'32' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %></div>
+                <div class="convenienceaddress"><%= f.input :convenienceaddress, label:'便利商店配資訊', placeholder:'門市編號', hint:'點擊右方按鈕可查詢門市編號', size:'32' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+                <a class="btn btn-info" style="float:right; margin:-30px 5px 0 5px" onclick="window.open('http://emap.pcsc.com.tw/emap.aspx')">711</a></div>
+                <div class="faceaddress"><%= f.input :faceaddress, label:'面交資訊', placeholder:'面交地點(限政治大學,10:00-20:00)', size:'32' , :input_html => { :onchange =>"savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %></div>
+        </div>     
+        <div class="col-md-1"></div>
+    </div>
+</div>
+</div>
+<div style="background-color:rgba(247, 247, 29, 0.3)">
+<div class="container" style="padding-top:30px">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+                <div id="sweet-potato" style="margin-bottom:30px">
+                    <div class="step" style="display:inline-block; width:140px; margin-right:10px">低溫專區</div>低溫運費<span class="SP-tran-price" style=" margin:0 5px 0 10px; margin-top:10px">150</span>元</br>
+                    <span style="font-size:18px"><%= link_to "冰心地瓜", "1",  rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '地瓜', '地瓜')"%></span>
+                    <%= f.input :productnumber, label:'50元/包', :input_html => {class:'quantity', :onchange =>"count();savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+                    <div style="font-size:15px">
+                        <b>低溫品總價格<span class="SP-totalprice" style="font-size:20px; margin:0 5px 0 10px; margin-top:10px; color:red">0</span>元</b>
+                    </div>        
+                </div> 
+        </div>
+    </div>
+</div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10" style="padding-bottom:30px">
+                <div>
+                    <div class="step" style="display:inline-block; width:140px; margin-right:10px">常溫專區</div>常溫運費<span class="tran-price" style=" margin:0 5px 0 10px; margin-top:10px">80</span>元</br>
+                    <span style="font-size:18px"><%= link_to "玉米好棒棒", "2", rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '玉米棒', '玉米棒')" %></span>
+                    <%= f.input :productnumber1, label:'120元/包', :input_html => {class:'quantity1', :onchange =>"count();savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+                    <span style="font-size:18px"><%= link_to "樂樂雞蛋捲", "3", rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '雞蛋捲', '雞蛋捲')"%></span>
+                    <%= f.input :productnumber2, label:'150元/盒', :input_html => {class:'quantity2', :onchange =>"count();savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+                    <span style="font-size:18px"><%= link_to "阿公的香水檸檬", "4", rel: "nofollow",:onclick => "ga('send', 'event', '感興趣', '香水檸檬', '香水檸檬')" %></span>
+                    <%= f.input :productnumber3, label:'158元/包', :input_html => {class:'quantity3', :onchange =>"count();savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
+                    <div style="font-size:15px">
+                        <b>常溫品總價格<span class="totalprice" style="font-size:20px; margin:0 5px 0 10px; margin-top:10px; color:red">0</span>元</b>
+                    </div>        
+                    <div class="hideprice">
+                       <%= f.input :price, label:'   ' %>
+                    </div>
+                    <div style="font-size:20px; float:right">
+                        <b>總價格<span class="price" style="font-size:40px; color:red; margin:0 5px 0 10px">0</span>元</b>
+                        <BR>
+                      	<span style="float:right; margin-top:10px; margin-bottom:10px">
+                            <%= f.submit "投資夢想", class: "btn btn-success", :input_html => {:onclick => "check()"}%>
+                      	</span>                    	
+                  	</div> 
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div style="background-color:rgba(247, 247, 29, 0.3);">
+    <div class="container">
+
+    </div>
+
+</div>
+<%end%>
+
+
+
+
+<!--
 <div style="margin-bottom:20px">
     <h1 style="color:#008000"><b>顧客資料</b></h1>
     <%= simple_form_for @customer do |f|%>
@@ -166,7 +263,6 @@
     <h1 style="color:#008000"><b>故事需求</b></h1>
    
     <div id="sweet-potato">
-
         <h3 style="display:inline; margin-right:15px"><b>低溫專區</b></h3>低溫運費<span class="SP-tran-price" style=" margin:0 5px 0 10px; margin-top:10px">150</span>元</br>
         <span style="font-size:18px"><%= link_to "冰心地瓜", "1",  rel: "nofollow", :onclick => "ga('send', 'event', '感興趣', '地瓜', '地瓜')"%></span>
         <%= f.input :productnumber, label:'50元/包', :input_html => {class:'quantity', :onchange =>"count();savedata()" , :onkeyup =>"this.onchange()", :onpaste =>"this.onchange()", :oninput =>"this.onchange()"} %>
@@ -200,5 +296,6 @@
       	<div style="height:100px"></div>
     <%end%>
 </div>
+-->
 </body>
 </html>

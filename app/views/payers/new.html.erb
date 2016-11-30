@@ -26,7 +26,7 @@
 <body class="main" style="font-family:Microsoft JhengHei;">
     <div style="margin-top:60px"></div>
     <div class="col-md-2"></div>
-    <div class="col-md-8 content" style=" padding-left:30px; padding-top:20px;">
+    <div class="col-md-8 content" style=" padding-left:30px; padding-top:20px; margin-bottom:30px; padding-bottom:30px">
         <h1>請填入匯款資料：</h1>
         <%= simple_form_for @payer do |f|%>
             <%= f.input :payeraccount,  label:'請輸入帳號後五碼或匯款名稱', maxlength:"8" %>
