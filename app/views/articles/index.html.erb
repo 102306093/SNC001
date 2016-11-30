@@ -43,51 +43,53 @@
 </head>
 <body>
 <div style="margin:70px"></div>
-
-<div style="text-align:center; height:50px">
-	<div class="tabs tabs1 active" style="border-radius:10px 0 0 10px; border-right:1px">別人的故事</div>
-	<div class="tabs tabs2" style="border-radius:0 10px 10px 0; border-left:1px">我們的故事</div>
-</div>
-<div class="col-md-3 col-ms-0"></div>
-<div class="col-md-6 col-ms-12 tab_content">
-	<div id="tab1" class="tab active">
-		<% @external_article.each do |article| %>
-			<div style="margin-bottom:50px">
-				<a href="<%= article.content %>" target="_blank" style="color:black">
-					<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
-					<h3><%= article.title %></h3>
-				</a>
-				<div style="float:right">
-					<button class="btn btn-success hashtag"><%= article.owner %></button>
-					<button class="btn btn-info hashtag">
-						<%= article.hashtag%>	
-					</button>
-					|
-					<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
-				</div>		
-			</div>
-		<% end %>
+<div class="container">
+		<div style="text-align:center; height:50px">
+		<div class="tabs tabs1 active" style="border-radius:10px 0 0 10px; border-right:1px">別人的故事</div>
+		<div class="tabs tabs2" style="border-radius:0 10px 10px 0; border-left:1px">我們的故事</div>
 	</div>
-	<div id="tab2" class="tab">
-		<% @internal_article.each do |article| %>
-			<div style="margin-bottom:50px;">
-				<a href="<%= article_path(article) %>" style="color:black">
-					<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
-					<h3><%= article.title %></h3>
-				</a>
-				<div style="float:right">
-					<button class="btn btn-success hashtag"><%= article.owner %></button>
-					<button class="btn btn-info hashtag" onclick="selecthashtag()">
-						<%= article.hashtag%>	
-					</button>
-					|
-					<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
+	<div class="col-md-3 col-ms-0"></div>
+	<div class="col-md-6 col-ms-12 tab_content">
+		<div id="tab1" class="tab active">
+			<% @external_article.each do |article| %>
+				<div style="margin-bottom:50px">
+					<a href="<%= article.content %>" target="_blank" style="color:black">
+						<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
+						<h3><%= article.title %></h3>
+					</a>
+					<div style="float:right">
+						<button class="btn btn-success hashtag"><%= article.owner %></button>
+						<button class="btn btn-info hashtag">
+							<%= article.hashtag%>	
+						</button>
+						|
+						<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
+					</div>		
 				</div>
-			</div>
-	<% end %>
+			<% end %>
+		</div>
+		<div id="tab2" class="tab">
+			<% @internal_article.each do |article| %>
+				<div style="margin-bottom:50px;">
+					<a href="<%= article_path(article) %>" style="color:black">
+						<img class="article_pic" style="width:100%; border-radius:5px" src="<%= article.pic1 %>">
+						<h3><%= article.title %></h3>
+					</a>
+					<div style="float:right">
+						<button class="btn btn-success hashtag"><%= article.owner %></button>
+						<button class="btn btn-info hashtag" onclick="selecthashtag()">
+							<%= article.hashtag%>	
+						</button>
+						|
+						<i class="material-icons">adjust</i><%= article.created_at.strftime('%Y年%m月%d日')%>
+					</div>
+				</div>
+		<% end %>
+		</div>
 	</div>
+	<div class="col-md-3 col-ms-0"></div>
 </div>
-<div class="col-md-3 col-ms-0"></div>
+
 
 
 
