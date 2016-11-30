@@ -18,17 +18,42 @@
 @import "bootstrap";
 @import "social-share-button";
 
-#products{
-    color: rgba(117, 0, 0,0.8);   
-    font-weight: bold;
-}
-
 body{
     font-family:Microsoft JhengHei;
 }
 
 body.main{
-    background-color:rgba(255, 204, 128,0.3);
+    background-color:rgba(247, 247, 29, 0.2);
+}
+
+.navbar-default{
+    background-color:white;
+    background-image:none;
+    border:none;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu{
+    padding-top:0;
+    padding-bottom:0;
+    min-width:initial;
+    width:100%;
+    text-align:center;
+    border:none;
+    li{
+        height:50px;
+        padding-top:15px;
+    }
+    li a{
+        &:hover,&:focus{
+            background-image:none;
+        }
+    }
+}
+
+#products{
+    color: rgba(117, 0, 0,0.8);   
+    font-weight: bold;
 }
 
 div.content{
@@ -42,11 +67,6 @@ div#hint{
         color:white;
         background-color:brown;
     }
-}
-
-.container-fluid{
-    background-color:ghostwhite;
-    border-bottom: 1.5px solid #e7e7e7;
 }
 
 img .teamimage{
@@ -148,31 +168,22 @@ tr {
 }
 
 .navbar-nav li{
-    color:#810;
     font-size:16px;
     font-family:Microsoft JhengHei;
     font-weight:bold;
+    width:120px;
+    &:hover{
+        background-color:#f5f5f5;
+    }
+    a :hover{
+        color:initial;
+    }
 }
 .social-share-button .ssb-icon
    {
     background-size: 34px 34px;
     height: 34px;
     width: 34px;
-}
-
-.navbar li{
-    width:150px;
-    &:hover{
-        background:#e7e7e7;
-    }
-}
-
-.navbar li a{
-    font-weight:normal;
-    -webkit-transition: font-size .2s ease;
-    &:hover{
-      font-size:110%;
-    }
 }
 
 div.tabs{
@@ -187,8 +198,6 @@ div.tabs{
 	cursor:pointer;
 	font-weight:bold;
     -webkit-transition: all .3s ease;
-
-
 }
 
 div.tabs.active{
@@ -204,4 +213,40 @@ div.tab{
 
 div.tab.active{
     display:block;
+}
+
+div.intro_btn{
+    margin:20px auto;
+	display:block;
+	border:3px solid #B8860B;
+	border-radius:10px;
+ 	text-align:center;
+	padding:5px; 
+	color:#B8860B;
+	width:200px;
+	cursor:pointer;
+	font-weight:bold;
+    -webkit-transition: all .1s ease;
+    
+    &:hover{
+	    background-color:#B8860B;
+    	color:white;
+	}
+}
+
+.introduction a{
+    &:hover, &:focus{
+        text-decoration:none;
+    }
+}
+
+div.step{
+    padding:5px 10px;
+    font-weight:bold;
+    font-size:25px;
+    border-radius:0 20px 20px 0;
+    display:block;
+    background-color:rgba(160,100,30,1);
+    color:white;
+    margin-bottom:10px;
 }
