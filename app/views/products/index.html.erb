@@ -40,24 +40,26 @@
 <body>
 	<div style="height:50px"></div>
 	
-	<div class="col-md-12">
-		<% @product.each_with_index do |product, i| %>
-			<div id="product<%= i %>" style="display:table; margin-top:10px; width:100%;">
-		   		<a href="<%= product_path(product) %>">
-					<div style="overflow:hidden;">
-						<img class="product_pic" style=" width:100%;" src="<%= product.pic1%>" >
-					</div>
-				</a>
-			</div>
-		<%end%>		
-	</div>
-	<div class="anchor-outerbox">
-		<div class="anchor-innerbox">
+	<div class="container">
+		<div class="col-md-12">
 			<% @product.each_with_index do |product, i| %>
-				<div class="product-anchor scroll-to-product<%= i %>"></div>
-			<%end%>	
+				<div id="product<%= i %>" style="display:table; margin-top:10px; width:100%;">
+			   		<a href="<%= product_path(product) %>">
+						<div style="overflow:hidden;">
+							<img class="product_pic" style=" width:100%;" src="<%= product.pic1%>" >
+						</div>
+					</a>
+				</div>
+			<%end%>		
 		</div>
-	</div>	
-</div>
+		<div class="anchor-outerbox">
+			<div class="anchor-innerbox">
+				<% @product.each_with_index do |product, i| %>
+					<div class="product-anchor scroll-to-product<%= i %>"></div>
+				<%end%>	
+			</div>
+		</div>	
+	</div>
+	
 </body>
 </html>
