@@ -1,0 +1,16 @@
+<h2>Update</h2>
+
+<%= simple_form_for @customer do |f|%>
+	<%= f.input :cusname, label:'名稱' %>
+	<%= f.input :email, label:'信箱' %>
+	<%= f.input :homeaddress, label:'宅配地址' %>
+	<%= f.input :convenienceaddress, label:'超商地址' %>
+	<%= f.input :faceaddress, label:'面交地址' %>
+	<%= f.input :productnumber, label:'地瓜數量' %>
+	<%= f.input :productnumber1, label:'玉米棒數量' %>
+	<%= f.input :productnumber2, label:'蛋捲數量' %>
+	<%= f.input :productnumber3, label:'香水檸檬數量' %>
+	<%= f.input :price, label:'價格' %>
+	<%= f.input :status, collection: ['待付款','以確認收款','已出貨',"已取消","退貨處理中"] %>
+	<%= f.submit%>
+<%end%>

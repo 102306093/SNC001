@@ -1,7 +1,47 @@
+<script>
+  $(document).ready(function(){
+   $("div#userdata").hide();
+   $("div#orderdata").hide();
+       $("div#image").show();
+  });
+  function showuserdata(){
+    
+     $("div#userdata").show();
+     $("div#orderdata").hide();
+     $("div#image").hide();
+  }
+  function showorderdata(){
+    $("div#userdata").hide();
+    $("div#orderdata").show();
+    $("div#image").hide();
+  }
+   function showlogout(){
+  alert("以成功登出!歡迎繼續參觀小農橋!")
+  }
+</script>
+
 <BR>
   <BR>
-<h2>編輯</h2>
+<h2 style='text-align:center;'>橋友區</h2>
+　<div class="col-xs-12 col-md-4">
+　	<BR>
+<a href="#userdata" onclick="showuserdata()">橋友資料修改</a> <BR>
+<a href="#orderdata" onclick="showorderdata()">訂單資料</a><BR>
+<a href="/payers/new" onclick="showteaching()">匯款確認</a><BR>
+<%= link_to("登出", destroy_user_session_path, method: :delete) %><BR>	
 
+</div>
+
+<div id="image" class="col-xs-12 col-md-8">
+<div><a href="/products/1"><img src="/img/product1_big.jpg" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/2"><img src="/img/product2_big.png" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/3"><img src="/img/product3_big.png" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/4"><img src="/img/product4_big.png" style="text-align:center; width:100%;" /></a></div>
+</div>
+
+
+
+<div id="userdata" class="col-xs-12 col-md-8">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
@@ -20,13 +60,51 @@
     
     <%= f.input :password,label:"密碼", autocomplete: "off", hint: "如果不想更動請留白", required: false %>
     <%= f.input :password_confirmation,label:"請再次確認密碼", required: false %>
- 
-  </div>
-
-  <div class="form-actions">
+    <div class="form-actions">
     <%= f.button :submit, "更新" %>
   </div>
 <% end %>
+  </div>
+</div>
+  
 
+<div id="orderdata" class="col-xs-12 col-md-8">
 
-<%= link_to "Back", :back %>
+       	　<table class="table table-bordered">
+	
+    <tr 　style="border:">
+	  <td>取件者</td>
+	  <td>送件地址</td>
+	  <td>電話</td>
+	  <td>地瓜</td>
+	  <td>玉米棒</td>
+	  <td>雞蛋捲</td>
+	  <td>香水檸檬</td>
+	  <td>總價格</td>
+	  <td>狀態</td>
+	</tr>
+	<% @customer.each do |customer| %>
+	<tr>
+	  <td><%= customer.cusname%></td>
+	  <% if customer.homeaddress!="" %>
+	  <td><%= customer.homeaddress%></td>
+	  <% end %>
+	  <% if customer.convenienceaddress!="" %>
+	  <td><%= customer.convenienceaddress%></td>
+	  <% end %>
+	  <% if customer.faceaddress!="" %>
+	  <td><%= customer.faceaddress%></td>
+	  <% end %>
+	  <td><%= customer.cellphone%></td>
+	  <td><%= customer.productnumber%></td>
+	  <td><%= customer.productnumber1%></td>
+	  <td><%= customer.productnumber2%></td>
+	  <td><%= customer.productnumber3%></td>
+	  <td><%= customer.price%></td>
+	  <td><%= customer.status%></td>
+	
+		<%end%>
+		
+		</table>
+		</div>
+

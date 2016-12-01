@@ -1,10 +1,98 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
-    
-    <script>
+    <head>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+        
+        <script>
+        
+        $(document).ready(function(){
+            
+            if("<%= @current_user.username %>"!=="nothing"){
+            $("input#customer_cusname").val("<%= current_user.username %>");
+            $("input#customer_email").val("<%= current_user.email %>");
+            $("input#customer_cellphone").val("<%= current_user.u_phone %>");
+            $("input#customer_convenienceaddress").val("<%= current_user.u_convenienceaddress %>");
+            $("input#customer_homeaddress").val("<%= current_user.u_homeaddress %>");
+            $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
+            $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
+            $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
+            $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
+            $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
+            $("span.price").text(window.sessionStorage["totalprice"]);
+            $("div.homeaddress").hide();
+            $("div.convenienceaddress").hide();
+            $("div.faceaddress").hide();
+            $("div.hideprice").hide();
+            }
+            else{
+      
+            
+            $("input#customer_cusname").val(window.sessionStorage["cusname"]);
+            $("input#customer_email").val(window.sessionStorage["email"]);
+            $("input#customer_cellphone").val(window.sessionStorage["cellphone"]);
+            $("input#customer_homeaddress").val(window.sessionStorage["homeaddress"]);
+            $("input#customer_convenienceaddress").val(window.sessionStorage["convenienceaddress"]);
+            $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
+            $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
+            $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
+            $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
+            $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
+            $("span.price").text(window.sessionStorage["totalprice"]);
+            $("div.homeaddress").hide();
+            $("div.convenienceaddress").hide();
+            $("div.faceaddress").hide();
+            $("div.hideprice").hide();
+            }
+            
+        });
+        
+        function tran(){
+         if($("input:checked").val()==="home"){
+             $("input#customer_homeaddress").attr("placeholder", "宅配地址");
+             $("div.homeaddress").show();
+             $("div.convenienceaddress").hide();
+             $("div.faceaddress").hide();
+             $("div#sweet-potato").show();
+             $("input#customer_faceaddress").val("");
+             $("input#customer_convenienceaddress").val("");
+         }
+         else if($("input:checked").val()==="convenience"){
+             $("input#customer_convenienceaddress").attr("placeholder", "門市編號");
+             $("div.homeaddress").hide();
+             $("div.convenienceaddress").show();
+             $("div.faceaddress").hide();
+             $("div#sweet-potato").hide();
+             $("input#customer_productnumber").val(0);
+             $("input#customer_faceaddress").val("");
+             $("input#customer_homeaddress").val("");
+         }
+         else {
+             $("input#customer_faceaddress").attr("placeholder", "面交地點(限政治大學,10:00-20:00)");
+             $("div.homeaddress").hide();
+             $("div.convenienceaddress").hide();
+             $("div.faceaddress").show();
+             $("div#sweet-potato").show();
+             $("input#customer_homeaddress").val("");
+             $("input#customer_convenienceaddress").val("");
+         }
+         count();
+         };
+        function savedata(){
+        window.sessionStorage["cusname"]=$("input#customer_cusname").val();
+        window.sessionStorage["email"]=$("input#customer_email").val();
+        window.sessionStorage["cellphone"]=$("input#customer_cellphone").val();
+        window.sessionStorage["homeaddress"]=$("input#customer_homeaddress").val();
+        window.sessionStorage["convenienceaddress"]=$("input#customer_convenienceaddress").val();
+        window.sessionStorage["faceaddress"]=$("input#customer_faceaddress").val();
+        window.sessionStorage["quantity"]=$("input#customer_productnumber").val();
+        window.sessionStorage["quantity1"]=$("input#customer_productnumber1").val();
+        window.sessionStorage["quantity2"]=$("input#customer_productnumber2").val();
+        window.sessionStorage["quantity3"]=$("input#customer_productnumber3").val();
+        window.sessionStorage["totalprice"]=$("span.price").text();
+      
+        
+        }
     
     $(document).ready(function(){
         $("input#customer_cusname").val(window.sessionStorage["cusname"]);
@@ -146,14 +234,9 @@
 　 　　		$("span.price").text(totalprice);
 　 　　		$("input#customer_price").val(totalprice);
 　 　　	}
-　 　　	$("form").submit(function( event ) {
-　 　　	    alert("shett");
-                event.preventDefault();
-                
-
-});
 　　    </script>
 </head>
+
 
 <body style="font-family:Microsoft JhengHei">
 

@@ -20,7 +20,13 @@ before_action :is_admin?, only: [:new,:edit,:destroy]
     
     def buyprod1
       @customer = Customer.new
-      set_page_title '購買'
+      if !current_user
+        
+        @current_user=User.new
+        @current_user.username="nothing"
+      
+      end	
+      set_page_title '支持商品'
     end
     
     def index
