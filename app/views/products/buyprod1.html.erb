@@ -7,39 +7,42 @@
         <script>
         
         $(document).ready(function(){
+            
             if("<%= @current_user.username %>"!=="nothing"){
-                $("input#customer_cusname").val("<%= current_user.username %>");
-                $("input#customer_email").val("<%= current_user.email %>");
-                $("input#customer_cellphone").val("<%= current_user.u_phone %>");
-                $("input#customer_convenienceaddress").val("<%= current_user.u_convenienceaddress %>");
-                $("input#customer_homeaddress").val("<%= current_user.u_homeaddress %>");
-                $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
-                $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
-                $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
-                $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
-                $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
-                $("span.price").text(window.sessionStorage["totalprice"]);
-                $("div.homeaddress").hide();
-                $("div.convenienceaddress").hide();
-                $("div.faceaddress").hide();
-                $("div.hideprice").hide();
+            $("input#customer_cusname").val("<%= current_user.username %>");
+            $("input#customer_email").val("<%= current_user.email %>");
+            $("input#customer_cellphone").val("<%= current_user.u_phone %>");
+            $("input#customer_convenienceaddress").val("<%= current_user.u_convenienceaddress %>");
+            $("input#customer_homeaddress").val("<%= current_user.u_homeaddress %>");
+            $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
+            $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
+            $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
+            $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
+            $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
+            $("span.price").text(window.sessionStorage["totalprice"]);
+            $("div.homeaddress").hide();
+            $("div.convenienceaddress").hide();
+            $("div.faceaddress").hide();
+            $("div.hideprice").hide();
             }
             else{
-                $("input#customer_cusname").val(window.sessionStorage["cusname"]);
-                $("input#customer_email").val(window.sessionStorage["email"]);
-                $("input#customer_cellphone").val(window.sessionStorage["cellphone"]);
-                $("input#customer_homeaddress").val(window.sessionStorage["homeaddress"]);
-                $("input#customer_convenienceaddress").val(window.sessionStorage["convenienceaddress"]);
-                $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
-                $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
-                $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
-                $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
-                $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
-                $("span.price").text(window.sessionStorage["totalprice"]);
-                $("div.homeaddress").hide();
-                $("div.convenienceaddress").hide();
-                $("div.faceaddress").hide();
-                $("div.hideprice").hide();
+      
+            
+            $("input#customer_cusname").val(window.sessionStorage["cusname"]);
+            $("input#customer_email").val(window.sessionStorage["email"]);
+            $("input#customer_cellphone").val(window.sessionStorage["cellphone"]);
+            $("input#customer_homeaddress").val(window.sessionStorage["homeaddress"]);
+            $("input#customer_convenienceaddress").val(window.sessionStorage["convenienceaddress"]);
+            $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
+            $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
+            $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
+            $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
+            $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
+            $("span.price").text(window.sessionStorage["totalprice"]);
+            $("div.homeaddress").hide();
+            $("div.convenienceaddress").hide();
+            $("div.faceaddress").hide();
+            $("div.hideprice").hide();
             }
             
         });
@@ -91,7 +94,33 @@
         
         }
     
-    
+    $(document).ready(function(){
+        $("input#customer_cusname").val(window.sessionStorage["cusname"]);
+        $("input#customer_email").val(window.sessionStorage["email"]);
+        $("input#customer_cellphone").val(window.sessionStorage["cellphone"]);
+        $("input#customer_homeaddress").val(window.sessionStorage["homeaddress"]);
+        $("input#customer_convenienceaddress").val(window.sessionStorage["convenienceaddress"]);
+        $("input#customer_faceaddress").val(window.sessionStorage["faceaddress"]);
+        $("input#customer_productnumber").val(window.sessionStorage["quantity"]);
+        $("input#customer_productnumber1").val(window.sessionStorage["quantity1"]);
+        $("input#customer_productnumber2").val(window.sessionStorage["quantity2"]);
+        $("input#customer_productnumber3").val(window.sessionStorage["quantity3"]);
+        $("span.price").text(window.sessionStorage["totalprice"]);
+        $("div.homeaddress").hide();
+        $("div.convenienceaddress").hide();
+        $("div.faceaddress").hide();
+        $("div.hideprice").hide();
+        
+     if($("input:checked").val()==="home"){
+         $("input#customer_homeaddress").attr("placeholder", "宅配地址");
+         $("div.homeaddress").show();
+         $("div.convenienceaddress").hide();
+         $("div.faceaddress").hide();
+         $("div#sweet-potato").show();
+         $("input#customer_faceaddress").val("");
+         $("input#customer_convenienceaddress").val("");
+     }
+    });
     
     function tran(){
      if($("input:checked").val()==="home"){
