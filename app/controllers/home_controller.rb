@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+    before_action :authenticate_user!, only: [:usercenter]
     def index
         @article = Article.all.order('created_at DESC').limit(5)
         set_page_title '首頁'
@@ -25,11 +26,17 @@ class HomeController < ApplicationController
 			render :new
 		end
     end
-    def showpayer
-        	@payer = Payer.all
+    def usercenter
+    @customer = Customer.all
+    @current_user = current_user
+         
     end
     private
      def payer_params
         params.require(:payer).permit(:payeraccount,:paymentprice)
      end
+     def account_update_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :admin, :username, :u_convenienceaddress, :u_homeaddress, :u_phone)
+  end
+     
 end

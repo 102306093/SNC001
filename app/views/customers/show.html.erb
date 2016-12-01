@@ -2,48 +2,50 @@
 	<BR>
 	    <BR>
 	        <BR>
-	        	　<table>
+<table class="table table-bordered">
+	
+    <tr 　style="border:">
+	  <td>取件者</td>
+	  <td>電子郵件</td>
+	  <td>送件地址</td>
+	  <td>電話</td>
+	  <td>地瓜</td>
+	  <td>玉米棒</td>
+	  <td>雞蛋捲</td>
+	  <td>香水檸檬</td>
+	  <td>總價格</td>
+	  <td>狀態</td>
+	  <td></td>
+	</tr>
 	<% @customer.each do |customer| %>
-    <tr>
-	  <td>cu:</td><td><%= customer.cusname%></td>
-	</tr>
 	<tr>
-	  <td>homeaddress:</td><td><%= customer.homeaddress%></td>
-	</tr>
-	<tr>
-	  <td>convenienceaddress:</td><td><%= customer.convenienceaddress%></td>
-	</tr>
-	<tr>
-	  <td>faceaddress:</td><td><%= customer.faceaddress%></td>
-	</tr>
-	<tr>
-	  <td>cellphone:</td><td><%= customer.cellphone%></td>
-	</tr>
-	<tr>
-	  <td>email:</td><td><%= customer.email%></td>
-	</tr>
-	<tr>
-	  <td>P1:</td><td><%= customer.productnumber%></td>
-	</tr>
-	<tr>
-	  <td>P2:</td><td><%= customer.productnumber1%></td>
-	</tr>
-	<tr>
-	  <td>P3:</td><td><%= customer.productnumber2%></td>
-	</tr>
-	<tr>
-	  <td>P4:</td><td><%= customer.productnumber3%></td>
-	</tr>
-	<tr>
-	  <td>Price:</td><td><%= customer.price%></td>
-	</tr>
-	<tr>
-		<td>
-	<%= button_to "delete", {:controller => :customers,
+	  <td><%= customer.cusname%></td>
+	  <td><%= customer.email%></td>
+	  <% if customer.homeaddress!="" %>
+	  <td><%= customer.homeaddress%></td>
+	  <% end %>
+	  <% if customer.convenienceaddress!="" %>
+	  <td><%= customer.convenienceaddress%></td>
+	  <% end %>
+	  <% if customer.faceaddress!="" %>
+	  <td><%= customer.faceaddress%></td>
+	  <% end %>
+	  <td><%= customer.cellphone%></td>
+	  <td><%= customer.productnumber%></td>
+	  <td><%= customer.productnumber1%></td>
+	  <td><%= customer.productnumber2%></td>
+	  <td><%= customer.productnumber3%></td>
+	  <td><%= customer.price%></td>
+	  <td><%= customer.status%></td>
+	  	<td>
+	<%= button_to "刪除", {:controller => :customers,
       :action => 'destroy', :id => customer.id }, :method => :delete %>
       </td>
-	</tr>
-	
+        	<td>
+	<%= link_to "修改", edit_customer_path(customer.id)  %>
+      </td>
 		<%end%>
 		
 		</table>
+		
+			

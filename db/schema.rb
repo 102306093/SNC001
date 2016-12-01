@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126030937) do
+ActiveRecord::Schema.define(version: 20161201091353) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20161126030937) do
     t.string   "email"
     t.string   "cellphone"
     t.string   "homeaddress"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "productname"
     t.integer  "productnumber"
     t.integer  "productnumber1"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20161126030937) do
     t.integer  "productnumber3"
     t.string   "convenienceaddress"
     t.string   "faceaddress"
+    t.string   "status",             default: "待付款"
   end
 
   create_table "order_items", force: :cascade do |t|

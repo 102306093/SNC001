@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
-	before_action :authenticate_user!, only: [:show,:edit,:destroy]
-	before_action :is_admin?, only: [:show,:edit,:destroy] 
+	before_action :authenticate_user!, only: [:show,:edit,:destroy,:update]
+	before_action :is_admin?, only: [:show,:edit,:destroy,:update] 
 
     def new
         @customer = Customer.new
@@ -35,7 +35,7 @@ class CustomersController < ApplicationController
 	def update
 			@customer = Customer.find(params[:id])
 		if @customer.update(customer_params)
-			redirect_to product_finish_path
+			redirect_to products_finish_path
 		else
 			render :edit
 		end
@@ -46,11 +46,11 @@ class CustomersController < ApplicationController
 	def destroy
 		@customer=Customer.find(params[:id])
 		@customer.destroy
-		redirect_to customer_show_path
+		redirect_to show_customers_path
 	end
     
     private
      def customer_params
-        params.require(:customer).permit(:cusname,:price, :email,:cellphone,:homeaddress,:convenienceaddress,:faceaddress,:productname,:productnumber,:productnumber1,:productnumber2,:productnumber3)
+        params.require(:customer).permit(:cusname,:price, :email,:cellphone,:homeaddress,:convenienceaddress,:faceaddress,:productname,:productnumber,:productnumber1,:productnumber2,:productnumber3,:status)
      end
  end
