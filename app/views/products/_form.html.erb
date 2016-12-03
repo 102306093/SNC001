@@ -15,16 +15,17 @@
         </script>
 
 <div style="margin:70px"></div>
-
-<%= simple_form_for @product do |f|%>
-	<%= f.input :proname, label:'名稱' %>
-	<%= f.input :price, label:'價格' %>
-	<%= f.input :qty, label:'數量' %>
-	<%= f.input :pic1, label:'圖片位址' %>
-	<%= f.input :introduce, label:'介紹' %>
-	<input type="button" value="編輯" onclick="edit()" />
-	<input type="button" id="save" value="儲存" onclick="get()" />
-	<%= f.input :seodescription, label:'seo介紹' %>
-	<%= f.input :supid, label:'商家id' %>
-	<%= f.submit%>
-<%end%>
+<div class="container">
+  <%= simple_form_for @product do |f|%>
+  	<%= f.input :proname, label:'名稱' %>
+  	<%= f.input :price, label:'價格' %>
+  	<%= f.input :qty, label:'數量' %>
+  	<%= f.input :pic1, label:'圖片位址' %>
+  	<%= f.input :introduce, label:'介紹' %>
+  	<input type="button" value="編輯" onclick="edit()" />
+  	<input type="button" id="save" value="儲存" onclick="get()" />
+  	<%= f.input :seodescription, label:'seo介紹' %>
+  	<%= f.input :supid, label:'商家id' %>
+  	<%= f.submit%>
+  <%end%>
+</div>
