@@ -250,3 +250,21 @@ div.step{
     color:white;
     margin-bottom:10px;
 }
+
+.product_list{
+    display:table; 
+    margin-top:10px; 
+    width:100%;
+}
+
+a.product_intro{
+    &:hover, &:focus{
+        text-decoration:none;
+    }
+}
+
+div.product_intro{
+    &:hover{
+        background:rgba(230, 215, 180,0.5);
+    }
+}
