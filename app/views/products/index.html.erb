@@ -8,9 +8,6 @@
 		    position:absolute;
 		    top:65%;
 		    left:50%;
-		    &:hover, &:focus{
-		        text-decoration:none;
-		    }
 		}
 		div.product_intro{
 			font-weight:bold;
@@ -21,9 +18,6 @@
 		    padding:15px 30px;
 		    line-height:30px;
 		    -webkit-transition: all .1s ease;
-		    &:hover{
-		        background:rgba(230, 215, 180,0.5);
-		    }
 		}	
 		span.product_intro{
 			font-size:25px;
@@ -64,7 +58,7 @@
 			$.data( this, "scrollCheck", setTimeout(function() {
 				<% @product.each_with_index do |product, i| %>
 					var productTop = $('#product<%= i %>').offset().top;
-					if(productTop-290 <= target && target <= productTop+410){
+					if(productTop-290 <= target && target <= productTop+310){
 		    			$(".product-anchor").removeClass("block-active");
 		    			$(".scroll-to-product<%= i %>").addClass("block-active");
 					}
