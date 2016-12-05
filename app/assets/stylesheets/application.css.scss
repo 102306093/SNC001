@@ -58,7 +58,7 @@ body.main{
 
 div.content{
     background-color:white; 
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3)
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3) inset;
 }
 
 div#hint{
@@ -181,9 +181,9 @@ tr {
 }
 .social-share-button .ssb-icon
    {
-    background-size: 34px 34px;
-    height: 34px;
-    width: 34px;
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
 }
 
 div.tabs{
