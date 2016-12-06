@@ -3,17 +3,22 @@
    $("div#userdata").hide();
    $("div#orderdata").hide();
        $("div#image").show();
+       $("div#pw").hid();
   });
   function showuserdata(){
     
      $("div#userdata").show();
      $("div#orderdata").hide();
      $("div#image").hide();
+     $("div#pw").hide();
   }
   function showorderdata(){
     $("div#userdata").hide();
     $("div#orderdata").show();
     $("div#image").hide();
+  }
+  function showpw(){
+    $("div#pw").show();
   }
    function showlogout(){
   alert("以成功登出!歡迎繼續參觀小農橋!")
@@ -33,10 +38,10 @@
 </div>
 
 <div id="image" class="col-xs-12 col-md-8">
-<div><a href="/products/1"><img src="/img/product1_big.jpg" style="text-align:center; width:100%;" /></a></div>
-<div><a href="/products/2"><img src="/img/product2_big.png" style="text-align:center; width:100%;" /></a></div>
-<div><a href="/products/3"><img src="/img/product3_big.png" style="text-align:center; width:100%;" /></a></div>
-<div><a href="/products/4"><img src="/img/product4_big.png" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/1"><img src="/img/product01_big.png" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/2"><img src="/img/product02_big.png" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/3"><img src="/img/product03_big.png" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/4"><img src="/img/product04_big.png" style="text-align:center; width:100%;" /></a></div>
 </div>
 
 
@@ -57,9 +62,11 @@
      <%= f.input :u_homeaddress, label:"送貨地址-宅配" %>
      <%= f.input :u_convenienceaddress, label:"送貨地址-超商" %>
     <%= f.input :current_password, label:"密碼驗證", hint: "輸入目前密碼授權此次更新", required: true %>
-    
-    <%= f.input :password,label:"密碼", autocomplete: "off", hint: "如果不想更動請留白", required: false %>
+    <a href="#pw" onclick="showpw()">編輯密碼</a>
+    <div id="pw">
+    <%= f.input :password,label:"新密碼", autocomplete: "off", hint: "如果不想更動請留白", required: false %>
     <%= f.input :password_confirmation,label:"請再次確認密碼", required: false %>
+    </div>
     <div class="form-actions">
     <%= f.button :submit, "更新" %>
   </div>
