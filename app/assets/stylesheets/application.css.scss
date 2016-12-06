@@ -58,7 +58,7 @@ body.main{
 
 div.content{
     background-color:white; 
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3)
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3)
 }
 
 div#hint{
@@ -249,4 +249,22 @@ div.step{
     background-color:rgba(160,100,30,1);
     color:white;
     margin-bottom:10px;
+}
+
+.product_list{
+    display:table; 
+    margin-top:10px; 
+    width:100%;
+}
+
+a.product_intro{
+    &:hover, &:focus{
+        text-decoration:none;
+    }
+}
+
+div.product_intro{
+    &:hover{
+        background:rgba(230, 215, 180,0.5);
+    }
 }
