@@ -3,45 +3,64 @@
    $("div#userdata").hide();
    $("div#orderdata").hide();
        $("div#image").show();
+       $("div#pw").hide();
+       $("div#teaching").hide();
   });
   function showuserdata(){
     
      $("div#userdata").show();
      $("div#orderdata").hide();
      $("div#image").hide();
+     $("div#pw").hide();
+     $("div#teaching").hide();
   }
   function showorderdata(){
     $("div#userdata").hide();
     $("div#orderdata").show();
     $("div#image").hide();
+   $("div#teaching").hide();
+  }
+  function showpw(){
+    $("div#pw").show();
+  }
+    function showteaching(){
+       $("div#userdata").hide();
+   $("div#orderdata").hide();
+       $("div#image").hide();
+       $("div#pw").hide();
+       $("div#teaching").show();
   }
    function showlogout(){
   alert("以成功登出!歡迎繼續參觀小農橋!")
   }
 </script>
 
-<BR>
-  <BR>
+<body class="main" style="font-family:Microsoft JhengHei;">
+  <div style="margin-top:60px"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-8 content" style=" padding-left:30px; padding-top:20px; margin-bottom:30px; padding-bottom:30px">
 <h2 style='text-align:center;'>橋友區</h2>
-　<div class="col-xs-12 col-md-4">
+　<div class="col-xs-12 col-md-3">
 　	<BR>
 <a href="#userdata" onclick="showuserdata()">橋友資料修改</a> <BR>
 <a href="#orderdata" onclick="showorderdata()">訂單資料</a><BR>
-<a href="/payers/new" onclick="showteaching()">匯款確認</a><BR>
+<a href="/payers/new" onclick="showpaidment()">匯款確認</a><BR>
+<a href="#teaching" onclick="showteaching()">購買教學</a><BR> 
 <%= link_to("登出", destroy_user_session_path, method: :delete) %><BR>	
 
+
 </div>
 
-<div id="image" class="col-xs-12 col-md-8">
-<div><a href="/products/1"><img src="/img/product1_big.jpg" style="text-align:center; width:100%;" /></a></div>
-<div><a href="/products/2"><img src="/img/product2_big.png" style="text-align:center; width:100%;" /></a></div>
-<div><a href="/products/3"><img src="/img/product3_big.png" style="text-align:center; width:100%;" /></a></div>
-<div><a href="/products/4"><img src="/img/product4_big.png" style="text-align:center; width:100%;" /></a></div>
+<div id="image" class="col-xs-12 col-md-9">
+<div><a href="/products/1"><img src="/img/product01_big.png" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/2"><img src="/img/product02_big.png" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/3"><img src="/img/product03_big.png" style="text-align:center; width:100%;" /></a></div>
+<div><a href="/products/4"><img src="/img/product04_big.png" style="text-align:center; width:100%;" /></a></div>
 </div>
 
 
 
-<div id="userdata" class="col-xs-12 col-md-8">
+<div id="userdata" class="col-xs-12 col-md-9">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
@@ -56,10 +75,11 @@
      <%= f.input :email, required: true, autofocus: true %>
      <%= f.input :u_homeaddress, label:"送貨地址-宅配" %>
      <%= f.input :u_convenienceaddress, label:"送貨地址-超商" %>
-    <%= f.input :current_password, label:"密碼驗證", hint: "輸入目前密碼授權此次更新", required: true %>
-    
-    <%= f.input :password,label:"密碼", autocomplete: "off", hint: "如果不想更動請留白", required: false %>
+    <a href="#pw" onclick="showpw()">編輯密碼</a>
+    <div id="pw">
+    <%= f.input :password,label:"新密碼", autocomplete: "off", hint: "如果不想更動請留白", required: false %>
     <%= f.input :password_confirmation,label:"請再次確認密碼", required: false %>
+    </div>
     <div class="form-actions">
     <%= f.button :submit, "更新" %>
   </div>
@@ -68,7 +88,7 @@
 </div>
   
 
-<div id="orderdata" class="col-xs-12 col-md-8">
+<div id="orderdata" class="col-xs-12 col-md-9">
 
        	　<table class="table table-bordered">
 	
@@ -83,6 +103,7 @@
 	  <td>總價格</td>
 	  <td>狀態</td>
 	</tr>
+	<% if @customer %>
 	<% @customer.each do |customer| %>
 	<tr>
 	  <td><%= customer.cusname%></td>
@@ -104,7 +125,30 @@
 	  <td><%= customer.status%></td>
 	
 		<%end%>
-		
+		<%end%>
 		</table>
 		</div>
-
+		<div id="teaching">
+		  <div class="col-md-6 content" style="padding-left:30px; padding-top:20px; margin-bottom:30px; padding-bottom:30px">
+		    
+		    <h1 style="text-align:center">點擊<a href="/products">感興趣的故事</a>並點擊"我要支持"</h1>
+		    
+		    </div>
+		      <div class="col-md-6 content" style="padding-left:30px; padding-top:20px; margin-bottom:30px; padding-bottom:30px">
+		    
+		    <h1 style="text-align:center">填寫<a href="/products/buyprod1">購買需求以及送貨資料</a></h1>
+		    
+		    </div>
+		      <div class="col-md-6 content" style="padding-left:30px; padding-top:20px; margin-bottom:30px; padding-bottom:30px">
+		    
+		    <h1 style="text-align:center">匯款並再填寫<a href="/payers/new">匯款確認</a></h1>
+		    
+		    </div>
+		  
+		  
+		</div>
+		
+		
+		
+</div>
+</body>
