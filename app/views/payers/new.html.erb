@@ -4,6 +4,13 @@
     
      <script>
      $(document).ready(function(){
+        $(function(){
+            var h = $(window).height();
+            $('div.content').css({
+                minHeight: h-180
+            });
+       });
+         
           $("input#search").val(window.sessionStorage["search"]);
           
         if($("span.detectcus").length >= 2&&$("input#search").val()==""){

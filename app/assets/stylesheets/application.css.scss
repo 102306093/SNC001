@@ -104,14 +104,6 @@ tr .table-label{
   
 }
 
-tr {
-    border-style: solid;
-   font-size: 18px;
-   background-color: rgba(255, 235, 204,0.3);
-   border-color: white;
-    border-radius: 25px;
-}
-
 .member{
     &:hover{
         background-color:rgba(255, 204, 128,0.5);
@@ -267,4 +259,50 @@ div.product_intro{
     &:hover{
         background:rgba(230, 215, 180,0.5);
     }
+}
+
+div.user_list{
+    font-weight:bold;
+    color:#777;
+    font-size:16px;
+    cursor:pointer;
+    padding:5px 15px;
+    border: 5px transparent solid;   
+    -webkit-transition: all .1s ease;
+    &:hover, :focus{
+        text-decoration:none;
+        border-left:5px solid #008000;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+}
+
+div.user_list_active{
+    text-decoration:none;
+    border-left:5px solid #008000;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+    
+}
+
+a.user_list{
+    font-weight:bold;
+    color:#777;
+    padding:0;
+    font-size:16px;
+    cursor:pointer;
+    &:focus, &:hover{
+        text-decoration:none;
+    }
+}
+
+div.user_list_col{
+    background-color:white; 
+    padding:0;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+div.user_content{
+    margin:5px 10px;
+    background-color:white; 
+    padding:15px 30px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }

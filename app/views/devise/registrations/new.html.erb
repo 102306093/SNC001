@@ -1,8 +1,20 @@
-<BR>
-<BR>
-  <div style='text-align:center;'>
-<h2>註冊成橋友</h2>
-</div>
+<script>
+  $(document).ready(function(){
+    $(function(){
+      var h = $(window).height();
+      $('div.sign_up').css({
+        minHeight: h-180
+      });
+    });    
+  });
+</script>
+<body class="main">
+
+<div class="container" style="margin-top:60px; margin-bottom:30px">
+<div class="col-md-2"></div>
+<div class="sign_up col-md-8 content" style="padding:10px 20px">
+
+<h3 style="text-align:center">註冊成橋友</h3>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -12,9 +24,12 @@
     <%= f.input :password_confirmation, label:"密碼確認", required: true %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions" style="margin-bottom:10px">
     <%= f.button :submit, "註冊！" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</body>
