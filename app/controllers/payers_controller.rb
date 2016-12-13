@@ -24,6 +24,20 @@ end
         	@payer = Payer.all
         	
     end
+    
+    def edit
+			@payer = Payer.find(params[:id])
+	end
+
+	def update
+			@payer = Payer.find(params[:id])
+		if @payer.update(payer_params)
+			redirect_to home_management_path
+		else
+			render :edit
+		end
+	end
+    
     def destroy
 		@payer=Payer.find(params[:id])
 		@payer.destroy

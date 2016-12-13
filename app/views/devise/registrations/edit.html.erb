@@ -2,7 +2,7 @@
   $(document).ready(function(){
    $("div#userdata").hide();
    $("div#orderdata").hide();
-       $("div#image").show();
+      $("div#image").show();
        $("div#pw").hide();
        $("div#teaching").hide();
   });
@@ -67,9 +67,6 @@
   <div class="form-inputs">
   
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
      <%= f.input :username,  label:"姓名"%>
      <%= f.input :u_phone,label:"聯絡電話" %>
      <%= f.input :email, required: true, autofocus: true %>
