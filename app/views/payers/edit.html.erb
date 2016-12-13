@@ -1,0 +1,8 @@
+<h2>Update</h2>
+
+<%= simple_form_for @payer do |f|%>
+	<%= f.input :payeraccount, label:'帳號' %>
+	<%= f.input :paymentprice, label:'匯款價格' %>
+	<%= f.input :payerphone, label:'電話' %>
+	<%= f.submit%>
+<%end%>

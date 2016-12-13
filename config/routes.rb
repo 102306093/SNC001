@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations',omniauth_callbacks: "registrations" }
- 
- 
-  get 'order_items/create'
-  get 'order_items/update'
-  get 'order_items/destroy'
+  devise_scope :user do
+  get 'users/:id/useredit' => 'registrations#useredit', :as => :user_register
+end
   get 'products/buyprod1'
   get 'products/finish'
   get 'products/save'
@@ -13,15 +11,13 @@ Rails.application.routes.draw do
   get 'home/policy'
   get 'home/transfer'
   get 'home/shipping'
-  get 'home/usercenter'
+  get 'home/management'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  resources :signup
-  resources :signin
   resources :cart
   resources :products
   resources :order_items

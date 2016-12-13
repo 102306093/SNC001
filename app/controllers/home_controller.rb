@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-    before_action :authenticate_user!, only: [:usercenter]
+    before_action :authenticate_user!, only: [:management]
+	before_action :is_admin?, only: [:management] 
     def index
         @article = Article.all.order('created_at DESC').limit(5)
         set_page_title '首頁'
@@ -26,10 +27,15 @@ class HomeController < ApplicationController
 			render :new
 		end
     end
-    def usercenter
+    def management
     @customer = Customer.all
-    @current_user = current_user
-         
+    @user = User.all
+    @product=Product.all
+    @article=Article.all
+    @payer=Payer.all
+    end
+    def is_admin?
+    	redirect_to root_path unless current_user.admin? 
     end
     private
      def payer_params

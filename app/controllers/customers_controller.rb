@@ -35,7 +35,7 @@ class CustomersController < ApplicationController
 	def update
 			@customer = Customer.find(params[:id])
 		if @customer.update(customer_params)
-			redirect_to products_finish_path
+			redirect_to home_management_path
 		else
 			render :edit
 		end

@@ -1,0 +1,362 @@
+<script>
+    $(document).ready(function(){
+   $("div#userdata").hide();
+   $("div#orderdata").hide();
+   $("div#productdata").hide();
+   $("div#articledata").hide();
+   $("div#payerdata").hide();
+   $("div#chart").show();
+   $("div#GAselect").hide();
+  });
+  function showorderdata(){
+    $("div#userdata").hide();
+    $("div#orderdata").show();
+    $("div#productdata").hide();
+   $("div#articledata").hide();
+   $("div#payerdata").hide();
+    $("div#chart").hide();
+  }
+  function showuserdata(){
+    $("div#userdata").show();
+    $("div#orderdata").hide();
+    $("div#productdata").hide();
+   $("div#articledata").hide();
+   $("div#payerdata").hide();
+    $("div#chart").hide();
+  }
+    function showpayerdata(){
+    $("div#userdata").hide();
+    $("div#orderdata").hide();
+    $("div#productdata").hide();
+   $("div#articledata").hide();
+   $("div#payerdata").show();
+    $("div#chart").hide();
+  }
+    function showproductdata(){
+    $("div#userdata").hide();
+    $("div#orderdata").hide();
+    $("div#productdata").show();
+   $("div#articledata").hide();
+   $("div#payerdata").hide();
+    $("div#chart").hide();
+  }
+   function showarticledata(){
+    $("div#userdata").hide();
+    $("div#orderdata").hide();
+    $("div#productdata").hide();
+   $("div#articledata").show();
+   $("div#payerdata").hide();
+   $("div#chart").hide();
+  }
+   function showchart(){
+    $("div#userdata").hide();
+    $("div#orderdata").hide();
+    $("div#productdata").hide();
+   $("div#articledata").hide();
+   $("div#payerdata").hide();
+   $("div#chart").show();
+  }
+   
+   
+   (function(w,d,s,g,js,fjs){
+  g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
+  js=d.createElement(s);fjs=d.getElementsByTagName(s)[0];
+  js.src='https://apis.google.com/js/platform.js';
+  fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
+  }(window,document,'script'));
+gapi.analytics.ready(function() {
+
+  // Step 3: Authorize the user.
+
+  var CLIENT_ID = '101262221084-tdv8vvdgamcnc139lqcvtkb7e1bgcbvr.apps.googleusercontent.com';
+
+  gapi.analytics.auth.authorize({
+    container: 'auth-button',
+    clientid: CLIENT_ID,
+  });
+
+  // Step 4: Create the view selector.
+
+  var viewSelector = new gapi.analytics.ViewSelector({
+    container: 'view-selector'
+  });
+  var viewSelector2 = new gapi.analytics.ViewSelector({
+    container: 'view-selector2'
+  });
+    var viewSelector3 = new gapi.analytics.ViewSelector({
+    container: 'view-selector3'
+    });
+  
+  // Step 5: Create the timeline chart.
+
+  var timeline = new gapi.analytics.googleCharts.DataChart({
+    reportType: 'ga',
+    query: {
+      'dimensions': 'ga:date',
+      'metrics': 'ga:pageviews',
+      'start-date': '25daysAgo',
+      'end-date': 'yesterday',
+      
+    },
+    chart: {
+      type: 'LINE',
+      options: {width: '100%', height:'100%'},
+      container: 'timeline'
+    }
+  });
+  
+  var timeline2 = new gapi.analytics.googleCharts.DataChart({
+    reportType: 'ga',
+    query: {
+      'dimensions': 'ga:date',
+      'metrics': 'ga:sessions',
+      'start-date': '25daysAgo',
+      'end-date': 'yesterday',
+    },
+    chart: {
+      type: 'LINE',
+      options: {width: '100%', height:'100%'},
+      container: 'timeline2'
+    }
+  });
+   var timeline3 = new gapi.analytics.googleCharts.DataChart({
+    reportType: 'ga',
+    query: {
+      'dimensions': 'ga:date',
+      'metrics': 'ga:users',
+      'start-date': '25daysAgo',
+      'end-date': 'yesterday',
+    },
+    chart: {
+      type: 'LINE',
+      options: {width: '100%', height:'100%'},
+      container: 'timeline3'
+    }
+  });
+
+  // Step 6: Hook up the components to work together.
+
+  gapi.analytics.auth.on('success', function(response) {
+    viewSelector.execute();
+    viewSelector2.execute();
+    viewSelector3.execute();
+  });
+
+  viewSelector.on('change', function(ids) {
+    var newIds = {
+      query: {
+        ids: ids
+      }
+    }
+    timeline.set(newIds).execute();
+  });
+  viewSelector2.on('change', function(ids) {
+    var newIds = {
+      query: {
+        ids: ids
+      }
+    }
+    timeline2.set(newIds).execute();
+  });
+  viewSelector3.on('change', function(ids) {
+    var newIds = {
+      query: {
+        ids: ids
+      }
+    }
+    timeline3.set(newIds).execute();
+  });
+  
+  
+});
+   
+</script>
+<BR>
+<BR>
+<BR>
+　<div class="col-xs-12 col-md-3" style='font-size:20px;text-align:center'>
+　	<BR>
+<a href="#chart" onclick="showchart()">網站分析圖表</a><BR> 
+<a href="#userdata" onclick="showorderdata()">訂單管理</a> <BR>
+<a href="#orderdata" onclick="showpayerdata()">匯款管理</a><BR>
+<a href="#userdata" onclick="showuserdata()">會員管理</a><BR>
+<a href="#productdata" onclick="showproductdata()">產品管理</a><BR> 
+<a href="#articledata" onclick="showarticledata()">文章管理</a><BR> 
+<%= link_to("登出", destroy_user_session_path, method: :delete) %><BR>	
+
+</div>
+
+
+<div id="chart" class="col-xs-12 col-md-9">
+<div id="auth-button"></div>
+
+<div id='GAselect'>
+<div id="view-selector"></div>
+<div id="view-selector2"></div>
+<div id="view-selector3"></div>
+</div>
+
+<h1>瀏覽量</h1>
+<div id="timeline"></div>
+<h1>工作階段</h1>
+<div id="timeline2"></div>
+<h1>使用者</h1>
+<div id="timeline3"></div>
+</div>
+
+<div id="orderdata" class="col-xs-12 col-md-9">
+    <table class="table table-bordered">
+    <tr style="border:">
+	  <td>取件者</td>
+	  <td>送件地址</td>
+	  <td>電話</td>
+	  <td>地瓜</td>
+	  <td>玉米棒</td>
+	  <td>雞蛋捲</td>
+	  <td>香水檸檬</td>
+	  <td>總價格</td>
+	  <td>狀態</td>
+	  <td>狀態</td>
+	  <td></td>
+	</tr>
+	<% @customer.each do |customer| %>
+	<tr>
+	  <td><%= customer.cusname%></td>
+	  <% if customer.homeaddress!="" %>
+	  <td><%= customer.homeaddress%></td>
+	  <% end %>
+	  <% if customer.convenienceaddress!="" %>
+	  <td><%= customer.convenienceaddress%></td>
+	  <% end %>
+	  <% if customer.faceaddress!="" %>
+	  <td><%= customer.faceaddress%></td>
+	  <% end %>
+	  <td><%= customer.cellphone%></td>
+	  <td><%= customer.productnumber%></td>
+	  <td><%= customer.productnumber1%></td>
+	  <td><%= customer.productnumber2%></td>
+	  <td><%= customer.productnumber3%></td>
+	  <td><%= customer.price%></td>
+	  <td><%= customer.status%></td>
+	  <td>
+	<%= button_to "刪除", {:controller => :customers,
+      :action => 'destroy', :id => customer.id }, :method => :delete %>
+      </td>
+        	<td>
+	<%= link_to "修改", edit_customer_path(customer.id)  %>
+      </td>
+		<%end%>
+		</table>
+		</div>
+		
+		
+    <div id="userdata" class="col-xs-12 col-md-9">
+    <table class="table table-bordered">
+    <tr style="border:">
+      <td>ID</td>
+	  <td>Email</td>
+	  <td>會員名稱</td>
+	  <td>途徑</td>
+	  <td>登入IP</td>
+
+	</tr>
+	<% @user.each do |user| %>
+	<tr>
+	  <td><%= user.id%></td>
+	  <td><%= user.email%></td>
+	  <td><%= user.username%></td>
+	  <td><%= user.provider%></td>
+	  <td><%= user.last_sign_in_ip%></td>
+	  <td>
+	<%= button_to "刪除", {:controller => :registrations,
+      :action => 'destroy', :id => user.id }, :method => :delete %>
+      </td>
+    <td>
+	<%= link_to "修改", user_register_path(user.id)  %>
+      </td>
+		<%end%>
+		</table>
+		</div>
+		
+		
+	<div id="payerdata" class="col-xs-12 col-md-9">
+    <table class="table table-bordered">
+    <tr style="border:">
+      <td>帳號</td>
+	  <td>匯款價格</td>
+	  <td>電話</td>
+	  <td>建立日期</td>
+	</tr>
+	<% @payer.each do |payer| %>
+	<tr>
+	  <td><%= payer.payeraccount%></td>
+	  <td><%= payer.paymentprice%></td>
+	  <td><%= payer.payerphone%></td>
+	  <td><%= payer.created_at%></td>
+	  <td>
+	<%= button_to "刪除", {:controller => :payers,
+      :action => 'destroy', :id => payer.id }, :method => :delete %>
+      </td>
+    <td>
+	<%= link_to "修改", edit_payer_path(payer.id)  %>
+      </td>
+		<%end%>
+		</table>
+		</div>
+		
+		
+    <div id="productdata" class="col-xs-12 col-md-9">
+    <table class="table table-bordered">
+    <tr style="border:">
+      <td>產品名稱</td>
+	  <td>價格</td>
+	  <td>庫存</td>
+	  <td>圖片位址</td>
+	  <td>seo描述</td>
+	</tr>
+	<% @product.each do |product| %>
+	<tr>
+	  <td><%= product.proname%></td>
+	  <td><%= product.price%></td>
+	  <td><%= product.qty%></td>
+	  <td><%= product.pic1%></td>
+	  <td><%= product.seodescription%></td>
+	  <td>
+	<%= button_to "刪除", {:controller => :products,
+      :action => 'destroy', :id => product.id }, :method => :delete %>
+      </td>
+    <td>
+	<%= link_to "修改", edit_product_path(product.id)  %>
+      </td>
+		<%end%>
+		</table>
+		</div>
+		
+	<div id="articledata" class="col-xs-12 col-md-9">
+    <table class="table table-bordered">
+    <tr style="border:">
+      <td>文章標題</td>
+	  <td>文章大綱</td>
+	  <td>圖片位址</td>
+	  <td>hashtag</td>
+	  <td>擁有端</td>
+	  <td>seo描述</td>
+	</tr>
+	<% @article.each do |article| %>
+	<tr>
+	  <td><%= article.title%></td>
+	  <td><%= article.introduce%></td>
+	  <td><%= article.pic1%></td>
+	  <td><%= article.hashtag%></td>
+	  <td><%= article.owner%></td>
+	  <td><%= article.seodescription%></td>
+	  <td>
+	<%= button_to "刪除", {:controller => :articles,
+      :action => 'destroy', :id => article.id }, :method => :delete %>
+      </td>
+    <td>
+	<%= link_to "修改", edit_article_path(article.id)  %>
+      </td>
+		<%end%>
+		</table>
+		</div>
