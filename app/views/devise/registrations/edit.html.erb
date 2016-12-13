@@ -56,6 +56,15 @@
     <div class="user_list" style="padding-bottom:10px"><%= link_to("登出", destroy_user_session_path, method: :delete, class: 'user_list') %></div>	
 </div>
 
+<div id='image' class="col-sm-12 col-md-9 user_content">
+    <div><a href="/products/1"><img src="/img/product01_big.png" style="text-align:center; width:100%;" /></a></div>
+    <div><a href="/products/2"><img src="/img/product02_big.png" style="text-align:center; width:100%;" /></a></div>
+    <div><a href="/products/3"><img src="/img/product03_big.png" style="text-align:center; width:100%;" /></a></div>
+    <div><a href="/products/4"><img src="/img/product04_big.png" style="text-align:center; width:100%;" /></a></div>
+    
+</div>
+
+
 <div id="userdata" class="col-sm-12 col-md-9 user_content">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
