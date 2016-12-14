@@ -7,6 +7,16 @@
    $("div#payerdata").hide();
    $("div#chart").show();
    $("div#GAselect").hide();
+   
+   $('div.admin_list_a').click(function(){
+       $(this).addClass('admin_list_active').siblings().removeClass('admin_list_active'); 
+    });   
+   $(function(){
+     var h = $(window).height();
+     $('div.admin_content').css({
+       minHeight: h-180
+     });
+   });   
   });
   function showorderdata(){
     $("div#userdata").hide();
@@ -171,23 +181,18 @@ gapi.analytics.ready(function() {
 });
    
 </script>
-<BR>
-<BR>
-<BR>
-　<div class="col-xs-12 col-md-3" style='font-size:20px;text-align:center'>
-　	<BR>
-<a href="#chart" onclick="showchart()">網站分析圖表</a><BR> 
-<a href="#userdata" onclick="showorderdata()">訂單管理</a> <BR>
-<a href="#orderdata" onclick="showpayerdata()">匯款管理</a><BR>
-<a href="#userdata" onclick="showuserdata()">會員管理</a><BR>
-<a href="#productdata" onclick="showproductdata()">產品管理</a><BR> 
-<a href="#articledata" onclick="showarticledata()">文章管理</a><BR> 
-<%= link_to("登出", destroy_user_session_path, method: :delete) %><BR>	
 
+<div class="col-sm-12 col-md-2 admin_list_col" style="margin:5px 10px">
+    <div class="admin_list admin_list_a admin_list_active" style="padding-top:10px" onclick="showchart()">網站分析圖表</div>
+    <div class="admin_list admin_list_a" onclick="showorderdata()">訂單管理</div>
+    <div class="admin_list admin_list_a" onclick="showpayerdata()">匯款管理</div>
+    <div class="admin_list admin_list_a" onclick="showuserdata()">會員管理</div>
+    <div class="admin_list admin_list_a" onclick="showproductdata()">產品管理</div>
+    <div class="admin_list admin_list_a" onclick="showarticledata()">文章管理</div>    
+    <div class="admin_list" style="padding-bottom:10px"><%= link_to("登出", destroy_user_session_path, method: :delete, class: 'admin_list') %></div>	
 </div>
 
-
-<div id="chart" class="col-xs-12 col-md-9">
+<div id="chart" class="col-sm-12 col-md-9 admin_content">
 <div id="auth-button"></div>
 
 <div id='GAselect'>
@@ -204,7 +209,7 @@ gapi.analytics.ready(function() {
 <div id="timeline3"></div>
 </div>
 
-<div id="orderdata" class="col-xs-12 col-md-9">
+<div id="orderdata" class="col-sm-12 col-md-9 admin_content">
     <table class="table table-bordered">
     <tr style="border:">
 	  <td>取件者</td>
@@ -250,7 +255,7 @@ gapi.analytics.ready(function() {
 		</div>
 		
 		
-    <div id="userdata" class="col-xs-12 col-md-9">
+    <div id="userdata" class="col-sm-12 col-md-9 admin_content">
     <table class="table table-bordered">
     <tr style="border:">
       <td>ID</td>
@@ -279,7 +284,7 @@ gapi.analytics.ready(function() {
 		</div>
 		
 		
-	<div id="payerdata" class="col-xs-12 col-md-9">
+	<div id="payerdata" class="col-sm-12 col-md-9 admin_content">
     <table class="table table-bordered">
     <tr style="border:">
       <td>帳號</td>
@@ -305,7 +310,7 @@ gapi.analytics.ready(function() {
 		</div>
 		
 		
-    <div id="productdata" class="col-xs-12 col-md-9">
+    <div id="productdata" class="col-sm-12 col-md-9 admin_content">
     <table class="table table-bordered">
     <tr style="border:">
       <td>產品名稱</td>
@@ -332,7 +337,7 @@ gapi.analytics.ready(function() {
 		</table>
 		</div>
 		
-	<div id="articledata" class="col-xs-12 col-md-9">
+	<div id="articledata" class="col-sm-12 col-md-9 admin_content">
     <table class="table table-bordered">
     <tr style="border:">
       <td>文章標題</td>

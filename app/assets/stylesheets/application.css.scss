@@ -264,7 +264,7 @@ div.product_intro{
     }
 }
 
-div.user_list{
+div.user_list, div.admin_list{
     font-weight:bold;
     color:#777;
     font-size:16px;
@@ -279,14 +279,14 @@ div.user_list{
     }
 }
 
-div.user_list_active{
+div.user_list_active, div.admin_list_active{
     text-decoration:none;
     border-left:5px solid #008000;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
     
 }
 
-a.user_list{
+a.user_list, a.admin_list{
     font-weight:bold;
     color:#777;
     padding:0;
@@ -297,13 +297,13 @@ a.user_list{
     }
 }
 
-div.user_list_col{
+div.user_list_col, div.admin_list_col{
     background-color:white; 
     padding:0;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-div.user_content{
+div.user_content, div.admin_content{
     margin:5px 10px;
     background-color:white; 
     padding:15px 30px;
