@@ -12,6 +12,7 @@ end
   get 'home/transfer'
   get 'home/shipping'
   get 'home/management'
+  get 'home/buyguide'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
