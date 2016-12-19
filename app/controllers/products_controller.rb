@@ -23,7 +23,7 @@ before_action :is_admin?, only: [:new,:edit,:destroy]
       if !current_user
         
         @current_user=User.new
-        @current_user.username="nothing"
+        @current_user.email="nothing"
       
       end	
       set_page_title '支持商品'
