@@ -13,6 +13,7 @@ group :production do
   gem 'rails_12factor'
 end
 gem 'social-share-button'
+gem  'github-linguist'
 gem 'seo_helper', '~> 1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
