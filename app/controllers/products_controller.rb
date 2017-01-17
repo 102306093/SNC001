@@ -19,6 +19,7 @@ before_action :is_admin?, only: [:new,:edit,:destroy]
     end
     
     def buyprod1
+       
       @customer = Customer.new
       if !current_user
         
@@ -27,6 +28,7 @@ before_action :is_admin?, only: [:new,:edit,:destroy]
       
       end	
       set_page_title '支持商品'
+      redirect_to root_path
     end
     
     def index
